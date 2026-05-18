@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "node scripts/block-raw-hex.mjs" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "pnpm exec biome format --write \"$CLAUDE_FILE_PATHS\" 2>/dev/null || true" },
+          { "type": "command", "command": "node scripts/rebuild-tokens-if-needed.mjs" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "npx --yes @google/design.md@latest lint DESIGN.md" }
+        ]
+      }
+    ]
+  }
+}
