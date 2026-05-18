@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { PreviewBySlug } from '@/lib/component-previews';
 import { components, componentBySlug } from '@/lib/components-manifest';
-import { previews } from '@/lib/component-previews';
 
 export function generateStaticParams() {
   return components.map((c) => ({ slug: c.slug }));
@@ -15,7 +15,6 @@ export default async function ComponentDetailPage({
   const { slug } = await params;
   const entry = componentBySlug(slug);
   if (!entry) return notFound();
-  const Preview = previews[slug];
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
@@ -33,12 +32,7 @@ export default async function ComponentDetailPage({
       </header>
 
       <section>
-        {Preview ? <Preview /> : (
-          <p className="rounded-md border border-dashed border-border bg-muted p-6 text-sm text-muted-foreground">
-            No preview registered for "{slug}". Add one in
-            <code className="ml-1 font-mono">apps/gallery/lib/component-previews.tsx</code>.
-          </p>
-        )}
+        <PreviewBySlug slug={slug} />
       </section>
     </main>
   );

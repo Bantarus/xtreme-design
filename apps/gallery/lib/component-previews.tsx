@@ -833,6 +833,13 @@ function AspectRatioPreview() {
   );
 }
 
+// IMPORTANT: this is a `'use client'` module. Server Components in Next.js 15
+// can import React components from a client module (they get wrapped as client
+// references), but they CANNOT meaningfully read named non-component exports
+// — those don't cross the RSC boundary. Therefore the slug → preview lookup
+// must live INSIDE this module, exposed as the `PreviewBySlug` component
+// below. The `previews` record is exported for tests / debugging but should
+// not be indexed from a Server Component.
 export const previews: Record<string, React.FC> = {
   button: ButtonPreview,
   badge: BadgePreview,
@@ -869,3 +876,21 @@ export const previews: Record<string, React.FC> = {
   'scroll-area': ScrollAreaPreview,
   'aspect-ratio': AspectRatioPreview,
 };
+
+// Client wrapper consumed by the Server Component route at
+// apps/gallery/app/components/[slug]/page.tsx. Receives the slug as a plain
+// prop, performs the lookup here (where the previews record is fully
+// accessible during SSR + hydration), renders the matching preview or a
+// helpful fallback.
+export function PreviewBySlug({ slug }: { slug: string }) {
+  const Preview = previews[slug];
+  if (!Preview) {
+    return (
+      <p className="rounded-md border border-dashed border-border bg-muted p-6 text-sm text-muted-foreground">
+        No preview registered for "{slug}". Add one in
+        <code className="ml-1 font-mono">apps/gallery/lib/component-previews.tsx</code>.
+      </p>
+    );
+  }
+  return <Preview />;
+}
