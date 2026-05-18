@@ -16,6 +16,7 @@
     "format": "biome format --write .",
     "tokens": "node style-dictionary.config.mjs",
     "design:lint": "design-md lint DESIGN.md",
+    "registry:build": "shadcn build registry/registry.json -o apps/web/public/r/",
     "design:sync": "node scripts/design-md-sync.mjs",
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots"
