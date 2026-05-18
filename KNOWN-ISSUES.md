@@ -13,6 +13,12 @@ Tracked deviations from the scaffold prompt and upstream spec, with rationale.
 - The CLI we use (`@google/design.md` v0.1.1) exposes `lint`, `diff`, `export` (formats: `tailwind`, `dtcg`), and `spec`. There is no `--format css-tailwind` flag — the equivalent is `--format tailwind`. The hook script (`scripts/rebuild-tokens-if-needed.mjs`) uses `--format tailwind`.
 - The spec mentions WCAG AA contrast (4.5:1) as guidance but the CLI does not enforce a contrast-ratio lint at v0.1.1. We have authored DESIGN.md with WCAG-passing pairs by construction; if the CLI gains contrast enforcement, the scaffold should pass without changes. If it ever flags a pair, prefer adjusting the surface, not the brand color.
 
+## shadcn CLI deviations (v4.7.0)
+
+- shadcn CLI 4.7.0 deprecates the `--base-color` / `--style` flags in favor of `--preset`. `init -d` (defaults) uses preset `base-nova`. `baseColor` lands in components.json as `neutral`. dsx ignores the chosen base color since semantic vars are remapped onto dsx tokens in `apps/web/app/globals.css`.
+- shadcn 4.7.0 components use `@base-ui/react` primitives, not Radix UI. The `asChild` prop is replaced with `render={<MyComponent />}` (children are forwarded automatically). When porting code that uses `<DialogTrigger asChild><Button>x</Button></DialogTrigger>`, rewrite as `<DialogTrigger render={<Button />}>x</DialogTrigger>`.
+- `pnpm dlx shadcn add form` silently no-ops in 4.7.0 — the "form" component is no longer in the default `@shadcn` registry as a top-level item (it requires `@shadcn/form` namespace which also returns empty). Phase 4 smoke page uses the 8 components that did install (button, card, input, label, badge, dialog, dropdown-menu, sonner). Re-add form once the upstream registry is restored, or vendor a form recipe.
+
 ## Style Dictionary mobile filter
 
 - The `flutter/class.dart`, `compose/object`, and `ios-swift/class.swift` formats don't render `fontFamily` (string-array values) or composite typography tokens as valid platform code out-of-the-box. To keep the mobile outputs compilable, the build filters mobile platforms to `color`, `spacing`, and `radius` tokens only. Font/typography tokens are CSS- and Tailwind-only at scaffold time. When the mobile ports are implemented, add platform-specific transforms or a custom format for typography.
