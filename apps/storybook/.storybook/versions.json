@@ -2,56 +2,26 @@
   {
     "id": "base",
     "name": "base",
-    "paletteHex": [
-      "#7a3e0c",
-      "#faf8f3",
-      "#161311",
-      "#d8d2c5",
-      "#efebe2"
-    ]
+    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"]
   },
   {
     "id": "v1",
     "name": "v1-baseline",
-    "paletteHex": [
-      "#7a3e0c",
-      "#faf8f3",
-      "#161311",
-      "#d8d2c5",
-      "#efebe2"
-    ]
+    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"]
   },
   {
     "id": "v2",
     "name": "v2",
-    "paletteHex": [
-      "#1b3a4b",
-      "#f7f1e7",
-      "#1a1815",
-      "#cdc3ad",
-      "#ece4d3"
-    ]
+    "paletteHex": ["#1b3a4b", "#f7f1e7", "#1a1815", "#cdc3ad", "#ece4d3"]
   },
   {
     "id": "v3",
     "name": "camping-v1-approved",
-    "paletteHex": [
-      "#0d1d28",
-      "#d9d2c1",
-      "#0a0907",
-      "#cdc3ad",
-      "#b9b1a0"
-    ]
+    "paletteHex": ["#0d1d28", "#d9d2c1", "#0a0907", "#cdc3ad", "#b9b1a0"]
   },
   {
     "id": "v4",
     "name": "v4",
-    "paletteHex": [
-      "#7a3e0c",
-      "#faf8f3",
-      "#161311",
-      "#d8d2c5",
-      "#efebe2"
-    ]
+    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"]
   }
 ]
