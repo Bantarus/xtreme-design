@@ -14,7 +14,7 @@
     "dev": "turbo run dev",
     "lint": "biome check .",
     "format": "biome format --write .",
-    "tokens": "style-dictionary build --config style-dictionary.config.mjs",
+    "tokens": "node style-dictionary.config.mjs",
     "design:lint": "design-md lint DESIGN.md",
     "design:sync": "node scripts/design-md-sync.mjs",
     "test:visual": "playwright test",

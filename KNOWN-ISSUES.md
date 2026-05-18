@@ -13,6 +13,11 @@ Tracked deviations from the scaffold prompt and upstream spec, with rationale.
 - The CLI we use (`@google/design.md` v0.1.1) exposes `lint`, `diff`, `export` (formats: `tailwind`, `dtcg`), and `spec`. There is no `--format css-tailwind` flag — the equivalent is `--format tailwind`. The hook script (`scripts/rebuild-tokens-if-needed.mjs`) uses `--format tailwind`.
 - The spec mentions WCAG AA contrast (4.5:1) as guidance but the CLI does not enforce a contrast-ratio lint at v0.1.1. We have authored DESIGN.md with WCAG-passing pairs by construction; if the CLI gains contrast enforcement, the scaffold should pass without changes. If it ever flags a pair, prefer adjusting the surface, not the brand color.
 
+## Style Dictionary mobile filter
+
+- The `flutter/class.dart`, `compose/object`, and `ios-swift/class.swift` formats don't render `fontFamily` (string-array values) or composite typography tokens as valid platform code out-of-the-box. To keep the mobile outputs compilable, the build filters mobile platforms to `color`, `spacing`, and `radius` tokens only. Font/typography tokens are CSS- and Tailwind-only at scaffold time. When the mobile ports are implemented, add platform-specific transforms or a custom format for typography.
+- Running the SD CLI (`style-dictionary build --config ...`) re-invokes the config and crashes after the top-level await with `TypeError: Cannot read properties of undefined (reading 'log')` from `StyleDictionary.extend`. We bypass this by running the config directly with `node style-dictionary.config.mjs`. The `pnpm tokens` script points at `node`.
+
 ## Next.js pin
 
 - Next.js is pinned to `15.5.16` due to a reported vulnerability in earlier 15.x releases. Do not bump within 15.x without confirming the advisory has been re-checked.
