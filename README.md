@@ -1,74 +1,62 @@
-# dsx — agent-native design system
+# dsx
 
-A web-first monorepo for an agent-native design system. DESIGN.md is the prose source of truth; DTCG tokens in `tokens/` fan out to CSS, Tailwind, Flutter, Compose, and SwiftUI via Style Dictionary.
+**Fastest iterative design workflow with a scoped probabilistic surface — DESIGN.md is the only thing the agent edits.**
 
-## Stack
+The agent has zero write access outside `DESIGN.md`. Everything else — the gallery, the components, the build outputs, the version snapshots — is rendered deterministically from `DESIGN.md` by `scripts/pipeline.mjs`. You iterate by writing prose; the pipeline does the rest.
 
-- **pnpm** workspaces + **Turborepo**
-- **Next.js 15.5.16** (App Router, RSC) + **Tailwind v4** + **shadcn CLI 3.0**
-- **DESIGN.md** (Google Labs) as prose source of truth
-- **Style Dictionary v4** with DTCG 2025.10 tokens for multi-platform fan-out
-- **Playwright MCP** for visual regression + screenshot critique
-- **Biome** for lint/format
+## The four commands
 
-## First-run setup
-
-```bash
-pnpm install
-pnpm tokens                       # Style Dictionary multi-platform build
-pnpm --filter gallery dev         # http://localhost:3000
+```
+/design "<brief>"            generate a fresh DESIGN.md from the best-matching reference
+/tweak "<adjustment>"        surgically edit the active DESIGN.md
+/snapshot "<name>"           rename the most recent auto-version slot
+/restore <id-or-name>        load a saved version's DESIGN.md back into the active surface
 ```
 
-### Install MCP servers (one-time, user-scoped)
+Behind these: `scripts/pipeline.mjs` runs after every assistant turn (Stop hook), lint-checks DESIGN.md, exports `apps/gallery/app/tokens.active.css`, rebuilds Style Dictionary outputs, and auto-snapshots a new version slot. The `?v=<id>` URL parameter does instant CSS-swap on the gallery without a Next.js rebuild. `/compare?a=<id>&b=<id>` renders two iframes side-by-side.
 
-These are not pinned in this repo — install them once per machine:
+## Quickstart
 
 ```bash
-# Browser automation for visual regression + screenshot critique
+pnpm install                                          # one-time setup
+pnpm exec playwright install chromium                 # one-time, optional
+pnpm dev                                              # watcher + gallery on :3000
+```
+
+That's it. Open `http://localhost:3000`, run a slash command in Claude Code, watch the gallery hot-reload.
+
+See [KNOWN-ISSUES.md](KNOWN-ISSUES.md) for documented deviations.
+
+## Install MCP servers (one-time, user-scoped)
+
+```bash
 claude mcp add playwright -- npx -y @playwright/mcp@latest
-
-# shadcn registry-aware install/upgrade
 claude mcp add shadcn -- npx -y shadcn@latest mcp
-
-# Optional, recommended: live debugging
 claude mcp add chrome-devtools -- npx -y chrome-devtools-mcp@latest
-
-# Optional: install Google's design-md skill globally
-npx -y skills add google-labs-code/stitch-skills --skill design-md --global
 ```
-
-## Workflow
-
-1. Edit `DESIGN.md` for brand/prose; edit `tokens/` for DTCG values.
-2. `pnpm tokens` rebuilds CSS/Tailwind/Dart/Kotlin/Swift outputs in `build/`.
-3. `pnpm design:lint` validates DESIGN.md.
-4. `pnpm design:sync` checks DESIGN.md and `tokens/` for drift.
-5. `pnpm test:visual` runs Playwright snapshots at 360/768/1280.
-
-## Subagents and slash commands
-
-See `.claude/agents/` and `.claude/commands/`. The full reference-driven loop (`/design`, `/tweak`, `/snapshot`, `/restore`) is wired up in Phase 5. Today the utilities are:
-
-- `/tokens-build` — rebuild Style Dictionary outputs and report diff.
-- `/design-lint` — run DESIGN.md lint.
-- `/screenshot <url>` — capture 360/768/1280 screenshots via Playwright MCP.
-
-## Storybook
-
-Not configured yet — stub will be enabled once component count > 10. See [TODO in Phase 4 docs].
 
 ## Layout
 
 ```
 .
-├── DESIGN.md                  prose source of truth
-├── tokens/                    DTCG 2025.10 JSON (parallel source of truth)
+├── DESIGN.md                          the agent's only surface
+├── base.DESIGN.md                     immutable reference (never overwritten)
+├── tokens/                            DTCG token sources (multi-platform fan-out)
 ├── style-dictionary.config.mjs
-├── build/                     Style Dictionary outputs (gitignored)
-├── apps/gallery/              Next.js 15.5.16 + Tailwind v4 + shadcn (the canvas)
-├── apps/mobile-{flutter,compose,swiftui}/   placeholders
-├── registry/                  custom shadcn registry (@dsx)
-├── .claude/                   agents, commands, skills, hooks
-├── scripts/                   policy scripts (hex blocker, token rebuild, sync)
-└── tests/visual/              Playwright baselines
+├── build/                             SD outputs (gitignored except .gitkeep)
+├── apps/gallery/                      Next.js 15 + Tailwind v4 + shadcn 4.7
+├── .dsx/
+│   ├── references/                    bundled reference corpus (8 files, keyword-scored)
+│   └── versions/                      snapshot store ({id}/DESIGN.md, tokens.css, …)
+├── .claude/                           agents, commands, skills, hooks
+├── scripts/                           pipeline, watcher, snapshot, restore, fence
+└── tests/visual/                      Playwright baselines
 ```
+
+## The constraint
+
+`scripts/agent-surface-fence.mjs` is a PreToolUse hook. It rejects Write/Edit on every path except `DESIGN.md`, exit code 2, with a verbose message pointing the agent at the pipeline. If the fence ever feels wrong, **that** is the bug — the template assumes the agent never edits gallery, scripts, or config. See [docs/agent-rules.md](docs/agent-rules.md).
+
+## Storybook
+
+Deferred. See [STORYBOOK.md](STORYBOOK.md).
