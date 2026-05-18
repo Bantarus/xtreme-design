@@ -9,8 +9,9 @@ Tracked deviations from the scaffold prompt and upstream spec, with rationale.
 
 ## DESIGN.md spec deviations
 
-- The DESIGN.md spec (v `alpha`) does **not** define a `borderColor` slot for components. Supported slot fields are: `backgroundColor`, `textColor`, `typography`, `rounded`, `padding`, `size`, `height`, `width`. Border-color values are exposed as top-level `colors.*` tokens (e.g., `border`, `border-strong`) and used in prose and downstream Tailwind/CSS; they are not assignable as a component slot in the front-matter.
-- The spec mentions WCAG AA contrast (4.5:1) as guidance but the CLI does not (at time of writing) enforce a contrast-ratio lint. We have authored DESIGN.md with WCAG-passing pairs by construction; if the CLI gains contrast enforcement, the scaffold should pass without changes. If it ever flags a pair, prefer adjusting the surface, not the brand color.
+- The DESIGN.md spec (v `alpha`) does **not** define a `borderColor` or `outlineColor` slot for components. Supported slot fields are: `backgroundColor`, `textColor`, `typography`, `rounded`, `padding`, `size`, `height`, `width`. Border-color values are exposed as top-level `colors.*` tokens (`border`, `border-strong`) and used in prose and downstream Tailwind/CSS; they are not assignable as a component slot in the front-matter. As a result, `npx @google/design.md lint` reports three unavoidable "defined but never referenced" warnings for `colors.border`, `colors.border-strong`, and `colors.focus-ring`. These are intentional and required by the system; the scaffold is considered lint-clean when no errors are reported.
+- The CLI we use (`@google/design.md` v0.1.1) exposes `lint`, `diff`, `export` (formats: `tailwind`, `dtcg`), and `spec`. There is no `--format css-tailwind` flag — the equivalent is `--format tailwind`. The hook script (`scripts/rebuild-tokens-if-needed.mjs`) uses `--format tailwind`.
+- The spec mentions WCAG AA contrast (4.5:1) as guidance but the CLI does not enforce a contrast-ratio lint at v0.1.1. We have authored DESIGN.md with WCAG-passing pairs by construction; if the CLI gains contrast enforcement, the scaffold should pass without changes. If it ever flags a pair, prefer adjusting the surface, not the brand color.
 
 ## Next.js pin
 
