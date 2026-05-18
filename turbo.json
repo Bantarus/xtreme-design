@@ -10,7 +10,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build", "//#tokens"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "storybook-static/**"],
       "inputs": ["$TURBO_DEFAULT$", "../../build/css/**"]
     },
     "dev": {

@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* The active dsx surface, mirrored from the gallery. The pipeline regenerates
+ * apps/gallery/app/tokens.active.css from DESIGN.md on every save; Storybook
+ * picks it up through this import (Vite watches across workspace packages).
+ *
+ * Phase 4's ActiveStylesheet decorator injects an additional <link> at the
+ * end of <head> to override these :root values for the version picker. */
+@import "../../gallery/app/tokens.active.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@source "../../gallery/components/**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body-md, ui-sans-serif);
+  }
+  html {
+    @apply font-sans;
+  }
+}
