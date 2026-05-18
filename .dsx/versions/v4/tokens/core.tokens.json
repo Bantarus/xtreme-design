@@ -1,0 +1,108 @@
+{
+  "$schema": "https://schemas.designtokens.org/2025.10/format.json",
+  "color": {
+    "$type": "color",
+    "scale": {
+      "amber": {
+        "300": { "$value": "#D89B5E" },
+        "500": { "$value": "#B85C00" },
+        "700": { "$value": "#7A3E0C" },
+        "800": { "$value": "#5E2F08" }
+      },
+      "limestone": {
+        "0":    { "$value": "#FFFFFF" },
+        "50":   { "$value": "#FAF8F3" },
+        "100":  { "$value": "#EFEBE2" },
+        "200":  { "$value": "#D8D2C5" },
+        "300":  { "$value": "#B0A89A" },
+        "500":  { "$value": "#7A746A" },
+        "700":  { "$value": "#57524A" },
+        "900":  { "$value": "#2A2620" },
+        "1000": { "$value": "#161311" }
+      },
+      "forest": {
+        "500": { "$value": "#2F6D3A" }
+      },
+      "scarlet": {
+        "500": { "$value": "#B23A2A" }
+      },
+      "honey": {
+        "500": { "$value": "#8C5A00" }
+      },
+      "ocean": {
+        "500": { "$value": "#1E5A8C" }
+      }
+    }
+  },
+  "spacing": {
+    "$type": "dimension",
+    "0":  { "$value": "0px" },
+    "1":  { "$value": "4px" },
+    "2":  { "$value": "8px" },
+    "3":  { "$value": "12px" },
+    "4":  { "$value": "16px" },
+    "6":  { "$value": "24px" },
+    "8":  { "$value": "32px" },
+    "12": { "$value": "48px" },
+    "16": { "$value": "64px" },
+    "xs":     { "$value": "{spacing.1}" },
+    "sm":     { "$value": "{spacing.2}" },
+    "md":     { "$value": "{spacing.4}" },
+    "lg":     { "$value": "{spacing.6}" },
+    "xl":     { "$value": "{spacing.8}" },
+    "2xl":    { "$value": "{spacing.12}" },
+    "3xl":    { "$value": "{spacing.16}" },
+    "gutter": { "$value": "{spacing.6}" },
+    "margin": { "$value": "{spacing.8}" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "xs":   { "$value": "2px" },
+    "sm":   { "$value": "4px" },
+    "md":   { "$value": "8px" },
+    "lg":   { "$value": "12px" },
+    "xl":   { "$value": "16px" },
+    "full": { "$value": "9999px" }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": { "$value": ["Inter", "system-ui", "sans-serif"] },
+      "mono": { "$value": ["JetBrains Mono", "ui-monospace", "monospace"] }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular":  { "$value": 400 },
+      "medium":   { "$value": 500 },
+      "semibold": { "$value": 600 }
+    },
+    "size": {
+      "$type": "dimension",
+      "display":     { "$value": "48px" },
+      "headline-lg": { "$value": "32px" },
+      "headline-md": { "$value": "24px" },
+      "title-md":    { "$value": "20px" },
+      "body-lg":     { "$value": "18px" },
+      "body-md":     { "$value": "16px" },
+      "body-sm":     { "$value": "14px" },
+      "label-md":    { "$value": "14px" },
+      "label-sm":    { "$value": "12px" },
+      "mono-sm":     { "$value": "13px" }
+    },
+    "lineHeight": {
+      "$type": "number",
+      "tight":   { "$value": 1.1 },
+      "snug":    { "$value": 1.25 },
+      "normal":  { "$value": 1.55 },
+      "relaxed": { "$value": 1.6 }
+    },
+    "letterSpacing": {
+      "$type": "dimension",
+      "tighter": { "$value": "-0.02em" },
+      "tight":   { "$value": "-0.01em" },
+      "normal":  { "$value": "0em" },
+      "wide":    { "$value": "0.01em" },
+      "wider":   { "$value": "0.08em" }
+    }
+  }
+}
