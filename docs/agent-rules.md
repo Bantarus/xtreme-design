@@ -23,7 +23,7 @@ Stack: pnpm 10 + Turborepo + Next.js 15 (App Router) + Tailwind v4 + shadcn 4.7 
 | Generated CSS                    | `build/css/tokens.css`, `build/css/tokens.dark.css`              |
 | Generated Tailwind snippet       | `build/tailwind/theme.css`                                       |
 | Generated mobile tokens          | `build/{flutter,compose,ios}/`                                   |
-| Gallery (the canvas)             | `apps/gallery/` (Phase 2 — currently `apps/web/`)                |
+| Gallery (the canvas)             | `apps/gallery/`                                                  |
 | Reference corpus                 | `.dsx/references/*.md` (Phase 5)                                 |
 | Version store                    | `.dsx/versions/<id>/{DESIGN.md, tokens.css, meta.json}` (Phase 4) |
 | Policy + pipeline scripts        | `scripts/`                                                       |

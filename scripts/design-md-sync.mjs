@@ -1,20 +1,16 @@
 #!/usr/bin/env node
-// Manual sync check: compare token NAMES between DESIGN.md front-matter and
-// tokens/semantic.tokens.json. Report drift. Exit non-zero if names diverge.
+// Sync check between the active DESIGN.md and the immutable base.DESIGN.md.
+// The contract: the active DESIGN.md must define AT LEAST every color
+// (and component) name that base defines. Adding new names is fine — the
+// pipeline propagates them. Dropping a base name is the failure mode the
+// gallery cannot recover from, because the gallery imports those token
+// names directly.
 //
-// Not wired to any hook — run via `pnpm design:sync`.
+// Run manually via `pnpm design:sync`. Not wired to any hook.
 //
-// What counts as "drift":
-//   - A color name present in DESIGN.md `colors:` but missing from
-//     `tokens/semantic.tokens.json` `color.*` (or vice versa).
-//
-// What it intentionally does NOT check:
-//   - VALUES (the two sources can hold different hex per design intent and
-//     reconciliation is a separate review).
-//   - Typography / spacing / radii names (those have more legitimate
-//     divergence — semantic.tokens.json carries CSS-/Tailwind-shaped names).
+// Exit 0 if active ⊇ base. Exit 1 otherwise, listing the missing names.
 
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { parse as parseYaml } from 'yaml';
 
 function extractFrontMatter(md) {
@@ -22,57 +18,51 @@ function extractFrontMatter(md) {
   return m ? m[1] : '';
 }
 
-function loadDesignMdColors(path = 'DESIGN.md') {
+function loadDesignMd(path) {
+  if (!existsSync(path)) throw new Error(`${path} not found`);
   const md = readFileSync(path, 'utf8');
   const fm = extractFrontMatter(md);
-  if (!fm) throw new Error('DESIGN.md has no YAML front matter');
+  if (!fm) throw new Error(`${path} has no YAML front matter`);
   const parsed = parseYaml(fm);
-  const colors = parsed?.colors ?? {};
-  return new Set(Object.keys(colors));
-}
-
-function loadSemanticColors(path = 'tokens/semantic.tokens.json') {
-  const json = JSON.parse(readFileSync(path, 'utf8'));
-  const color = json.color ?? {};
-  const names = new Set();
-  for (const k of Object.keys(color)) {
-    if (k.startsWith('$')) continue;
-    names.add(k);
-  }
-  return names;
-}
-
-function diff(a, b) {
-  const onlyA = [...a].filter((x) => !b.has(x)).sort();
-  const onlyB = [...b].filter((x) => !a.has(x)).sort();
-  return { onlyA, onlyB };
+  return {
+    colors: new Set(Object.keys(parsed?.colors ?? {})),
+    components: new Set(Object.keys(parsed?.components ?? {})),
+  };
 }
 
 function main() {
-  const designMd = loadDesignMdColors();
-  const semantic = loadSemanticColors();
-  const { onlyA: onlyInDesignMd, onlyB: onlyInSemantic } = diff(designMd, semantic);
+  const base = loadDesignMd('base.DESIGN.md');
+  const active = loadDesignMd('DESIGN.md');
 
-  if (onlyInDesignMd.length === 0 && onlyInSemantic.length === 0) {
+  const missingColors = [...base.colors].filter((n) => !active.colors.has(n)).sort();
+  const missingComponents = [...base.components].filter((n) => !active.components.has(n)).sort();
+  const addedColors = [...active.colors].filter((n) => !base.colors.has(n)).sort();
+  const addedComponents = [...active.components].filter((n) => !base.components.has(n)).sort();
+
+  if (missingColors.length === 0 && missingComponents.length === 0) {
+    const addedSummary =
+      addedColors.length || addedComponents.length
+        ? ` (active adds ${addedColors.length} color(s) + ${addedComponents.length} component(s) over base)`
+        : '';
     process.stdout.write(
-      `design-md-sync: OK — ${designMd.size} color names align between DESIGN.md and tokens/semantic.tokens.json.\n`,
+      `design-md-sync: OK — active DESIGN.md covers all ${base.colors.size} base colors and ${base.components.size} base components${addedSummary}.\n`,
     );
     process.exit(0);
   }
 
-  process.stderr.write('design-md-sync: DRIFT detected.\n\n');
-  if (onlyInDesignMd.length > 0) {
-    process.stderr.write(`  Only in DESIGN.md (${onlyInDesignMd.length}):\n`);
-    for (const name of onlyInDesignMd) process.stderr.write(`    - ${name}\n`);
+  process.stderr.write('design-md-sync: DRIFT — active DESIGN.md is missing names that base.DESIGN.md defines.\n\n');
+  if (missingColors.length > 0) {
+    process.stderr.write(`  Missing colors (${missingColors.length}):\n`);
+    for (const n of missingColors) process.stderr.write(`    - ${n}\n`);
     process.stderr.write('\n');
   }
-  if (onlyInSemantic.length > 0) {
-    process.stderr.write(`  Only in tokens/semantic.tokens.json (${onlyInSemantic.length}):\n`);
-    for (const name of onlyInSemantic) process.stderr.write(`    - ${name}\n`);
+  if (missingComponents.length > 0) {
+    process.stderr.write(`  Missing components (${missingComponents.length}):\n`);
+    for (const n of missingComponents) process.stderr.write(`    - ${n}\n`);
     process.stderr.write('\n');
   }
   process.stderr.write(
-    '  Reconcile: add the missing name to whichever source is incomplete, or rename so both sources agree.\n',
+    '  The gallery references base names directly; restore them in the active DESIGN.md before the pipeline can re-render.\n',
   );
   process.exit(1);
 }

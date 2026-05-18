@@ -16,7 +16,7 @@ A web-first monorepo for an agent-native design system. DESIGN.md is the prose s
 ```bash
 pnpm install
 pnpm tokens                       # Style Dictionary multi-platform build
-pnpm --filter web dev             # http://localhost:3000
+pnpm --filter gallery dev         # http://localhost:3000
 ```
 
 ### Install MCP servers (one-time, user-scoped)
@@ -65,7 +65,7 @@ Not configured yet — stub will be enabled once component count > 10. See [TODO
 ├── tokens/                    DTCG 2025.10 JSON (parallel source of truth)
 ├── style-dictionary.config.mjs
 ├── build/                     Style Dictionary outputs (gitignored)
-├── apps/web/                  Next.js 15.5.16 + Tailwind v4 + shadcn
+├── apps/gallery/              Next.js 15.5.16 + Tailwind v4 + shadcn (the canvas)
 ├── apps/mobile-{flutter,compose,swiftui}/   placeholders
 ├── registry/                  custom shadcn registry (@dsx)
 ├── .claude/                   agents, commands, skills, hooks

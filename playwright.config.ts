@@ -35,7 +35,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'pnpm --filter web dev',
+    command: 'pnpm --filter gallery dev',
     url: BASE_URL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

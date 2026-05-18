@@ -40,7 +40,7 @@ When the `.dark` class is on `<html>`, `tokens.dark.css` redefines the right-han
 - **No more `tailwind.config.js` is required.** v4 reads `@theme` from CSS. Keep `components.json` pointed at `app/globals.css`.
 - **`@apply` still works** but inside `@layer base`/`@layer components`, not at top-level.
 - **`@custom-variant`** replaces v3's `addVariant` plugin call. dsx already declares `dark` via `@custom-variant dark (&:is(.dark *));`.
-- **shadcn `asChild` is gone in 4.7+.** shadcn 4.7's primitives come from `@base-ui/react`, which uses `render={<Component />}` instead. See `apps/web/app/page.tsx` for the working pattern.
+- **shadcn `asChild` is gone in 4.7+.** shadcn 4.7's primitives come from `@base-ui/react`, which uses `render={<Component />}` instead. See `apps/gallery/app/page.tsx` for the working pattern.
 - **No `extend`.** v3's `theme: { extend: {...} }` becomes additional `--<namespace>-<name>` declarations inside `@theme`.
 
 ## When to use `@theme inline` vs. `@theme`

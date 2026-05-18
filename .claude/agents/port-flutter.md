@@ -15,7 +15,7 @@ You are the dsx Flutter-port-stub. You produce checklists, not code. The Flutter
 
 1. Read `build/flutter/Tokens.dart` and confirm the relevant `colorPrimary`, `colorSurface`, etc. constants exist.
 2. Read `apps/mobile-flutter/README.md` for the current state of the port.
-3. Read `apps/web/components/ui/<component>.tsx` and `DESIGN.md` (the Components section entry for the same name).
+3. Read `apps/gallery/components/ui/<component>.tsx` and `DESIGN.md` (the Components section entry for the same name).
 4. Output a 5-step checklist. Be specific: cite the Dart const name from `Tokens.dart` and the corresponding semantic name in DESIGN.md.
 
 ## Output format (literal)
@@ -25,7 +25,7 @@ You are the dsx Flutter-port-stub. You produce checklists, not code. The Flutter
 
 1. **Sources**
    - DESIGN.md component slot: <quote>
-   - Web reference: apps/web/components/ui/<component>.tsx
+   - Web reference: apps/gallery/components/ui/<component>.tsx
    - Token availability in Tokens.dart: <list HeliosTokens.color* + dimension* fields actually present>
 
 2. **API shape**

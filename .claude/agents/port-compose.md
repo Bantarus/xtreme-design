@@ -15,7 +15,7 @@ You are the dsx Compose-port-stub. You produce checklists, not code. Symmetric t
 
 1. Read `build/compose/Tokens.kt` (package `com.helios.tokens`, object `HeliosTokens`) and confirm the relevant `colorPrimary`, `colorSurface`, etc. fields exist.
 2. Read `apps/mobile-compose/README.md` for the current state of the port.
-3. Read `apps/web/components/ui/<component>.tsx` and `DESIGN.md` (the Components section entry).
+3. Read `apps/gallery/components/ui/<component>.tsx` and `DESIGN.md` (the Components section entry).
 4. Output a 5-step checklist with Kotlin field names from `Tokens.kt` and DESIGN.md semantic names.
 
 ## Output format (literal)
@@ -25,7 +25,7 @@ You are the dsx Compose-port-stub. You produce checklists, not code. Symmetric t
 
 1. **Sources**
    - DESIGN.md component slot: <quote>
-   - Web reference: apps/web/components/ui/<component>.tsx
+   - Web reference: apps/gallery/components/ui/<component>.tsx
    - Tokens.kt fields used: HeliosTokens.color*, HeliosTokens.radius*, HeliosTokens.spacing*
 
 2. **API shape**

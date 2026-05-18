@@ -29,7 +29,7 @@ The class is filtered to **colors, spacing, radii** only. Font tokens are NOT em
 1. **Initialize the app.** `cd apps/mobile-flutter && flutter create .`
 2. **Symlink or copy tokens.** Add a `pretokens` step to `pubspec.yaml` scripts that copies `build/flutter/Tokens.dart` into `lib/tokens/helios_tokens.dart`.
 3. **ThemeExtension.** Wrap `HeliosTokens` in a `ThemeExtension<HeliosColors>` so widgets call `Theme.of(context).extension<HeliosColors>()!.primary`.
-4. **Start with `Button`.** Mirror the web `apps/web/components/ui/button.tsx` variant API (default, secondary, outline, ghost, destructive). Use `HeliosTokens.colorPrimary`/`colorPrimaryHover` etc.
+4. **Start with `Button`.** Mirror the web `apps/gallery/components/ui/button.tsx` variant API (default, secondary, outline, ghost, destructive). Use `HeliosTokens.colorPrimary`/`colorPrimaryHover` etc.
 5. **Visual regression.** Use `integration_test` + `golden_toolkit` or `alchemist` to lock in screenshots — one golden per (variant × viewport).
 
 ## What to skip until later

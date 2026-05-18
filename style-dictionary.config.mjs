@@ -5,7 +5,7 @@ import StyleDictionary from 'style-dictionary';
  * dsx semantic tokens to Tailwind's recognized namespaces
  * (--color-*, --radius-*, --text-*, --font-weight-*, --tracking-*, --leading-*).
  *
- * The output is meant to be `@import`ed from apps/web/app/globals.css *after*
+ * The output is meant to be `@import`ed from apps/gallery/app/globals.css *after*
  * `@import "tailwindcss";` and after the raw `tokens.css` is imported.
  */
 StyleDictionary.registerFormat({
