@@ -1,0 +1,31 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "stream",
+  "globalDependencies": [
+    "DESIGN.md",
+    "tokens/**",
+    "style-dictionary.config.mjs",
+    "build/css/tokens.css"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "//#tokens"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "inputs": ["$TURBO_DEFAULT$", "../../build/css/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "outputs": []
+    },
+    "//#tokens": {
+      "inputs": [
+        "tokens/**",
+        "style-dictionary.config.mjs"
+      ],
+      "outputs": ["build/**"]
+    }
+  }
+}
