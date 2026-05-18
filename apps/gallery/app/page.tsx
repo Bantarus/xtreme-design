@@ -26,12 +26,17 @@ export default function HomePage() {
         <h1 className="mt-1 text-4xl font-semibold tracking-tight text-foreground">Active design system</h1>
         <p className="mt-2 max-w-prose text-base text-muted-foreground">
           The gallery is rendered deterministically from <code className="font-mono">DESIGN.md</code>. Pick a
-          component or open a composed scene to inspect the active palette in real layouts.
+          component below to inspect it in the active palette. Page composition lives in Storybook.
         </p>
       </header>
 
       <section className="mt-8">
-        <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Active palette</h2>
+        <div className="flex items-baseline justify-between">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Active palette</h2>
+          <Link href="/tokens" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
+            /tokens →
+          </Link>
+        </div>
         <div className="mt-3 flex flex-wrap gap-2">
           {paletteVars.map((v) => (
             <div key={v} className="flex items-center gap-2 rounded-md border border-border bg-card px-2 py-1.5">
@@ -42,31 +47,6 @@ export default function HomePage() {
               />
               <span className="font-mono text-xs text-foreground">{v}</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-10">
-        <div className="flex items-baseline justify-between">
-          <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Scenes</h2>
-          <Link href="/tokens" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
-            /tokens →
-          </Link>
-        </div>
-        <div className="mt-3 grid gap-3 sm:grid-cols-3">
-          {[
-            { href: '/scenes/landing', title: 'Landing', body: 'SaaS marketing page — hero, features, pricing, footer.' },
-            { href: '/scenes/dashboard', title: 'Dashboard', body: 'Ops view — KPIs, tabs, table, dropdown, progress.' },
-            { href: '/scenes/settings', title: 'Settings', body: 'Profile, preferences, security, danger zone.' },
-          ].map((s) => (
-            <Link
-              key={s.href}
-              href={s.href}
-              className="group rounded-md border border-border bg-card p-4 transition-colors hover:border-border-strong"
-            >
-              <div className="text-base font-semibold text-foreground group-hover:text-primary">{s.title}</div>
-              <p className="mt-1 text-sm text-muted-foreground">{s.body}</p>
-            </Link>
           ))}
         </div>
       </section>
