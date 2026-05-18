@@ -47,9 +47,8 @@ npx -y skills add google-labs-code/stitch-skills --skill design-md --global
 
 ## Subagents and slash commands
 
-See `.claude/agents/` and `.claude/commands/`. Highlights:
+See `.claude/agents/` and `.claude/commands/`. The full reference-driven loop (`/design`, `/tweak`, `/snapshot`, `/restore`) is wired up in Phase 5. Today the utilities are:
 
-- `/variant <component> "<brief>" [N]` — spawn N worktree-isolated UI explorations.
 - `/tokens-build` — rebuild Style Dictionary outputs and report diff.
 - `/design-lint` — run DESIGN.md lint.
 - `/screenshot <url>` — capture 360/768/1280 screenshots via Playwright MCP.

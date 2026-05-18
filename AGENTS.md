@@ -1,31 +1,32 @@
-# AGENTS.md — dsx scaffold
+# AGENTS.md — dsx (design system iteration template)
 
-You are an AI coding assistant working in **dsx**, the agent-native design system monorepo. This file is for non-Claude tools (Codex, Cursor, Aider, Continue, etc.) — Claude Code uses the equivalent [CLAUDE.md](CLAUDE.md).
+**DESIGN.md is the only file you write.** Everything else — the gallery, the components, the build outputs, the version snapshots — is rendered deterministically from DESIGN.md by the pipeline. If a task requires touching anything else, **stop and explain to the user**; they will handle it manually. When Claude Code is running in parallel, the `scripts/agent-surface-fence.mjs` PreToolUse hook mechanically rejects Write/Edit on every path other than `DESIGN.md` — your output will be blocked the same way.
+
+This file is for non-Claude tools (Codex, Cursor, Aider, Continue, etc.). Claude Code uses the equivalent [CLAUDE.md](CLAUDE.md).
 
 ## Read first
 
-The full set of rules — invariants, file map, token-to-Tailwind glossary, commands, workflow — lives in [docs/agent-rules.md](docs/agent-rules.md). **Read it before doing anything.**
+The full set of rules lives in [docs/agent-rules.md](docs/agent-rules.md). **Read it before doing anything.**
 
 ## Non-Claude-specific notes
 
-- The `.claude/` directory exists for Claude Code's hooks, subagents, slash commands, and skills. You will not invoke those features; ignore them. They do not influence your behavior — the policies are encoded in the scripts under `scripts/` and the rules in this file, both of which apply universally.
-- Hooks you should know about (because they will reject your output if you violate them when the human is running Claude Code in parallel):
-  - `scripts/block-raw-hex.mjs` blocks raw color literals.
-  - `scripts/rebuild-tokens-if-needed.mjs` rebuilds tokens on relevant changes.
-  - `scripts/design-md-sync.mjs` enforces DESIGN.md ↔ tokens name parity.
+- The `.claude/` directory exists for Claude Code's hooks, subagents, slash commands, and skills. Ignore those features; you do not invoke them. The policy is universal because it lives in `scripts/` (which runs from the human's terminal as well as from Claude's hooks).
+- Scripts that may execute around your edits:
+  - `scripts/agent-surface-fence.mjs` — rejects writes outside `DESIGN.md`.
+  - `scripts/pipeline.mjs` — runs after every assistant turn (Stop hook in Claude; manual via `pnpm pipeline` otherwise). Lint, export, rebuild, snapshot.
+  - `scripts/design-md-sync.mjs` — sanity-check between `DESIGN.md` and `base.DESIGN.md` token coverage.
 
-## The shortest path through a UI task
+## The shortest path through a brief
 
-1. Skim `DESIGN.md` (front-matter + relevant Components / Do's and Don'ts entry).
-2. Pick the Tailwind utility or CSS variable from the glossary in [docs/agent-rules.md](docs/agent-rules.md#token--tailwind-class-glossary).
-3. Edit the component. Never write raw hex (#rrggbb, rgb(), hsl(), oklch(), …) into `.ts`/`.tsx`/`.css` outside the four allowed locations listed in the rules.
-4. `pnpm tokens && pnpm design:lint && pnpm --filter web build`.
-5. If the visible output changed, decide whether to update Playwright baselines (`pnpm test:visual:update`) and explain why in the commit body.
+1. Read `DESIGN.md` so you know what's currently active.
+2. Mutate `DESIGN.md` — tokens, prose, component slots. Surgical edits only; do not rewrite unless the brief is "redesign from scratch".
+3. Run `pnpm pipeline` (the equivalent of Claude Code's Stop hook). It lints, exports, builds, and snapshots.
+4. Tell the human what shifted in DESIGN.md and what they should inspect in the gallery.
 
-## When you disagree with DESIGN.md
+## When you disagree with the brief
 
-Surface the disagreement to the human; do not unilaterally rewrite `DESIGN.md` to match your implementation preference.
+Surface the disagreement; do not silently subvert the user's instruction by editing DESIGN.md to your own preference.
 
 ## When you finish
 
-End with a one or two sentence summary of what changed and what the human's next step is. Conventional-commits format for `git commit -m`. Do not push.
+One or two sentence summary. No commit (the human commits). The pipeline output is your handoff.

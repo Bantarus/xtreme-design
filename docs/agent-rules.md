@@ -1,108 +1,101 @@
 # Agent rules for dsx
 
-Shared between CLAUDE.md and AGENTS.md. If you are an AI coding assistant working in this repo (Claude Code, Codex, Cursor, Aider, etc.), these rules apply to you.
+Shared between [CLAUDE.md](../CLAUDE.md) and [AGENTS.md](../AGENTS.md). If you are an AI coding assistant working in this repo, these rules apply to you regardless of which client you run under.
+
+## The one rule
+
+**DESIGN.md is the only file you write.** Everything else — the gallery, components, build outputs, version snapshots — is rendered deterministically from DESIGN.md by `scripts/pipeline.mjs`. The `scripts/agent-surface-fence.mjs` PreToolUse hook rejects Write/Edit on every path except `DESIGN.md`. If a task seems to require touching anything else, **stop and explain to the user**. The human will handle non-DESIGN.md changes manually.
 
 ## What dsx is
 
-A web-first agent-native design system monorepo. `DESIGN.md` is the prose source of truth. DTCG 2025.10 JSON in `tokens/` is the build-pipeline source of truth. Style Dictionary fans the tokens out to CSS, Tailwind, Dart, Kotlin, Swift. The web target is Next.js 15.5.16 + Tailwind v4 + shadcn 4.7. Brand name "Helios" is a placeholder.
+A web-first, agent-native design-system iteration template. The product narrative: **"fastest iterative design workflow with a scoped probabilistic surface — DESIGN.md is the only thing the agent edits."** Everything visible is static infrastructure built deterministically from DESIGN.md.
 
-## Core invariants (do not violate)
+Stack: pnpm 10 + Turborepo + Next.js 15 (App Router) + Tailwind v4 + shadcn 4.7 + DESIGN.md + Style Dictionary v4 + Playwright MCP. Brand name "Helios" is placeholder.
 
-1. **Read DESIGN.md before generating UI.** The Components section is the per-component rule book. The Do's and Don'ts is the visual policy. Cite section + line when explaining a choice.
-2. **No raw color literals.** Never write `#rrggbb`, `rgb()`, `rgba()`, `hsl()`, `oklch()`, etc. in `.ts`/`.tsx`/`.css` files outside the four exceptions (`DESIGN.md`, `tokens/`, `build/`, `apps/web/app/globals.css`, the Style Dictionary config, `scripts/`). The `block-raw-hex` PreToolUse hook rejects violations.
-3. **Use dsx tokens, not invented names.** If a token doesn't exist in `tokens/semantic.tokens.json`, ADD it there (and the corresponding entry in DESIGN.md) before referencing it from a component.
-4. **DESIGN.md ↔ tokens parity.** Whenever you add or remove a color in DESIGN.md front-matter, mirror the change in `tokens/semantic.tokens.json`. `node scripts/design-md-sync.mjs` must exit 0 before you declare a task done.
-5. **Run `pnpm tokens && pnpm design:lint` before declaring done.** If either fails, fix the cause — never silence the diagnostic.
-6. **shadcn 4.7 uses `render`, not `asChild`.** The primitives come from `@base-ui/react`. Pattern: `<DialogTrigger render={<Button variant="outline" />}>Open</DialogTrigger>`.
-7. **The `.dark` class on `<html>` is the only dark-mode switch.** Tailwind utilities, dsx tokens, and shadcn theme tokens all resolve through it via `var(--color-*)`.
-8. **Never modify Playwright snapshots.** They are committed regression baselines. To intentionally update them, the human runs `pnpm test:visual:update`.
+## Where things live
 
-## Quick reference
+| Concern                          | Path                                                             |
+|----------------------------------|------------------------------------------------------------------|
+| The agent's surface              | `DESIGN.md` (only this file can be written by the agent)         |
+| Immutable reference DESIGN.md    | `base.DESIGN.md` (Phase 2 — appears once the gallery lands)      |
+| DTCG tokens                      | `tokens/core.tokens.json`, `tokens/semantic.tokens.json`, `tokens/themes/{light,dark}.tokens.json` |
+| Style Dictionary config          | `style-dictionary.config.mjs`                                    |
+| Generated CSS                    | `build/css/tokens.css`, `build/css/tokens.dark.css`              |
+| Generated Tailwind snippet       | `build/tailwind/theme.css`                                       |
+| Generated mobile tokens          | `build/{flutter,compose,ios}/`                                   |
+| Gallery (the canvas)             | `apps/gallery/` (Phase 2 — currently `apps/web/`)                |
+| Reference corpus                 | `.dsx/references/*.md` (Phase 5)                                 |
+| Version store                    | `.dsx/versions/<id>/{DESIGN.md, tokens.css, meta.json}` (Phase 4) |
+| Policy + pipeline scripts        | `scripts/`                                                       |
+| Visual regression                | `tests/visual/`, `playwright.config.ts`                          |
+| Agent config                     | `.claude/`                                                       |
 
-### Where things live
+## Token → Tailwind class glossary
 
-| Concern                       | Path                                           |
-|-------------------------------|------------------------------------------------|
-| Prose source of truth         | `DESIGN.md`                                     |
-| DTCG tokens (build-pipeline)  | `tokens/core.tokens.json`, `tokens/semantic.tokens.json`, `tokens/themes/{light,dark}.tokens.json` |
-| Style Dictionary config       | `style-dictionary.config.mjs`                   |
-| Generated CSS                 | `build/css/tokens.css`, `build/css/tokens.dark.css` |
-| Generated Tailwind snippet    | `build/tailwind/theme.css`                      |
-| Generated mobile tokens       | `build/{flutter,compose,ios}/`                  |
-| Web app                       | `apps/web/`                                     |
-| Web globals (token ↔ TW bridge) | `apps/web/app/globals.css`                    |
-| shadcn components             | `apps/web/components/ui/`                       |
-| Custom registry               | `registry/` → `apps/web/public/r/`              |
-| Policy scripts                | `scripts/`                                      |
-| Visual regression             | `tests/visual/`, `playwright.config.ts`        |
-| Agent config                  | `.claude/`                                      |
+When you write DESIGN.md, these are the semantic colors the gallery already wires up. Use these names; they round-trip to Tailwind utilities through `apps/gallery/app/globals.css`.
 
-### Token → Tailwind class glossary
+| dsx semantic token  | CSS variable           | Tailwind utility                  |
+|---------------------|------------------------|-----------------------------------|
+| primary             | `--color-primary`      | `bg-primary`, `text-primary`      |
+| on-primary          | `--color-on-primary`   | `text-primary-foreground`         |
+| surface             | `--color-surface`      | `bg-background`                   |
+| surface-muted       | `--color-surface-muted`| `bg-muted`                        |
+| text                | `--color-text`         | `text-foreground`                 |
+| text-muted          | `--color-text-muted`   | `text-muted-foreground`           |
+| border              | `--color-border`       | `border-border`                   |
+| danger              | `--color-danger`       | `bg-destructive`                  |
+| success / warning / info | `--color-{success,warning,info}` | (utility-mapped in globals.css) |
+| focus-ring          | `--color-focus-ring`   | `ring-ring`                       |
+| radius.md           | `--radius-md`          | `rounded-md`                      |
 
-| dsx semantic token  | CSS variable           | Tailwind utility        |
-|---------------------|------------------------|-------------------------|
-| primary             | `--color-primary`      | `bg-primary`, `text-primary` |
-| on-primary          | `--color-on-primary`   | `text-primary-foreground` |
-| surface             | `--color-surface`      | `bg-background`         |
-| surface-muted       | `--color-surface-muted`| `bg-muted`              |
-| text                | `--color-text`         | `text-foreground`       |
-| text-muted          | `--color-text-muted`   | `text-muted-foreground` |
-| border              | `--color-border`       | `border-border`         |
-| danger              | `--color-danger`       | `bg-destructive`        |
-| focus-ring          | `--color-focus-ring`   | `ring-ring`             |
-| radius.md           | `--radius-md`          | `rounded-md`            |
-| spacing.md          | `--spacing-md`         | (use Tailwind's own `--spacing`) |
+Add or rename a token in DESIGN.md → the pipeline propagates it to `tokens.active.css` and the gallery picks it up on the next watcher tick. You do not need to edit any TS/CSS file.
 
-### Commands you will use
+## Slash commands
 
-| Command                          | Purpose                                              |
-|----------------------------------|------------------------------------------------------|
-| `pnpm install`                   | Install workspaces.                                  |
-| `pnpm tokens`                    | Rebuild Style Dictionary outputs.                    |
-| `pnpm design:lint`               | Validate DESIGN.md (errors must be 0).               |
-| `pnpm design:sync`               | Check DESIGN.md ↔ semantic.tokens.json name parity.  |
-| `pnpm --filter web dev`          | Run the Next.js dev server on :3000.                 |
-| `pnpm --filter web build`        | Type-check + production build.                       |
-| `pnpm registry:build`            | Compile `@dsx` registry → `apps/web/public/r/`.      |
-| `pnpm test:visual`               | Run Playwright visual regression.                    |
-| `pnpm test:visual:update`        | Regenerate Playwright baselines (human-triggered).   |
+| Command                          | Effect                                                             |
+|----------------------------------|--------------------------------------------------------------------|
+| `/design "<brief>"`              | Pick the best-matching reference, write a fresh DESIGN.md.         |
+| `/tweak "<adjustment>"`          | Surgically edit the active DESIGN.md.                              |
+| `/snapshot "<name>"`             | Rename the most recent auto-version slot.                          |
+| `/restore <id-or-name>`          | Copy a saved version's DESIGN.md back into the active surface.     |
+| `/tokens-build`                  | (utility) rebuild Style Dictionary outputs.                        |
+| `/design-lint`                   | (utility) run DESIGN.md schema lint.                               |
+| `/screenshot <url>`              | (utility) screenshot a page at 360/768/1280 via Playwright MCP.    |
 
-### Subagent index (Claude-specific; non-Claude tools should ignore)
+`/variant` was intentionally removed — per-component stylistic exploration is a different product.
+
+## Subagent index (Claude-specific; non-Claude tools should ignore)
 
 | Subagent              | What it does                                                      |
 |-----------------------|-------------------------------------------------------------------|
-| `variant-generator`   | Worktree-isolated UI exploration; never touches tokens.           |
 | `token-guardian`      | Validates token diffs against schema + WCAG + name parity.        |
 | `screenshot-critic`   | Playwright MCP screenshot + DESIGN.md prose enforcement.          |
 | `port-flutter`        | Checklist-only stub for the Flutter port.                         |
 | `port-compose`        | Checklist-only stub for the Compose port.                         |
 
-### Slash commands (Claude-specific)
+## The iteration loop
 
-- `/variant <component-path> "<brief>" [N]`
-- `/tokens-build`
-- `/design-lint`
-- `/screenshot <url>`
-
-## Workflow
-
-1. **Inspect.** Read `DESIGN.md` and `tokens/semantic.tokens.json` for context before any UI work.
-2. **Edit.** Make the minimal change. If you need a new token, add it in both DESIGN.md and `tokens/semantic.tokens.json`.
-3. **Rebuild.** `pnpm tokens` (or rely on the PostToolUse hook if running under Claude Code).
-4. **Validate.** `pnpm design:lint`, `pnpm design:sync`, `pnpm --filter web build`.
-5. **Snapshot (when shipping a visible change).** Decide whether to run `pnpm test:visual:update`. Diff the new PNGs before committing.
-6. **Commit.** Conventional commits: `feat(scope): summary`, `fix(scope): summary`, `chore: ...`.
+1. **Read** `DESIGN.md` for current state. Read `base.DESIGN.md` if you need the canonical reference.
+2. **Decide** what slash command applies to the user's brief. `/design` for "new direction"; `/tweak` for "adjust the current one".
+3. **Write** to `DESIGN.md`. Only this file. The pipeline will refuse anything else.
+4. **Wait** for the Stop hook (or `pnpm pipeline` if you're not running under Claude Code). It runs:
+   - `design-md lint DESIGN.md` (must pass)
+   - `design-md export → apps/gallery/app/tokens.active.css`
+   - `pnpm tokens` (Style Dictionary fan-out)
+   - `node scripts/snapshot.mjs --auto` (creates next version slot)
+5. **Summarize** in one or two sentences what shifted in DESIGN.md and point the human at the gallery URL.
 
 ## When something fails
 
-- DESIGN.md lint error → fix the front-matter, never the linter.
-- DESIGN.md ↔ semantic drift → reconcile names; do not delete a public token without a migration note in `KNOWN-ISSUES.md`.
-- Tailwind class doesn't render → check `apps/web/app/globals.css` `@theme inline` mapping; the underlying `--color-*` may need adding to `tokens/semantic.tokens.json`.
-- shadcn `asChild` not recognized → migrate to `render={<Component />}` (KNOWN-ISSUES.md).
-- Style Dictionary "TypeError on extend" → run via `node style-dictionary.config.mjs` (the `pnpm tokens` script does this).
+- **DESIGN.md lint error** → fix the front-matter; never edit the linter.
+- **Drift between DESIGN.md and `base.DESIGN.md`** → reconcile names; the active DESIGN.md must define at least every token name that base defines.
+- **shadcn `asChild` warning** → it's gone in 4.7; the gallery already uses `render={<Component />}`. You do not edit gallery code regardless.
+- **Style Dictionary "TypeError on extend"** → the `pnpm tokens` script wraps `node style-dictionary.config.mjs` to avoid this. You do not edit the SD config.
 
-## Out of scope (do not attempt without explicit request)
+## Out of scope (do not attempt)
 
-- Generating `.dart`, `.kt`, or `.swift` source files. The mobile targets are placeholder until the human flips the switch.
-- Adding Storybook beyond the stub config. The trigger is "component count > 10".
-- Modifying `playwright.config.ts` or committed snapshot PNGs without an explicit "update baselines" instruction.
+- Editing anything except DESIGN.md. The fence will block you and the user will be confused.
+- Generating `.dart`, `.kt`, `.swift`, or `.tsx` source. Mobile is placeholder; gallery is owned by the human.
+- Inventing token names. If a name doesn't exist in `base.DESIGN.md`, you can ADD a new color to the active DESIGN.md — the pipeline will surface it in `tokens.active.css`. But never reference a name from prose without defining it in front-matter.
+- Modifying Playwright snapshots. Visual regression is a human-triggered cycle (`pnpm test:visual:update`).
+- Building Storybook. See [STORYBOOK.md](../STORYBOOK.md) — it is a future chapter.
