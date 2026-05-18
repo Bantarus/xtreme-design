@@ -11,7 +11,8 @@
       "#161311",
       "#d8d2c5",
       "#efebe2"
-    ]
+    ],
+    "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   },
   {
     "id": "v1",
@@ -24,7 +25,8 @@
       "#161311",
       "#d8d2c5",
       "#efebe2"
-    ]
+    ],
+    "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   },
   {
     "id": "v2",
@@ -37,7 +39,8 @@
       "#1a1815",
       "#cdc3ad",
       "#ece4d3"
-    ]
+    ],
+    "tokensCssSha256": "b735a438e645254cb7b7769cae790490bfbf44357db66854ef0fa4ff53c8a28a"
   },
   {
     "id": "v3",
@@ -50,7 +53,8 @@
       "#0a0907",
       "#cdc3ad",
       "#b9b1a0"
-    ]
+    ],
+    "tokensCssSha256": "12deb6d2218a3bb834ba61c086c1591aaf859473bf100a878a694195e11006a9"
   },
   {
     "id": "v4",
@@ -63,6 +67,7 @@
       "#161311",
       "#d8d2c5",
       "#efebe2"
-    ]
+    ],
+    "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   }
 ]

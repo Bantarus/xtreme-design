@@ -22,7 +22,6 @@ Tracked deviations from the scaffold prompt and upstream spec, with rationale.
 
 ## End-to-end smoke observations (Phase 6)
 
-- `node scripts/restore.mjs base` re-runs the pipeline, which then auto-creates a NEW version snapshot of "DESIGN.md = base content" — because the most recent non-base version's DESIGN.md no longer matches the active file. This is technically correct (the active state did just change) but produces a duplicate-palette snapshot. If this becomes noisy in practice, change `scripts/snapshot.mjs` to compare against ALL prior versions and skip when any match.
 - The first paint of `/` in the gallery shows a "Loading versions…" banner before `fetch('/api/versions')` resolves. Playwright baselines capture this loading state in the home screenshot. The loading copy is intentional and styled; tests pass deterministically.
 - `pnpm --filter gallery start` requires a prior `next build`; for the dev loop use `pnpm --filter gallery dev` (or `pnpm dev` for the concurrently watcher + gallery combo).
 
