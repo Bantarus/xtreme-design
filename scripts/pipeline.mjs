@@ -50,6 +50,10 @@ const STEPS = [
     name: 'snapshot --auto',
     run: () => spawnSync('node', ['scripts/snapshot.mjs', '--auto'], { stdio: 'inherit' }),
   },
+  {
+    name: 'mirror → apps/storybook',
+    run: () => spawnSync('node', ['scripts/mirror-storybook-versions.mjs'], { stdio: 'inherit' }),
+  },
 ];
 
 function main() {
@@ -68,7 +72,7 @@ function main() {
   }
   const ms = Date.now() - t0;
   process.stdout.write(
-    `\npipeline: DESIGN.md → apps/gallery/app/tokens.active.css (+ build/) in ${ms} ms. View → http://localhost:3000\n`,
+    `\npipeline: DESIGN.md → gallery + storybook in ${ms} ms. Gallery → http://localhost:3000, Storybook → http://localhost:6006\n`,
   );
 }
 
