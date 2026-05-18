@@ -92,11 +92,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
@@ -161,17 +157,24 @@ const Cell: React.FC<{ label: string; children: React.ReactNode }> = ({ label, c
   </div>
 );
 
-const Grid: React.FC<{ children: React.ReactNode; cols?: 1 | 2 | 3 | 4 | 6 }> = ({ children, cols = 3 }) => (
-  <div
-    className="grid gap-3"
-    style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
-  >
+const Grid: React.FC<{ children: React.ReactNode; cols?: 1 | 2 | 3 | 4 | 6 }> = ({
+  children,
+  cols = 3,
+}) => (
+  <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
     {children}
   </div>
 );
 
 function ButtonPreview() {
-  const variants: ButtonVariant[] = ['default', 'outline', 'secondary', 'ghost', 'destructive', 'link'];
+  const variants: ButtonVariant[] = [
+    'default',
+    'outline',
+    'secondary',
+    'ghost',
+    'destructive',
+    'link',
+  ];
   const sizes: ButtonSize[] = ['xs', 'sm', 'default', 'lg'];
   return (
     <div className="space-y-6">
@@ -183,9 +186,16 @@ function ButtonPreview() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border bg-muted/40">
-                <th className="px-3 py-2 text-left font-mono text-[10px] uppercase tracking-wider text-muted-foreground">variant\size</th>
+                <th className="px-3 py-2 text-left font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  variant\size
+                </th>
                 {sizes.map((s) => (
-                  <th key={s} className="px-3 py-2 text-left font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{s}</th>
+                  <th
+                    key={s}
+                    className="px-3 py-2 text-left font-mono text-[10px] uppercase tracking-wider text-muted-foreground"
+                  >
+                    {s}
+                  </th>
                 ))}
               </tr>
             </thead>
@@ -195,7 +205,9 @@ function ButtonPreview() {
                   <td className="px-3 py-3 font-mono text-xs text-muted-foreground">{v}</td>
                   {sizes.map((s) => (
                     <td key={s} className="px-3 py-3">
-                      <Button variant={v} size={s}>{v}</Button>
+                      <Button variant={v} size={s}>
+                        {v}
+                      </Button>
                     </td>
                   ))}
                 </tr>
@@ -207,16 +219,28 @@ function ButtonPreview() {
       <Grid cols={3}>
         <Cell label="disabled">
           <Button disabled>Disabled</Button>
-          <Button disabled variant="secondary">Disabled</Button>
+          <Button disabled variant="secondary">
+            Disabled
+          </Button>
         </Cell>
         <Cell label="icon-only">
-          <Button size="icon"><PencilIcon /></Button>
-          <Button size="icon-sm" variant="outline"><CopyIcon /></Button>
-          <Button size="icon-xs" variant="ghost"><TrashIcon /></Button>
+          <Button size="icon">
+            <PencilIcon />
+          </Button>
+          <Button size="icon-sm" variant="outline">
+            <CopyIcon />
+          </Button>
+          <Button size="icon-xs" variant="ghost">
+            <TrashIcon />
+          </Button>
         </Cell>
         <Cell label="with leading/trailing">
-          <Button><MailIcon data-icon="inline-start" /> Send</Button>
-          <Button variant="outline">Next <ArrowRightIcon data-icon="inline-end" /></Button>
+          <Button>
+            <MailIcon data-icon="inline-start" /> Send
+          </Button>
+          <Button variant="outline">
+            Next <ArrowRightIcon data-icon="inline-end" />
+          </Button>
         </Cell>
       </Grid>
     </div>
@@ -226,10 +250,18 @@ function ButtonPreview() {
 function BadgePreview() {
   return (
     <Grid cols={4}>
-      <Cell label="default"><Badge>Default</Badge></Cell>
-      <Cell label="secondary"><Badge variant="secondary">Secondary</Badge></Cell>
-      <Cell label="destructive"><Badge variant="destructive">Destructive</Badge></Cell>
-      <Cell label="outline"><Badge variant="outline">Outline</Badge></Cell>
+      <Cell label="default">
+        <Badge>Default</Badge>
+      </Cell>
+      <Cell label="secondary">
+        <Badge variant="secondary">Secondary</Badge>
+      </Cell>
+      <Cell label="destructive">
+        <Badge variant="destructive">Destructive</Badge>
+      </Cell>
+      <Cell label="outline">
+        <Badge variant="outline">Outline</Badge>
+      </Cell>
     </Grid>
   );
 }
@@ -287,9 +319,15 @@ function SeparatorPreview() {
 function InputPreview() {
   return (
     <Grid cols={2}>
-      <Cell label="default"><Input placeholder="you@example.com" className="w-full" /></Cell>
-      <Cell label="disabled"><Input placeholder="locked" disabled className="w-full" /></Cell>
-      <Cell label="invalid"><Input placeholder="bad@" aria-invalid className="w-full" /></Cell>
+      <Cell label="default">
+        <Input placeholder="you@example.com" className="w-full" />
+      </Cell>
+      <Cell label="disabled">
+        <Input placeholder="locked" disabled className="w-full" />
+      </Cell>
+      <Cell label="invalid">
+        <Input placeholder="bad@" aria-invalid className="w-full" />
+      </Cell>
       <Cell label="with prefix icon">
         <div className="relative w-full">
           <MailIcon className="pointer-events-none absolute left-2.5 top-2 size-4 text-muted-foreground" />
@@ -303,10 +341,18 @@ function InputPreview() {
 function TextareaPreview() {
   return (
     <Grid cols={2}>
-      <Cell label="default"><Textarea placeholder="Write a note…" className="w-full" /></Cell>
-      <Cell label="disabled"><Textarea placeholder="locked" disabled className="w-full" /></Cell>
-      <Cell label="invalid"><Textarea placeholder="bad" aria-invalid className="w-full" /></Cell>
-      <Cell label="prefilled"><Textarea defaultValue={'Two\nLines'} className="w-full" /></Cell>
+      <Cell label="default">
+        <Textarea placeholder="Write a note…" className="w-full" />
+      </Cell>
+      <Cell label="disabled">
+        <Textarea placeholder="locked" disabled className="w-full" />
+      </Cell>
+      <Cell label="invalid">
+        <Textarea placeholder="bad" aria-invalid className="w-full" />
+      </Cell>
+      <Cell label="prefilled">
+        <Textarea defaultValue={'Two\nLines'} className="w-full" />
+      </Cell>
     </Grid>
   );
 }
@@ -370,10 +416,18 @@ function SelectPreview() {
 function CheckboxPreview() {
   return (
     <Grid cols={3}>
-      <Cell label="unchecked"><Checkbox /></Cell>
-      <Cell label="checked"><Checkbox defaultChecked /></Cell>
-      <Cell label="disabled"><Checkbox disabled /></Cell>
-      <Cell label="disabled + checked"><Checkbox disabled defaultChecked /></Cell>
+      <Cell label="unchecked">
+        <Checkbox />
+      </Cell>
+      <Cell label="checked">
+        <Checkbox defaultChecked />
+      </Cell>
+      <Cell label="disabled">
+        <Checkbox disabled />
+      </Cell>
+      <Cell label="disabled + checked">
+        <Checkbox disabled defaultChecked />
+      </Cell>
     </Grid>
   );
 }
@@ -408,10 +462,18 @@ function RadioGroupPreview() {
 function SwitchPreview() {
   return (
     <Grid cols={4}>
-      <Cell label="off"><Switch /></Cell>
-      <Cell label="on"><Switch defaultChecked /></Cell>
-      <Cell label="disabled"><Switch disabled /></Cell>
-      <Cell label="disabled + on"><Switch disabled defaultChecked /></Cell>
+      <Cell label="off">
+        <Switch />
+      </Cell>
+      <Cell label="on">
+        <Switch defaultChecked />
+      </Cell>
+      <Cell label="disabled">
+        <Switch disabled />
+      </Cell>
+      <Cell label="disabled + on">
+        <Switch disabled defaultChecked />
+      </Cell>
     </Grid>
   );
 }
@@ -419,10 +481,18 @@ function SwitchPreview() {
 function SliderPreview() {
   return (
     <Grid cols={2}>
-      <Cell label="single"><Slider defaultValue={[42]} className="w-full" /></Cell>
-      <Cell label="range"><Slider defaultValue={[20, 70]} className="w-full" /></Cell>
-      <Cell label="disabled"><Slider defaultValue={[42]} disabled className="w-full" /></Cell>
-      <Cell label="stepped"><Slider defaultValue={[60]} step={10} className="w-full" /></Cell>
+      <Cell label="single">
+        <Slider defaultValue={[42]} className="w-full" />
+      </Cell>
+      <Cell label="range">
+        <Slider defaultValue={[20, 70]} className="w-full" />
+      </Cell>
+      <Cell label="disabled">
+        <Slider defaultValue={[42]} disabled className="w-full" />
+      </Cell>
+      <Cell label="stepped">
+        <Slider defaultValue={[60]} step={10} className="w-full" />
+      </Cell>
     </Grid>
   );
 }
@@ -435,13 +505,22 @@ function TabsPreview() {
         <TabsTrigger value="activity">Activity</TabsTrigger>
         <TabsTrigger value="settings">Settings</TabsTrigger>
       </TabsList>
-      <TabsContent value="overview" className="mt-4 rounded-md border border-border p-4 text-sm text-muted-foreground">
+      <TabsContent
+        value="overview"
+        className="mt-4 rounded-md border border-border p-4 text-sm text-muted-foreground"
+      >
         Aggregate view of the workspace.
       </TabsContent>
-      <TabsContent value="activity" className="mt-4 rounded-md border border-border p-4 text-sm text-muted-foreground">
+      <TabsContent
+        value="activity"
+        className="mt-4 rounded-md border border-border p-4 text-sm text-muted-foreground"
+      >
         Recent events for this workspace.
       </TabsContent>
-      <TabsContent value="settings" className="mt-4 rounded-md border border-border p-4 text-sm text-muted-foreground">
+      <TabsContent
+        value="settings"
+        className="mt-4 rounded-md border border-border p-4 text-sm text-muted-foreground"
+      >
         Per-workspace preferences.
       </TabsContent>
     </Tabs>
@@ -452,11 +531,17 @@ function BreadcrumbPreview() {
   return (
     <Breadcrumb>
       <BreadcrumbList>
-        <BreadcrumbItem><BreadcrumbLink href="#">Home</BreadcrumbLink></BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#">Home</BreadcrumbLink>
+        </BreadcrumbItem>
         <BreadcrumbSeparator />
-        <BreadcrumbItem><BreadcrumbLink href="#">Workspace</BreadcrumbLink></BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#">Workspace</BreadcrumbLink>
+        </BreadcrumbItem>
         <BreadcrumbSeparator />
-        <BreadcrumbItem><BreadcrumbPage>Settings</BreadcrumbPage></BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbPage>Settings</BreadcrumbPage>
+        </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
   );
@@ -466,13 +551,29 @@ function PaginationPreview() {
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
-        <PaginationItem><PaginationLink href="#">1</PaginationLink></PaginationItem>
-        <PaginationItem><PaginationLink href="#" isActive>2</PaginationLink></PaginationItem>
-        <PaginationItem><PaginationLink href="#">3</PaginationLink></PaginationItem>
-        <PaginationItem><PaginationEllipsis /></PaginationItem>
-        <PaginationItem><PaginationLink href="#">9</PaginationLink></PaginationItem>
-        <PaginationItem><PaginationNext href="#" /></PaginationItem>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive>
+            2
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">3</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">9</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
       </PaginationContent>
     </Pagination>
   );
@@ -485,13 +586,21 @@ function CommandPreview() {
       <CommandList>
         <CommandEmpty>No results.</CommandEmpty>
         <CommandGroup heading="Navigate">
-          <CommandItem><HomeIcon /> Home</CommandItem>
-          <CommandItem><SettingsIcon /> Settings</CommandItem>
+          <CommandItem>
+            <HomeIcon /> Home
+          </CommandItem>
+          <CommandItem>
+            <SettingsIcon /> Settings
+          </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Actions">
-          <CommandItem><PencilIcon /> Edit profile</CommandItem>
-          <CommandItem><TrashIcon /> Delete account</CommandItem>
+          <CommandItem>
+            <PencilIcon /> Edit profile
+          </CommandItem>
+          <CommandItem>
+            <TrashIcon /> Delete account
+          </CommandItem>
         </CommandGroup>
       </CommandList>
     </Command>
@@ -613,7 +722,9 @@ function TooltipPreview() {
   return (
     <div className="flex gap-3">
       <Tooltip>
-        <TooltipTrigger render={<Button variant="outline" size="icon" />}><InfoIcon /></TooltipTrigger>
+        <TooltipTrigger render={<Button variant="outline" size="icon" />}>
+          <InfoIcon />
+        </TooltipTrigger>
         <TooltipContent>Helpful context for icon-only triggers.</TooltipContent>
       </Tooltip>
       <Tooltip>
@@ -630,12 +741,12 @@ function HoverCardPreview() {
       <HoverCardTrigger render={<Button variant="link" />}>@bantarus</HoverCardTrigger>
       <HoverCardContent>
         <div className="flex items-start gap-3">
-          <Avatar><AvatarFallback>BT</AvatarFallback></Avatar>
+          <Avatar>
+            <AvatarFallback>BT</AvatarFallback>
+          </Avatar>
           <div>
             <p className="text-sm font-medium text-foreground">Bantarus</p>
-            <p className="text-xs text-muted-foreground">
-              Solo indie developer · joined 2024
-            </p>
+            <p className="text-xs text-muted-foreground">Solo indie developer · joined 2024</p>
           </div>
         </div>
       </HoverCardContent>
@@ -671,10 +782,18 @@ function AlertPreview() {
 function ProgressPreview() {
   return (
     <Grid cols={1}>
-      <Cell label="0%"><Progress value={0} className="w-full" /></Cell>
-      <Cell label="33%"><Progress value={33} className="w-full" /></Cell>
-      <Cell label="66%"><Progress value={66} className="w-full" /></Cell>
-      <Cell label="100%"><Progress value={100} className="w-full" /></Cell>
+      <Cell label="0%">
+        <Progress value={0} className="w-full" />
+      </Cell>
+      <Cell label="33%">
+        <Progress value={33} className="w-full" />
+      </Cell>
+      <Cell label="66%">
+        <Progress value={66} className="w-full" />
+      </Cell>
+      <Cell label="100%">
+        <Progress value={100} className="w-full" />
+      </Cell>
     </Grid>
   );
 }
@@ -700,8 +819,12 @@ function SonnerPreview() {
   return (
     <div className="flex gap-3">
       <Button onClick={() => toast('Saved')}>Plain toast</Button>
-      <Button variant="outline" onClick={() => toast.success('Pipeline complete')}>Success</Button>
-      <Button variant="destructive" onClick={() => toast.error('Lint failed')}>Error</Button>
+      <Button variant="outline" onClick={() => toast.success('Pipeline complete')}>
+        Success
+      </Button>
+      <Button variant="destructive" onClick={() => toast.error('Lint failed')}>
+        Error
+      </Button>
     </div>
   );
 }
@@ -758,7 +881,15 @@ function TablePreview() {
             <TableCell>{r.plan}</TableCell>
             <TableCell>{r.mrr}</TableCell>
             <TableCell>
-              <Badge variant={r.status === 'active' ? 'default' : r.status === 'churned' ? 'destructive' : 'secondary'}>
+              <Badge
+                variant={
+                  r.status === 'active'
+                    ? 'default'
+                    : r.status === 'churned'
+                      ? 'destructive'
+                      : 'secondary'
+                }
+              >
                 {r.status}
               </Badge>
             </TableCell>
@@ -775,22 +906,22 @@ function AccordionPreview() {
       <AccordionItem value="a1">
         <AccordionTrigger>What is dsx?</AccordionTrigger>
         <AccordionContent>
-          An iteration template for design systems where the agent's only
-          editable surface is DESIGN.md.
+          An iteration template for design systems where the agent's only editable surface is
+          DESIGN.md.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="a2">
         <AccordionTrigger>How is the gallery rendered?</AccordionTrigger>
         <AccordionContent>
-          Deterministically from DESIGN.md via `scripts/pipeline.mjs`. No
-          per-component prompting happens here.
+          Deterministically from DESIGN.md via `scripts/pipeline.mjs`. No per-component prompting
+          happens here.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="a3">
         <AccordionTrigger>Can I add my own components?</AccordionTrigger>
         <AccordionContent>
-          Yes — manually. Add the file, add an entry to components-manifest,
-          add a preview. The agent does not touch any of this.
+          Yes — manually. Add the file, add an entry to components-manifest, add a preview. The
+          agent does not touch any of this.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -800,7 +931,12 @@ function AccordionPreview() {
 function CalendarPreview() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
   return (
-    <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border border-border" />
+    <Calendar
+      mode="single"
+      selected={date}
+      onSelect={setDate}
+      className="rounded-md border border-border"
+    />
   );
 }
 
@@ -809,7 +945,9 @@ function ScrollAreaPreview() {
     <ScrollArea className="h-40 w-full rounded-md border border-border p-4">
       <div className="space-y-2 pr-4">
         {Array.from({ length: 24 }, (_, i) => (
-          <div key={i} className="text-sm text-foreground">Row {i + 1} — long enough to overflow the scroll area on purpose.</div>
+          <div key={i} className="text-sm text-foreground">
+            Row {i + 1} — long enough to overflow the scroll area on purpose.
+          </div>
         ))}
       </div>
     </ScrollArea>
@@ -821,12 +959,16 @@ function AspectRatioPreview() {
     <Grid cols={2}>
       <Cell label="16/9">
         <AspectRatio ratio={16 / 9} className="w-full overflow-hidden rounded-md bg-muted">
-          <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">16 : 9</div>
+          <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
+            16 : 9
+          </div>
         </AspectRatio>
       </Cell>
       <Cell label="1/1">
         <AspectRatio ratio={1} className="w-full overflow-hidden rounded-md bg-muted">
-          <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">1 : 1</div>
+          <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
+            1 : 1
+          </div>
         </AspectRatio>
       </Cell>
     </Grid>

@@ -60,13 +60,10 @@ export default function TokensPage() {
           <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
             Helios — dsx
           </p>
-          <h1 className="mt-2 text-4xl font-semibold tracking-tight text-foreground">
-            Tokens
-          </h1>
+          <h1 className="mt-2 text-4xl font-semibold tracking-tight text-foreground">Tokens</h1>
           <p className="mt-3 max-w-prose text-base text-muted-foreground">
-            Every CSS variable in the loaded stylesheets, grouped by prefix.
-            Values come from `getComputedStyle(documentElement)` so they
-            reflect the active theme.
+            Every CSS variable in the loaded stylesheets, grouped by prefix. Values come from
+            `getComputedStyle(documentElement)` so they reflect the active theme.
           </p>
         </div>
         <button

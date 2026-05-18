@@ -50,7 +50,9 @@ function main() {
     process.exit(0);
   }
 
-  process.stderr.write('design-md-sync: DRIFT — active DESIGN.md is missing names that base.DESIGN.md defines.\n\n');
+  process.stderr.write(
+    'design-md-sync: DRIFT — active DESIGN.md is missing names that base.DESIGN.md defines.\n\n',
+  );
   if (missingColors.length > 0) {
     process.stderr.write(`  Missing colors (${missingColors.length}):\n`);
     for (const n of missingColors) process.stderr.write(`    - ${n}\n`);

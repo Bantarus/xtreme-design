@@ -21,9 +21,7 @@ export const metadata: Metadata = {
   description: 'The deterministic canvas. Rendered from DESIGN.md by scripts/pipeline.mjs.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>

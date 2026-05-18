@@ -19,9 +19,13 @@ export default async function ComponentDetailPage({
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
       <nav className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-        <Link href="/" className="hover:text-foreground">Gallery</Link>
+        <Link href="/" className="hover:text-foreground">
+          Gallery
+        </Link>
         <span aria-hidden>/</span>
-        <Link href="/" className="hover:text-foreground">{entry.category}</Link>
+        <Link href="/" className="hover:text-foreground">
+          {entry.category}
+        </Link>
         <span aria-hidden>/</span>
         <span className="text-foreground">{entry.name}</span>
       </nav>

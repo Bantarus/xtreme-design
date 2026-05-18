@@ -33,8 +33,8 @@ export const Default: Story = {
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground">
-          Throughput steady at 12.4k requests/min. Error rate down 18% from
-          last quarter. Two regressions still open for review.
+          Throughput steady at 12.4k requests/min. Error rate down 18% from last quarter. Two
+          regressions still open for review.
         </p>
       </CardContent>
       <CardFooter className="justify-end gap-2">

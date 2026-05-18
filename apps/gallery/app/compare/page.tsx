@@ -7,7 +7,13 @@ type Version = { id: string; name: string; paletteHex: string[] };
 
 function PaletteSwatch({ hex }: { hex: string[] }) {
   return (
-    <svg width="56" height="14" viewBox="0 0 56 14" aria-hidden className="rounded-sm overflow-hidden">
+    <svg
+      width="56"
+      height="14"
+      viewBox="0 0 56 14"
+      aria-hidden
+      className="rounded-sm overflow-hidden"
+    >
       <title>palette</title>
       {hex.slice(0, 5).map((c, i) => (
         <rect key={`${i}-${c}`} x={i * 11.2} y={0} width={11.2} height={14} fill={c} />
@@ -20,10 +26,14 @@ function VersionLabel({ versions, id }: { versions: Version[] | null; id: string
   const v = versions?.find((x) => x.id === id);
   return (
     <div className="flex items-center gap-3 border-b border-border bg-card px-4 py-2">
-      <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">A/B</span>
+      <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+        A/B
+      </span>
       <span className="font-mono text-sm text-foreground">{id}</span>
       {v && <PaletteSwatch hex={v.paletteHex} />}
-      {v?.name && v.name !== id && <span className="text-xs text-muted-foreground">— {v.name}</span>}
+      {v?.name && v.name !== id && (
+        <span className="text-xs text-muted-foreground">— {v.name}</span>
+      )}
     </div>
   );
 }

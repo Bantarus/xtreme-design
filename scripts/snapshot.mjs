@@ -77,7 +77,9 @@ function readHash(versionDir) {
 
 function paletteOf(tokensCssPath) {
   if (!existsSync(tokensCssPath)) return ['#000', '#000', '#000', '#000', '#000'];
-  const out = execSync(`node scripts/palette-thumbnail.mjs "${tokensCssPath}"`, { encoding: 'utf8' });
+  const out = execSync(`node scripts/palette-thumbnail.mjs "${tokensCssPath}"`, {
+    encoding: 'utf8',
+  });
   try {
     return JSON.parse(out);
   } catch {
@@ -99,7 +101,8 @@ function persistVersion(id, name, brief, source) {
   mkdirSync(dir, { recursive: true });
   copyFileSync(source.design, join(dir, 'DESIGN.md'));
   if (existsSync(source.tokensCss)) copyFileSync(source.tokensCss, join(dir, 'tokens.css'));
-  if (existsSync(source.tokensDir)) cpSync(source.tokensDir, join(dir, 'tokens'), { recursive: true });
+  if (existsSync(source.tokensDir))
+    cpSync(source.tokensDir, join(dir, 'tokens'), { recursive: true });
   const persistedCssPath = join(dir, 'tokens.css');
   const meta = {
     id,
@@ -158,7 +161,9 @@ function autoMode(brief) {
     const prevHash = readHash(join(VERSIONS_ROOT, lastEntry.id));
     if (prevHash && prevHash === activeHash) {
       saveIndex(idx);
-      process.stdout.write(`snapshot: no-op snapshot skipped (tokens.css unchanged since ${lastEntry.id}).\n`);
+      process.stdout.write(
+        `snapshot: no-op snapshot skipped (tokens.css unchanged since ${lastEntry.id}).\n`,
+      );
       return;
     }
   }
@@ -209,7 +214,9 @@ function main() {
 
   if (auto) return autoMode(brief);
   if (nameIdx >= 0) return nameMode(args[nameIdx + 1]);
-  process.stderr.write('snapshot: pass --auto (used by pipeline) or --name "<text>" (used by /snapshot).\n');
+  process.stderr.write(
+    'snapshot: pass --auto (used by pipeline) or --name "<text>" (used by /snapshot).\n',
+  );
   process.exit(1);
 }
 

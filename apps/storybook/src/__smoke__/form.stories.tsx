@@ -19,9 +19,7 @@ export const SignIn: Story = {
     >
       <div className="space-y-1.5">
         <h2 className="text-base font-semibold text-foreground">Sign in</h2>
-        <p className="text-sm text-muted-foreground">
-          Use your work email to continue.
-        </p>
+        <p className="text-sm text-muted-foreground">Use your work email to continue.</p>
       </div>
       <div className="grid gap-2">
         <Label htmlFor="email">Email</Label>

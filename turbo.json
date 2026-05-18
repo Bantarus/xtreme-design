@@ -21,10 +21,7 @@
       "outputs": []
     },
     "//#tokens": {
-      "inputs": [
-        "tokens/**",
-        "style-dictionary.config.mjs"
-      ],
+      "inputs": ["tokens/**", "style-dictionary.config.mjs"],
       "outputs": ["build/**"]
     }
   }

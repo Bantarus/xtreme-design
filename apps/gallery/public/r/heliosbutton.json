@@ -3,10 +3,7 @@
   "name": "heliosbutton",
   "title": "HeliosButton",
   "description": "Wrapped shadcn Button with an additional 'glow' variant that renders a 3px ring in the dsx --color-focus-ring token. Use for the single hero CTA on a landing or empty-state view.",
-  "dependencies": [
-    "@base-ui/react",
-    "class-variance-authority"
-  ],
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
   "registryDependencies": [],
   "files": [
     {

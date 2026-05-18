@@ -15,10 +15,7 @@
           "target": "components/ui/heliosbutton.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "class-variance-authority"
-      ],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "registryDependencies": []
     }
   ]

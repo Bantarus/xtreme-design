@@ -1,27 +1,36 @@
 #!/usr/bin/env node
-// PreToolUse fence: the agent may only Write or Edit DESIGN.md. Every other
-// path is rejected with exit code 2 and a message explaining the contract.
+// PreToolUse fence: the agent may only Write or Edit files on the dsx
+// surface. Every other path is rejected with exit code 2 and a message
+// explaining the contract.
 //
 // Rationale: dsx is a scoped probabilistic surface. The deterministic
-// translation from DESIGN.md to gallery / tokens / versions is performed by
-// scripts/pipeline.mjs (the Stop hook). The agent should never touch
-// generated artifacts, components, layout, or config — those are owned by
-// the human and the pipeline.
+// translation from these inputs to the gallery / Storybook / tokens / version
+// snapshots is performed by scripts/pipeline.mjs (the Stop hook) and the
+// Storybook build. The agent should never touch generated artifacts,
+// components, layout, or config — those are owned by the human and the
+// pipeline.
 //
-// Allowed:
-//   - Write/Edit on `DESIGN.md` (relative to repo root), including hex
-//     literals anywhere in front-matter or prose. The DESIGN.md spec defines
-//     hex as the canonical color value; we do not second-guess it here.
+// Allowed surfaces (two, no more):
+//   1. `DESIGN.md` (repo root) — the active design system. /design and
+//      /tweak write here; the pipeline regenerates every visual artifact
+//      from this file.
+//   2. `apps/storybook/src/**/*.stories.{ts,tsx}` — page and section
+//      compositions. /page, /section, and /refine write here; Storybook
+//      hot-reloads them in place. The version picker decorator gives every
+//      story the active palette automatically.
 //
 // Rejected:
-//   - Write/Edit on ANY other path. The agent must surface the issue to the
-//     human instead of editing components, settings, scripts, etc.
+//   - Write/Edit on ANY other path, including .storybook/ config files,
+//     shadcn component sources, gallery routes, build scripts, settings,
+//     docs. The agent must surface the issue to the human instead.
 //
 // The fence reads the Claude Code hook payload from stdin (preferred). It
-// supports both `Write` (input.content) and `Edit` (input.new_string) tools.
+// supports Write, Edit, MultiEdit, and NotebookEdit tools.
 
 import { readFileSync } from 'node:fs';
 import { resolve, relative, isAbsolute } from 'node:path';
+
+const STORY_PATTERN = /^apps\/storybook\/src\/.+\.stories\.(ts|tsx)$/;
 
 function readStdin() {
   try {
@@ -29,6 +38,12 @@ function readStdin() {
   } catch {
     return '';
   }
+}
+
+function isAllowed(rel) {
+  if (rel === 'DESIGN.md') return true;
+  if (STORY_PATTERN.test(rel)) return true;
+  return false;
 }
 
 function main() {
@@ -55,22 +70,23 @@ function main() {
   const absPath = isAbsolute(filePath) ? filePath : resolve(cwd, filePath);
   const rel = relative(cwd, absPath).replaceAll('\\', '/');
 
-  // The single allowed path.
-  if (rel === 'DESIGN.md') {
+  if (isAllowed(rel)) {
     process.exit(0);
   }
 
   const message =
-    `dsx: the agent surface is DESIGN.md only.\n` +
+    `dsx: the agent surface is DESIGN.md + apps/storybook/src/**/*.stories.{ts,tsx}.\n` +
     `  You tried to write: ${rel || filePath}\n` +
     `  Tool: ${toolName}\n\n` +
-    `  Everything visible in dsx — the gallery, the components, the build\n` +
-    `  outputs, the version snapshots — is rendered deterministically from\n` +
-    `  DESIGN.md by scripts/pipeline.mjs. The agent never edits those.\n\n` +
-    `  If a non-DESIGN.md change is genuinely required (a bug in the\n` +
-    `  pipeline, a missing component in the gallery, a config update), stop\n` +
-    `  and explain the situation to the user. They will make the change\n` +
-    `  manually.`;
+    `  Allowed:\n` +
+    `    - DESIGN.md (chapter 1 — the active design system)\n` +
+    `    - apps/storybook/src/**/*.stories.{ts,tsx} (chapter 2 — page composition)\n\n` +
+    `  Everything else in dsx — the gallery, the shadcn components, the\n` +
+    `  Storybook config, the build pipeline, the version store — is rendered\n` +
+    `  deterministically from those two surfaces. The agent never edits them.\n\n` +
+    `  If a non-surface change is genuinely required (a bug in the pipeline,\n` +
+    `  a missing component, a Storybook config update), stop and explain\n` +
+    `  the situation to the user. They will make the change manually.`;
 
   process.stderr.write(`${message}\n`);
   process.exit(2);

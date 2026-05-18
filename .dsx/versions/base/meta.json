@@ -4,12 +4,6 @@
   "createdAt": "2026-05-18T17:14:48.251Z",
   "gitSha": "0fa9adf",
   "brief": "Untouched reference DESIGN.md. Never overwritten.",
-  "paletteHex": [
-    "#7a3e0c",
-    "#faf8f3",
-    "#161311",
-    "#d8d2c5",
-    "#efebe2"
-  ],
+  "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"],
   "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
 }

@@ -14,7 +14,13 @@ type Version = {
 
 function PaletteSwatch({ hex }: { hex: string[] }) {
   return (
-    <svg width="64" height="16" viewBox="0 0 64 16" className="overflow-hidden rounded-sm" aria-hidden>
+    <svg
+      width="64"
+      height="16"
+      viewBox="0 0 64 16"
+      className="overflow-hidden rounded-sm"
+      aria-hidden
+    >
       <title>palette</title>
       {hex.slice(0, 5).map((c, i) => (
         <rect key={`${i}-${c}`} x={i * 12.8} y={0} width={12.8} height={16} fill={c} />

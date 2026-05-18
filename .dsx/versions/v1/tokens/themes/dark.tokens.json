@@ -2,19 +2,19 @@
   "$schema": "https://schemas.designtokens.org/2025.10/format.json",
   "color": {
     "$type": "color",
-    "primary":       { "$value": "{color.scale.amber.500}" },
+    "primary": { "$value": "{color.scale.amber.500}" },
     "primary-hover": { "$value": "{color.scale.amber.300}" },
-    "on-primary":    { "$value": "{color.scale.limestone.1000}" },
-    "surface":       { "$value": "{color.scale.limestone.1000}" },
+    "on-primary": { "$value": "{color.scale.limestone.1000}" },
+    "surface": { "$value": "{color.scale.limestone.1000}" },
     "surface-muted": { "$value": "{color.scale.limestone.900}" },
-    "text":          { "$value": "{color.scale.limestone.50}" },
-    "text-muted":    { "$value": "{color.scale.limestone.300}" },
-    "border":        { "$value": "{color.scale.limestone.700}" },
+    "text": { "$value": "{color.scale.limestone.50}" },
+    "text-muted": { "$value": "{color.scale.limestone.300}" },
+    "border": { "$value": "{color.scale.limestone.700}" },
     "border-strong": { "$value": "{color.scale.limestone.500}" },
-    "success":       { "$value": "{color.scale.forest.500}" },
-    "danger":        { "$value": "{color.scale.scarlet.500}" },
-    "warning":       { "$value": "{color.scale.honey.500}" },
-    "info":          { "$value": "{color.scale.ocean.500}" },
-    "focus-ring":    { "$value": "{color.scale.amber.300}" }
+    "success": { "$value": "{color.scale.forest.500}" },
+    "danger": { "$value": "{color.scale.scarlet.500}" },
+    "warning": { "$value": "{color.scale.honey.500}" },
+    "info": { "$value": "{color.scale.ocean.500}" },
+    "focus-ring": { "$value": "{color.scale.amber.300}" }
   }
 }

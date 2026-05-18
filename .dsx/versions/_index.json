@@ -5,13 +5,7 @@
     "createdAt": "2026-05-18T17:14:48.251Z",
     "gitSha": "0fa9adf",
     "brief": "Untouched reference DESIGN.md. Never overwritten.",
-    "paletteHex": [
-      "#7a3e0c",
-      "#faf8f3",
-      "#161311",
-      "#d8d2c5",
-      "#efebe2"
-    ],
+    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"],
     "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   },
   {
@@ -19,13 +13,7 @@
     "name": "v1-baseline",
     "createdAt": "2026-05-18T17:14:48.273Z",
     "gitSha": "0fa9adf",
-    "paletteHex": [
-      "#7a3e0c",
-      "#faf8f3",
-      "#161311",
-      "#d8d2c5",
-      "#efebe2"
-    ],
+    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"],
     "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   },
   {
@@ -33,13 +21,7 @@
     "name": "v2",
     "createdAt": "2026-05-18T17:25:01.238Z",
     "gitSha": "6776cec",
-    "paletteHex": [
-      "#1b3a4b",
-      "#f7f1e7",
-      "#1a1815",
-      "#cdc3ad",
-      "#ece4d3"
-    ],
+    "paletteHex": ["#1b3a4b", "#f7f1e7", "#1a1815", "#cdc3ad", "#ece4d3"],
     "tokensCssSha256": "b735a438e645254cb7b7769cae790490bfbf44357db66854ef0fa4ff53c8a28a"
   },
   {
@@ -47,13 +29,7 @@
     "name": "camping-v1-approved",
     "createdAt": "2026-05-18T17:25:18.276Z",
     "gitSha": "6776cec",
-    "paletteHex": [
-      "#0d1d28",
-      "#d9d2c1",
-      "#0a0907",
-      "#cdc3ad",
-      "#b9b1a0"
-    ],
+    "paletteHex": ["#0d1d28", "#d9d2c1", "#0a0907", "#cdc3ad", "#b9b1a0"],
     "tokensCssSha256": "12deb6d2218a3bb834ba61c086c1591aaf859473bf100a878a694195e11006a9"
   },
   {
@@ -61,13 +37,7 @@
     "name": "v4",
     "createdAt": "2026-05-18T17:25:53.853Z",
     "gitSha": "6776cec",
-    "paletteHex": [
-      "#7a3e0c",
-      "#faf8f3",
-      "#161311",
-      "#d8d2c5",
-      "#efebe2"
-    ],
+    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"],
     "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   }
 ]
