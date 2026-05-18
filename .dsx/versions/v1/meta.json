@@ -1,0 +1,13 @@
+{
+  "id": "v1",
+  "name": "v1-baseline",
+  "createdAt": "2026-05-18T17:14:48.273Z",
+  "gitSha": "0fa9adf",
+  "paletteHex": [
+    "#7a3e0c",
+    "#faf8f3",
+    "#161311",
+    "#d8d2c5",
+    "#efebe2"
+  ]
+}

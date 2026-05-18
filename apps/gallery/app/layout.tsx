@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Suspense } from 'react';
+import { ActiveStylesheet } from '@/components/ActiveStylesheet';
+import { VersionPicker } from '@/components/VersionPicker';
 import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
@@ -14,8 +17,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'dsx — Helios design system',
-  description: 'Smoke test for the dsx design system (web target).',
+  title: 'dsx — Helios gallery',
+  description: 'The deterministic canvas. Rendered from DESIGN.md by scripts/pipeline.mjs.',
 };
 
 export default function RootLayout({
@@ -24,6 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+        <Suspense fallback={null}>
+          <ActiveStylesheet />
+        </Suspense>
+        <Suspense fallback={null}>
+          <VersionPicker />
+        </Suspense>
         {children}
         <Toaster />
       </body>
