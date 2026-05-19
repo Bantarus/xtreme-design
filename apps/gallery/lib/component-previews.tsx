@@ -769,9 +769,9 @@ function AlertPreview() {
       <Cell label="destructive">
         <Alert variant="destructive">
           <AlertCircleIcon />
-          <AlertTitle>Lint failed</AlertTitle>
+          <AlertTitle>Could not save</AlertTitle>
           <AlertDescription>
-            DESIGN.md front-matter is missing the `colors.primary` token.
+            Something went wrong. Please try again.
           </AlertDescription>
         </Alert>
       </Cell>
