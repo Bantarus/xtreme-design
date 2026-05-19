@@ -1,88 +1,153 @@
-# APM spike — one-pager (2026-05-19)
+# APM spike — one-pager (2026-05-19, revised)
 
-> Goal: figure out whether [microsoft/apm](https://github.com/microsoft/apm) can be the substrate for making dsx model/agent-agnostic. Author primitives once, compile per target (`claude`, `cursor`, `codex`, `copilot`, …), `apm install bantarus/dsx` from any client.
+> Goal: figure out whether [microsoft/apm](https://github.com/microsoft/apm) can be the substrate for making dsx model/agent-agnostic. Author primitives once, deploy per target (`claude`, `cursor`, `codex`, `copilot`, `opencode`, …), `apm install bantarus/dsx` from any client.
 
 ## TL;DR
 
-**Not yet.** The APM **spec** describes what we want (one source for skills, agents, commands, hooks, MCP — translated into seven client deploy roots). The APM **CLI** at the current release (`v0.14.0` tag, internal version `0.8.11`) implements only **one primitive type — `instructions`** — and emits only `AGENTS.md` / `CLAUDE.md` / `.github/copilot-instructions.md`. Skills, agents, commands, and hooks are documented but not yet compiled. dsx adopting APM today buys us nothing we don't already have (AGENTS.md is already the cross-tool contract). **Recommendation: don't migrate yet. Reassess at APM 1.0.**
+**Yes — APM is ready today.** A first pass of this spike got the wrong answer because I ran `apm compile` (which only emits AGENTS.md / CLAUDE.md from instruction primitives) and concluded skills / agents / commands / hooks weren't supported. They are — by `apm install`, not `apm compile`. With correctly-named primitives and `targets:` declared, a single `apm install` deploys **17 files across 5 client roots** (`.claude/`, `.github/`, `.cursor/`, `.codex/`, `.opencode/`) and translates each to its target idiom (TOML for codex agents, `.mdc` for cursor rules, `settings.json` merge for claude hooks). **Recommendation flipped: migrate dsx to be APM-native as chapter 3.**
 
-## What I tested
+> An earlier revision of this document concluded "not yet." That conclusion was wrong; it came from testing the wrong command. The findings below override it.
 
-1. Installed `apm` (already in `~/.local/bin`, version `0.8.11`). Confirmed: this *is* the latest release; Microsoft ships CLI 0.8.11 under the `v0.14.0` repo tag.
-2. `apm init dsx-plugin --plugin --yes` → produces `apm.yml` + `plugin.json` (≈10 lines each). Clean, minimal.
-3. Dropped four primitives into `.apm/`:
-   - `.apm/instructions/page.instructions.md`
-   - `.apm/agents/test.agent.md`
-   - `.apm/skills/test.skill.md`
-   - `.apm/commands/test.command.md`
-   - `.apm/hooks/test.hook.md`
-4. Ran `apm compile --target claude --verbose`.
+## What I tested (corrected)
 
-## What apm actually emitted
+1. `apm init dsx-plugin --plugin --yes` in `/tmp/dsx-apm-spike/`.
+2. Authored five primitives under `.apm/` with the spec-mandated filename suffixes:
+   - `.apm/skills/composition-patterns/SKILL.md` (copied verbatim from `.claude/skills/composition-patterns/SKILL.md`)
+   - `.apm/agents/token-guardian.agent.md` (copied + renamed from `.claude/agents/token-guardian.md`)
+   - `.apm/prompts/page.prompt.md` (copied + renamed from `.claude/commands/page.md`)
+   - `.apm/instructions/dsx-guard.instructions.md` (fixture; needs `applyTo:` frontmatter)
+   - `.apm/hooks/pipeline.json` (dsx's existing Stop + PostToolUse hooks in APM's JSON shape)
+3. Declared `targets: [claude, copilot, cursor, codex, opencode]` in `apm.yml`.
+4. Pre-created the five target deploy roots so APM detects each. Ran `apm install --verbose`.
 
-| Primitive | What CLI did |
-|---|---|
-| `.apm/instructions/*.instructions.md` | ✅ Inlined into a generated `CLAUDE.md` at the project root |
-| `.apm/agents/*.agent.md` | ⚠️ Validated frontmatter (warned about missing `description`); did **not** emit `.claude/agents/<n>.md` |
-| `.apm/skills/*.skill.md` | ❌ Silently ignored — no warning, no output |
-| `.apm/commands/*.command.md` | ❌ Silently ignored |
-| `.apm/hooks/*.hook.md` | ❌ Silently ignored |
+## What `apm install` actually emits
 
-After compile: `dsx-plugin/AGENTS.md` and `dsx-plugin/CLAUDE.md` were both generated stub files referencing the instruction content. No `.claude/agents/`, `.claude/skills/`, `.claude/commands/` directories were created.
+One install. 17 files. Per-target translation handled automatically.
 
-The targets matrix I cited earlier ([reference/targets-matrix.md](https://github.com/microsoft/apm/blob/main/docs/src/content/docs/reference/targets-matrix.md)) describes seven targets with per-primitive support boxes — but the CLI's `--target` flag only accepts `copilot | claude | cursor | opencode | codex | vscode | agents | all`. No `gemini`, no `windsurf`. The matrix is **forward-looking documentation**, not the current CLI surface.
+```
+.claude/agents/token-guardian.md            ← from .apm/agents/token-guardian.agent.md
+.claude/commands/page.md                    ← from .apm/prompts/page.prompt.md
+.claude/rules/dsx-guard.md                  ← from .apm/instructions/dsx-guard.instructions.md
+.claude/skills/composition-patterns/SKILL.md ← copied
+.claude/settings.json                       ← from .apm/hooks/pipeline.json (merged)
+.claude/apm-hooks.json                      ← extra copy (provenance)
 
-## What this means for dsx
+.github/agents/token-guardian.agent.md      ← keeps APM-native suffix
+.github/instructions/dsx-guard.instructions.md
+.github/prompts/page.prompt.md              ← keeps .prompt.md (Copilot native)
+.github/hooks/dsx-plugin-pipeline.json
 
-### What APM would actually do for us today
+.cursor/agents/token-guardian.md
+.cursor/commands/page.md
+.cursor/rules/dsx-guard.mdc                 ← renamed to .mdc + frontmatter rewrite
+.cursor/hooks.json
 
-The single working primitive is `instructions`, which APM distributes into root `AGENTS.md` / `CLAUDE.md`. **We already do this:** AGENTS.md is the canonical contract; CLAUDE.md is a thin pointer to it (refactored yesterday). Adopting APM right now would only replace our hand-authored `AGENTS.md` with one generated from `.apm/instructions/*.instructions.md` fragments — same content, more indirection.
+.codex/agents/token-guardian.toml           ← translated to TOML format!
+.codex/hooks.json
 
-### What APM would NOT do for us today
+.opencode/agents/token-guardian.md
+.opencode/commands/page.md
+.agents/skills/composition-patterns/SKILL.md  ← codex skills go here per spec
+```
 
-- **Skills**: `.claude/skills/<n>/SKILL.md` doesn't get generated. The 16 skills we ship (3 user-authored + 12 storybook reference + 1 dsx-local) stay Claude-only.
-- **Subagents**: `.claude/agents/*.md` doesn't get generated.
-- **Slash commands**: `.claude/commands/*.md` doesn't get generated. `/page`, `/section`, `/refine`, `/design`, `/tweak`, `/snapshot`, `/restore` stay Claude-only.
-- **Hooks**: `.claude/settings.json` hooks aren't synthesized. The fence (`scripts/agent-surface-fence.mjs`) and pipeline trigger (`scripts/pipeline.mjs` via Stop hook) stay Claude-only.
+Notable translations:
 
-### The three independent problems
+- **Codex agents** are rewritten from frontmatter+markdown to a `.toml` document with `name`, `description`, `developer_instructions` fields — APM owns the format conversion.
+- **Cursor rules** rename `applyTo:` → `globs:` and the file extension to `.mdc`.
+- **Claude hooks** merge into `settings.json`; **Cursor hooks** get their own `hooks.json`; **Codex** gets `.codex/hooks.json`. APM honors each target's hook idiom.
+- **OpenCode skips hooks** (no support, per the spec matrix) — silently, no error.
 
-The user's original ask bundles three concerns. Untangling them:
+## What was wrong with the first attempt
 
-1. **AGENTS.md as cross-tool rules** — **already solved.** We refactored yesterday. Every supported tool (25+ per agents.md) reads it.
-2. **Slash commands / skills / subagents portable across tools** — **blocked on APM CLI feature completeness.** Spec is right; implementation isn't there. Realistic timeline: 6–18 months based on the gap between the documented matrix and what the CLI actually emits.
-3. **Pipeline trigger that isn't Claude's Stop hook** — **solvable today, independently of APM.** `scripts/watch.mjs` (chokidar, already exists) watches `DESIGN.md`. We can promote it from "nice-to-have during `pnpm dev`" to "the canonical trigger; the Claude Stop hook is one of several optional kickers." Any tool — Claude, Codex, Cursor — that edits `DESIGN.md` triggers the watcher; the watcher runs the pipeline. The fence (`agent-surface-fence.mjs`) stays Claude-specific but becomes a soft-constraint everywhere else (AGENTS.md prose still says it).
+| Mistake | What I did | What I should have done |
+|---|---|---|
+| Used the wrong command | `apm compile --target claude` | `apm install --target claude` |
+| Conflated APM's two phases | Treated compile as "the deploy step" | `compile` is for AGENTS.md/CLAUDE.md generation only; `install` is what deploys primitives to client roots |
+| Missed file suffix requirements | Named files `test.skill.md`, `test.agent.md` | Skills must be `SKILL.md` inside a `<slug>/` dir; agents need `*.agent.md` (or `*.chatmode.md`); prompts need `*.prompt.md`; instructions need `*.instructions.md` |
+| Didn't declare `targets:` | Left it auto-detected (which chose only one target) | Explicit `targets: [claude, copilot, cursor, codex, opencode]` in apm.yml unlocks multi-target deploy |
 
-## Recommended path forward
+The apm-cli / apm-packaging / apm-distribution skills the user added to this repo would have prevented all four mistakes if I'd loaded them before testing.
 
-Three options, ordered by ambition:
+## What this means for dsx — the actual migration
 
-### Option A — Decouple the trigger; defer APM (minimal, recommended)
+The migration is **mostly file moves and renames**, plus an `apm.yml`. No CLI scripting on our side.
 
-Do problem (3) only. Make `scripts/watch.mjs` the **canonical** pipeline trigger, with the Claude `Stop` hook documented as one of several optional accelerators. Update `AGENTS.md` to say "the watcher runs after every save regardless of which agent edited the file." Effective result: dsx works under Codex / Cursor / Copilot today, with degraded UX (no slash commands, no skills auto-loading) but the loop is intact.
+### Move map
 
-**Cost:** 1–2 hours. Mostly a docs change + a tiny `scripts/watch.mjs` polish + `package.json` script tweak.
+| From | To | Note |
+|---|---|---|
+| `.claude/agents/<n>.md` | `.apm/agents/<n>.agent.md` | rename suffix |
+| `.claude/commands/<n>.md` | `.apm/prompts/<n>.prompt.md` | rename suffix; "command" → "prompt" in APM vocab |
+| `.claude/skills/<n>/SKILL.md` | `.apm/skills/<n>/SKILL.md` | structure-identical; just move dir |
+| `.claude/settings.json` hooks | `.apm/hooks/dsx-pipeline.json` | extract the hook block (lose PreToolUse fence — see below) |
 
-**Buys us:** Codex / Cursor users can already iterate on `DESIGN.md` and see the gallery + Storybook update. They don't have `/design` / `/tweak` slash commands — they ask the agent in prose — but the deterministic loop still works.
+### Stays where it is
 
-### Option B — Adopt APM for AGENTS.md distribution only
+- `scripts/*.mjs` — APM doesn't manage scripts. Hooks reference `node scripts/<x>.mjs`; the scripts must exist at the project root. This is fine: dsx is a TEMPLATE you clone, not a library you depend on.
+- `apps/gallery/`, `apps/storybook/`, `tokens/`, `DESIGN.md`, `base.DESIGN.md`, `style-dictionary.config.mjs`, `tests/visual/`, `.dsx/` — everything domain-specific to dsx stays as-is. APM only manages the agent layer.
+- `AGENTS.md` — stays hand-authored. APM CAN generate it via `apm compile`, but we already have a curated one. Use `apm compile --target all` only if/when we want to distribute instructions across nested directories.
 
-Add `apm.yml` + `.apm/instructions/`, generate AGENTS.md from those fragments. **Cost:** half a day. **Buys us:** alignment with a Microsoft-backed convention, easier to plug in third-party APM packages later. **Downsides:** AGENTS.md becomes a generated artifact (commit-noise on every primitive edit), and we get nothing for skills/commands/hooks.
+### Generated (gitignore)
 
-### Option C — Build our own cross-tool compiler
+- `.claude/`, `.cursor/`, `.codex/`, `.github/copilot-instructions.md`, `.opencode/`, `.agents/` — emitted by `apm install`. Gitignore them and rely on `apm install` as a setup step.
+- `apm_modules/` — APM cache for external dependencies (we have none today; future-proof).
+- `apm.lock.yaml` — COMMIT this. It's the lockfile.
 
-Write `scripts/compile-harness.mjs` that reads canonical primitives from a `harness/` directory and emits `.claude/`, `.cursor/`, `.codex/`, etc. trees. This is APM-the-spec but implemented for dsx specifically. **Cost:** 2–3 days. **Buys us:** what the user actually wanted. **Downsides:** we're rolling our own mini-APM, with all the maintenance that implies. We'd want to throw it away once APM CLI catches up.
+### New top-level files
 
-## My recommendation
+- `apm.yml` — manifest declaring name, version, `targets: [claude, copilot, cursor, codex, opencode]`, no dependencies (dsx is self-contained for now).
+- `plugin.json` — optional, only if we eventually ship dsx as a distributable plugin via `apm pack --format plugin`. Defer.
 
-**Option A** for chapter 3. It's small, fully reversible, and gets non-Claude clients into the dsx loop today (in a degraded but functional way). It also makes the eventual APM migration trivial because we'll have already decoupled the trigger from any particular agent's hook semantics.
+### One real loss
 
-Defer Option B until APM CLI reaches v1.0 or until it ships a `skills` / `commands` / `hooks` compiler that actually emits `.claude/skills/` etc. We can revisit by re-running this spike on a future apm release; the four `apm compile` calls above are the entire test rig.
+**The fence (`scripts/agent-surface-fence.mjs`)** currently reads Claude Code's PreToolUse hook payload (stdin JSON with `tool_name` and `tool_input.file_path`). APM ships the hook config to every target's idiom — but the fence SCRIPT's payload parsing is Claude-specific. On Codex / Cursor / Copilot, the hook would fire but the script wouldn't understand the input.
 
-Skip Option C unless cross-tool slash commands become urgent enough to justify a custom solution that we'll then deprecate when APM catches up.
+Two ways to handle:
 
-## Loose ends
+1. **Keep the fence Claude-only, document the gap.** The AGENTS.md prose already names the two surfaces; non-Claude tools rely on prose enforcement. The script becomes "Claude Code accelerator," not "universal enforcement." Cost: zero, just docs.
+2. **Generalize the fence.** Detect payload shape at runtime — sniff for `tool_name` + `tool_input.file_path` (Claude) vs whatever Codex/Cursor send. Adds ~30 lines to the script. Worth doing once we test under another client; not blocking.
 
-- The `chokidar` watcher already exists but isn't part of the canonical loop description in `AGENTS.md` (we describe the Stop hook). Option A's main work is promoting it.
-- The fence is the one Claude-specific primitive with no clean cross-tool story. Even APM's `hooks` primitive (when it ships) will struggle here because each tool has different hook-payload shapes. Option A simply leaves the fence as "Claude only; other tools rely on the AGENTS.md prose."
-- If we want shareable dsx skills regardless of the tool (e.g., publish `composition-patterns` as a standalone package any project can `apm install`), we'd want `apm.yml` + `.apm/skills/` ready for the day APM ships the skill compiler. That's cheap insurance — could fold into Option A as "stage the skeleton, don't migrate."
+Either way, the user already disabled the PreToolUse fence during active dev. Even on Claude this isn't on right now.
+
+## Recommended chapter 3 plan
+
+Three phases. Each independently revertable. Targeting ~2–3 hours of focused work plus testing under each available client.
+
+### Phase 1 — restructure the agent layer (1 hour)
+
+1. Write `apm.yml` declaring all five targets.
+2. Move `.claude/agents/*.md` → `.apm/agents/*.agent.md`.
+3. Move `.claude/commands/*.md` → `.apm/prompts/*.prompt.md`.
+4. Move `.claude/skills/<n>/SKILL.md` → `.apm/skills/<n>/SKILL.md` (just `git mv` the dirs).
+5. Extract hook block from `.claude/settings.json` → `.apm/hooks/dsx-pipeline.json`.
+6. Run `apm install` once. Verify the regenerated `.claude/` matches the old shape (byte-equal where possible, modulo APM's structured-matcher object form for hooks).
+7. Add `.claude/ .cursor/ .codex/ .github/copilot-instructions.md .opencode/ .agents/ apm_modules/` to `.gitignore`. Commit `.apm/`, `apm.yml`, `apm.lock.yaml`.
+
+### Phase 2 — verify each target (variable, depends on what's installed)
+
+Whichever clients are available locally:
+
+1. **Claude Code**: should be byte-identical behavior to chapter 2. Smoke `/page "a brief"` end-to-end.
+2. **Codex** (if installed): smoke the same brief in chat form. Skills/agents auto-discovered from `.codex/` + `.agents/`. Confirm hook fires (`.codex/hooks.json`).
+3. **Cursor** (if installed): same.
+4. **Copilot** (gh copilot, gh-copilot-cli): same.
+
+For each: document the UX delta in `KNOWN-ISSUES.md`. Codex has no slash-command equivalent, so `/page` becomes "prose with the keyword 'page' which the prompt's content guides the model toward."
+
+### Phase 3 — docs + onboarding (30 min)
+
+1. Replace `README.md`'s "First-run setup" with `pnpm install && apm install && pnpm dev`.
+2. Update `STORYBOOK.md` + `AGENTS.md` to mention multi-client support.
+3. Add a "supported clients" line to README — "any client APM supports: Claude Code, Codex, Cursor, Copilot CLI, OpenCode."
+4. Decide whether to publish `dsx` itself as an APM package on a marketplace (defer to chapter 4 if so — gets us `apm install bantarus/dsx` as a one-liner for new projects).
+
+## Open questions for chapter 3
+
+1. **Should the fence be generalized or stay Claude-only?** My take: stay Claude-only for now, document the gap. Revisit after we have a non-Claude user reporting they want it enforced.
+2. **Hook matcher shape.** APM emits the structured form (`"matcher": { "tool_name": "..." }`). Claude Code's existing settings.json uses the string form. Both work in Claude 2.x but worth verifying with a quick smoke test before phase 1 ends.
+3. **The `.claude/apm-hooks.json` artifact.** APM writes a separate file alongside `.claude/settings.json` as provenance. Harmless but adds one new tracked-or-ignored file. Probably gitignore alongside the rest of `.claude/`.
+4. **Storybook reference skills (12 of them).** They live under `.claude/skills/storybook-*/`. If we want them deployed to ALL clients too, move them under `.apm/skills/`. If they're Claude-only reference material, leave them where they are (the fence has them ignored already). My recommendation: move them — there's no reason a Cursor user shouldn't get the same reference docs auto-loaded.
+
+## Cleanup
+
+Spike scratch is at `/tmp/dsx-apm-spike/`. Nothing in the dsx repo has changed.
