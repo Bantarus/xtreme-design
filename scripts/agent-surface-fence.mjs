@@ -3,34 +3,72 @@
 // surface. Every other path is rejected with exit code 2 and a message
 // explaining the contract.
 //
-// Rationale: dsx is a scoped probabilistic surface. The deterministic
-// translation from these inputs to the gallery / Storybook / tokens / version
-// snapshots is performed by scripts/pipeline.mjs (the Stop hook) and the
-// Storybook build. The agent should never touch generated artifacts,
-// components, layout, or config — those are owned by the human and the
-// pipeline.
+// Tool-agnostic by design. The same script runs under Claude Code, Codex,
+// Cursor, GitHub Copilot CLI, OpenCode — any client whose hook system
+// pipes a JSON payload to stdin on a "pre tool use" event. Each client
+// has a slightly different tool-name vocabulary; the adapter table below
+// maps them to a single "is this a write?" predicate.
 //
 // Allowed surfaces (two, no more):
-//   1. `DESIGN.md` (repo root) — the active design system. /design and
-//      /tweak write here; the pipeline regenerates every visual artifact
-//      from this file.
-//   2. `apps/storybook/src/**/*.stories.{ts,tsx}` — page and section
-//      compositions. /page, /section, and /refine write here; Storybook
-//      hot-reloads them in place. The version picker decorator gives every
-//      story the active palette automatically.
+//   1. `DESIGN.md` (repo root) — the active design system.
+//   2. `apps/storybook/src/**/*.stories.{ts,tsx}` — page/section composition.
 //
-// Rejected:
-//   - Write/Edit on ANY other path, including .storybook/ config files,
-//     shadcn component sources, gallery routes, build scripts, settings,
-//     docs. The agent must surface the issue to the human instead.
-//
-// The fence reads the Claude Code hook payload from stdin (preferred). It
-// supports Write, Edit, MultiEdit, and NotebookEdit tools.
+// Rejected: Write/Edit on ANY other path. The agent surfaces the issue
+// to the human, who handles non-surface changes manually.
 
 import { readFileSync } from 'node:fs';
 import { resolve, relative, isAbsolute } from 'node:path';
 
 const STORY_PATTERN = /^apps\/storybook\/src\/.+\.stories\.(ts|tsx)$/;
+
+// ── Adapter registry ───────────────────────────────────────────────────
+// Each adapter knows one agent family's tool-name vocabulary and the path
+// fields its tool_input payload uses. Adapters run in order; the first one
+// that recognizes the tool name claims the payload.
+//
+// To add support for a new client: append an entry. To extend an existing
+// adapter (e.g., a new write-shaped tool name surfaces): add to its
+// `writeTools` set or `pathFields` list.
+
+const ADAPTERS = [
+  {
+    // Claude Code: docs.claude.com/.../hooks → PreToolUse payload
+    name: 'claude-code',
+    writeTools: new Set(['Write', 'Edit', 'MultiEdit', 'NotebookEdit']),
+    pathFields: ['file_path', 'notebook_path'],
+  },
+  {
+    // Codex CLI: github.com/openai/codex/.../pre-tool-use.command.input.schema.json
+    // Same envelope as Claude Code (tool_name + tool_input). Tool naming
+    // is snake_case. Includes apply_patch for batch diffs.
+    name: 'codex',
+    writeTools: new Set(['write_file', 'edit_file', 'apply_patch', 'patch_file']),
+    pathFields: ['file_path', 'path', 'target'],
+  },
+  {
+    // Cursor: cursor.com/docs/agent/hooks → preToolUse payload
+    // Same envelope; tool naming varies by extension.
+    name: 'cursor',
+    writeTools: new Set(['write_file', 'edit_file', 'apply_edits', 'create_file']),
+    pathFields: ['file_path', 'path'],
+  },
+  {
+    // GitHub Copilot CLI: same envelope by APM convention.
+    name: 'copilot',
+    writeTools: new Set(['write_file', 'edit_file', 'create_file', 'modify_file']),
+    pathFields: ['file_path', 'path'],
+  },
+  {
+    // OpenCode + unknown clients: presence-based fallback. Restricted to
+    // write-canonical field names so read-shaped tools (Glob/Grep/Read
+    // with `tool_input.path`) don't trip the fence. If a future write
+    // tool surfaces with just `path` or `target`, give it its own adapter
+    // entry above with the right `writeTools` set.
+    name: 'generic',
+    writeTools: null, // null = match any tool_name
+    pathFields: ['file_path', 'notebook_path'],
+  },
+];
 
 function readStdin() {
   try {
@@ -38,6 +76,30 @@ function readStdin() {
   } catch {
     return '';
   }
+}
+
+function extractPath(input, fields) {
+  if (!input || typeof input !== 'object') return null;
+  for (const field of fields) {
+    const value = input[field];
+    if (typeof value === 'string' && value.length > 0) return value;
+  }
+  return null;
+}
+
+function adapterFor(toolName, input) {
+  for (const adapter of ADAPTERS) {
+    if (adapter.writeTools === null) {
+      // Generic fallback — only fires if a path is present.
+      const path = extractPath(input, adapter.pathFields);
+      if (path) return { adapter, path };
+      continue;
+    }
+    if (!adapter.writeTools.has(toolName)) continue;
+    const path = extractPath(input, adapter.pathFields);
+    if (path) return { adapter, path };
+  }
+  return null;
 }
 
 function isAllowed(rel) {
@@ -55,19 +117,18 @@ function main() {
     payload = {};
   }
 
-  const toolName = payload.tool_name ?? '';
-  if (!/^(Write|Edit|MultiEdit|NotebookEdit)$/.test(toolName)) {
-    process.exit(0);
-  }
-
+  const toolName = typeof payload.tool_name === 'string' ? payload.tool_name : '';
   const input = payload.tool_input ?? {};
-  const filePath = input.file_path ?? input.notebook_path;
-  if (!filePath) {
+
+  const match = adapterFor(toolName, input);
+  if (!match) {
+    // No adapter matched — not a recognizable write. Pass through.
     process.exit(0);
   }
 
-  const cwd = process.env.CLAUDE_PROJECT_DIR ?? process.cwd();
-  const absPath = isAbsolute(filePath) ? filePath : resolve(cwd, filePath);
+  const cwd =
+    process.env.CLAUDE_PROJECT_DIR ?? process.env.APM_PROJECT_DIR ?? payload.cwd ?? process.cwd();
+  const absPath = isAbsolute(match.path) ? match.path : resolve(cwd, match.path);
   const rel = relative(cwd, absPath).replaceAll('\\', '/');
 
   if (isAllowed(rel)) {
@@ -76,8 +137,8 @@ function main() {
 
   const message =
     `dsx: the agent surface is DESIGN.md + apps/storybook/src/**/*.stories.{ts,tsx}.\n` +
-    `  You tried to write: ${rel || filePath}\n` +
-    `  Tool: ${toolName}\n\n` +
+    `  You tried to write: ${rel || match.path}\n` +
+    `  Tool: ${toolName || '(unknown)'}    Adapter: ${match.adapter.name}\n\n` +
     `  Allowed:\n` +
     `    - DESIGN.md (chapter 1 — the active design system)\n` +
     `    - apps/storybook/src/**/*.stories.{ts,tsx} (chapter 2 — page composition)\n\n` +
