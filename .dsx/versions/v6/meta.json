@@ -1,0 +1,14 @@
+{
+  "id": "v6",
+  "name": "v6",
+  "createdAt": "2026-05-19T10:37:23.547Z",
+  "gitSha": "fd22bfc",
+  "paletteHex": [
+    "#2c4332",
+    "#f5f0e6",
+    "#1c1814",
+    "#dcd4c0",
+    "#e6dec9"
+  ],
+  "tokensCssSha256": "aa0c61c85b888f08d80515820720ae6c46507b88a0ce9479fa4595c5bc1a5d63"
+}

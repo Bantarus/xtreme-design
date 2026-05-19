@@ -5,7 +5,13 @@
     "createdAt": "2026-05-18T17:14:48.251Z",
     "gitSha": "0fa9adf",
     "brief": "Untouched reference DESIGN.md. Never overwritten.",
-    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"],
+    "paletteHex": [
+      "#7a3e0c",
+      "#faf8f3",
+      "#161311",
+      "#d8d2c5",
+      "#efebe2"
+    ],
     "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   },
   {
@@ -13,7 +19,13 @@
     "name": "v1-baseline",
     "createdAt": "2026-05-18T17:14:48.273Z",
     "gitSha": "0fa9adf",
-    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"],
+    "paletteHex": [
+      "#7a3e0c",
+      "#faf8f3",
+      "#161311",
+      "#d8d2c5",
+      "#efebe2"
+    ],
     "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
   },
   {
@@ -21,7 +33,13 @@
     "name": "v2",
     "createdAt": "2026-05-18T17:25:01.238Z",
     "gitSha": "6776cec",
-    "paletteHex": ["#1b3a4b", "#f7f1e7", "#1a1815", "#cdc3ad", "#ece4d3"],
+    "paletteHex": [
+      "#1b3a4b",
+      "#f7f1e7",
+      "#1a1815",
+      "#cdc3ad",
+      "#ece4d3"
+    ],
     "tokensCssSha256": "b735a438e645254cb7b7769cae790490bfbf44357db66854ef0fa4ff53c8a28a"
   },
   {
@@ -29,7 +47,13 @@
     "name": "camping-v1-approved",
     "createdAt": "2026-05-18T17:25:18.276Z",
     "gitSha": "6776cec",
-    "paletteHex": ["#0d1d28", "#d9d2c1", "#0a0907", "#cdc3ad", "#b9b1a0"],
+    "paletteHex": [
+      "#0d1d28",
+      "#d9d2c1",
+      "#0a0907",
+      "#cdc3ad",
+      "#b9b1a0"
+    ],
     "tokensCssSha256": "12deb6d2218a3bb834ba61c086c1591aaf859473bf100a878a694195e11006a9"
   },
   {
@@ -37,7 +61,55 @@
     "name": "v4",
     "createdAt": "2026-05-18T17:25:53.853Z",
     "gitSha": "6776cec",
-    "paletteHex": ["#7a3e0c", "#faf8f3", "#161311", "#d8d2c5", "#efebe2"],
+    "paletteHex": [
+      "#7a3e0c",
+      "#faf8f3",
+      "#161311",
+      "#d8d2c5",
+      "#efebe2"
+    ],
     "tokensCssSha256": "18c6dfc3e03ee703228df87fa6a7b64b512f8a5228291ffbb4dd9913fc2783ae"
+  },
+  {
+    "id": "v5",
+    "name": "camping-test",
+    "createdAt": "2026-05-19T10:28:44.088Z",
+    "gitSha": "fd22bfc",
+    "paletteHex": [
+      "#2c4332",
+      "#f5f0e6",
+      "#1c1814",
+      "#cdc4b0",
+      "#e6dec9"
+    ],
+    "tokensCssSha256": "1b5b557d3c6708033c7c00cdb24f3f63bf5becb8d70753933b27f42f4358f060"
+  },
+  {
+    "id": "v6",
+    "name": "v6",
+    "createdAt": "2026-05-19T10:37:23.547Z",
+    "gitSha": "fd22bfc",
+    "paletteHex": [
+      "#2c4332",
+      "#f5f0e6",
+      "#1c1814",
+      "#dcd4c0",
+      "#e6dec9"
+    ],
+    "tokensCssSha256": "aa0c61c85b888f08d80515820720ae6c46507b88a0ce9479fa4595c5bc1a5d63"
+  },
+  {
+    "id": "v7",
+    "name": "v7",
+    "createdAt": "2026-05-19T10:37:31.076Z",
+    "gitSha": "fd22bfc",
+    "paletteHex": [
+      "#2c4332",
+      "#f5f0e6",
+      "#1c1814",
+      "#dcd4c0",
+      "#e6dec9"
+    ],
+    "tokensCssSha256": "6877ba964c9410d7b485ecb0f1c24783eec6ce882b5e8d9ab2712fa68a607ce3"
   }
 ]

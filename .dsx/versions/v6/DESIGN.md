@@ -79,14 +79,14 @@ rounded:
   full: 9999px
 spacing:
   xs: 4px
-  sm: 6px
-  md: 12px
-  lg: 20px
-  xl: 28px
-  2xl: 40px
-  3xl: 56px
-  gutter: 20px
-  margin: 24px
+  sm: 8px
+  md: 16px
+  lg: 24px
+  xl: 32px
+  2xl: 48px
+  3xl: 64px
+  gutter: 24px
+  margin: 32px
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
@@ -183,8 +183,8 @@ A working storefront for an outdoor camping gear brand. The product moves physic
 - **Surface Muted (#e6dec9, "Canvas"):** Section bands, drawer headers, inline code blocks. One muted band per view.
 - **Text (#1c1814, "Bark"):** All body and heading copy on `surface`. Reserved for foreground.
 - **Text Muted (#56514a, "Lichen"):** Captions, shipping copy, secondary metadata. Passes WCAG AA on `surface`. Never the primary headline.
-- **Border (#dcd4c0, "Twine"):** The default hairline between cards, inputs, and table rows — a touch lighter to settle deeper into the bone surface.
-- **Border Strong (#b8a890, "Bark Edge"):** Only when the default border vanishes against `surface-muted`.
+- **Border (#cdc4b0, "Twine"):** The default hairline between cards, inputs, and table rows.
+- **Border Strong (#a89880, "Bark Edge"):** Only when the default border vanishes against `surface-muted`.
 - **Success (#3f6b3a, "Moss"):** "In stock," "delivered," confirmation. Distinct from `primary` — brighter and yellower.
 - **Danger (#a83b1e, "Clay"):** Destructive actions, sold-out states, validation errors.
 - **Warning (#c9651a, "Rust"):** Non-blocking cautions — "low stock," "backordered."
