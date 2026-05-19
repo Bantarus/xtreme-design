@@ -11,7 +11,29 @@ The agent has zero write access outside two narrow surfaces. Everything visible 
 | 1 — Design system | `DESIGN.md` (root) | Gallery (Next.js, :3000) | `/design`, `/tweak`, `/snapshot`, `/restore` |
 | 2 — Page composition | `apps/storybook/src/**/*.stories.{ts,tsx}` | Storybook (Vite, :6006) | `/page`, `/section`, `/refine` |
 
-The two chapters share one design system. Editing `DESIGN.md` re-themes everything in the gallery AND every story in Storybook. The version-aware decorator lets you A/B any story across every saved palette without rebuilding.
+## The story × design matrix
+
+Every Storybook page or section you author instantly re-paints under any saved palette — no rebuild, no recompile, no React re-render. The Storybook toolbar paintbrush and the gallery's `?v=<id>` URL parameter both do **CSS-cascade swaps**: a custom decorator injects `<link rel="stylesheet" href="/versions/<id>/tokens.css">` at the end of `<head>`; the browser re-resolves `:root { --color-* }` in ~50 ms.
+
+```
+                   pages & sections you've composed (chapter-2 surface)
+                   ─────────────────────────────────────────────────────
+       palettes    landing   dashboard   settings   pricing   auth   …
+       ──────────  ─────────────────────────────────────────────────
+       base          ◯          ◯           ◯          ◯         ◯
+       camping       ◯          ◯       ┌───◯───┐      ◯         ◯       ← one click
+       warm-amber    ◯          ◯       │       │      ◯         ◯          swaps any
+       active        ◯          ◯       └───────┘      ◯         ◯          cell
+       (live DESIGN.md)
+```
+
+What this buys you:
+- **One palette × N stories** — test the camping-gear palette on a SaaS landing, a dashboard, a settings screen, and a 404, in five clicks. No story re-authoring.
+- **N palettes × one story** — review a hand-authored hero across every palette you've ever saved. No rebuild loop.
+- **Side-by-side A/B** — `http://localhost:3000/compare?a=base&b=camping-v1` renders the gallery in both palettes in two iframes. Same trick works for ad-hoc design reviews.
+- **Live tracking** — the `active` toolbar choice keeps the story bound to live `DESIGN.md`; iterating with `/tweak` shows up in every open story tab within ~50 ms of save.
+
+The story stays yours; the design iterates independently. ([apps/storybook/.storybook/decorators/ActiveStylesheet.tsx](apps/storybook/.storybook/decorators/ActiveStylesheet.tsx) is the 30-line decorator; native Storybook plumbing — `globalTypes.designVersion.toolbar` — drives it.)
 
 ## The seven commands
 
@@ -28,7 +50,7 @@ The two chapters share one design system. Editing `DESIGN.md` re-themes everythi
 /refine <slug> "<adj>"       surgical edit of an existing story
 ```
 
-Behind these: `scripts/pipeline.mjs` runs after every assistant turn (Stop hook), lint-checks DESIGN.md, exports `apps/gallery/app/tokens.active.css`, rebuilds Style Dictionary outputs, auto-snapshots a new version (dedupes via tokens.css sha256), and mirrors the version store into Storybook's `public/versions/`. The `?v=<id>` URL parameter does instant CSS-swap on the gallery without a Next.js rebuild; the Storybook toolbar paintbrush does the same for every story without restarting Storybook. `/compare?a=<id>&b=<id>` renders two gallery iframes side-by-side.
+Behind these: `scripts/pipeline.mjs` runs after every assistant turn (Stop hook), lint-checks DESIGN.md, exports `apps/gallery/app/tokens.active.css`, rebuilds Style Dictionary outputs, auto-snapshots a new version (dedupes via tokens.css sha256), and mirrors the version store into Storybook's `public/versions/` so the toolbar picker (see above) finds it.
 
 ## Quickstart
 
