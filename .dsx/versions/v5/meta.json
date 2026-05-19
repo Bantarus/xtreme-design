@@ -3,12 +3,6 @@
   "name": "camping-test",
   "createdAt": "2026-05-19T10:28:44.088Z",
   "gitSha": "fd22bfc",
-  "paletteHex": [
-    "#2c4332",
-    "#f5f0e6",
-    "#1c1814",
-    "#cdc4b0",
-    "#e6dec9"
-  ],
+  "paletteHex": ["#2c4332", "#f5f0e6", "#1c1814", "#cdc4b0", "#e6dec9"],
   "tokensCssSha256": "1b5b557d3c6708033c7c00cdb24f3f63bf5becb8d70753933b27f42f4358f060"
 }

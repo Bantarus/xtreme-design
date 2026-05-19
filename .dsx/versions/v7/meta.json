@@ -3,12 +3,6 @@
   "name": "v7",
   "createdAt": "2026-05-19T10:37:31.076Z",
   "gitSha": "fd22bfc",
-  "paletteHex": [
-    "#2c4332",
-    "#f5f0e6",
-    "#1c1814",
-    "#dcd4c0",
-    "#e6dec9"
-  ],
+  "paletteHex": ["#2c4332", "#f5f0e6", "#1c1814", "#dcd4c0", "#e6dec9"],
   "tokensCssSha256": "6877ba964c9410d7b485ecb0f1c24783eec6ce882b5e8d9ab2712fa68a607ce3"
 }

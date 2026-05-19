@@ -59,7 +59,9 @@ const plans = [
 export const Default: Story = {
   render: () => (
     <section className="mx-auto max-w-5xl px-6 py-16 text-center">
-      <h2 className="text-4xl font-semibold tracking-tight">Pricing that grows with your traffic.</h2>
+      <h2 className="text-4xl font-semibold tracking-tight">
+        Pricing that grows with your traffic.
+      </h2>
       <p className="mt-3 text-muted-foreground">Start free. Upgrade only when you outgrow it.</p>
 
       <div className="mt-6 inline-block">

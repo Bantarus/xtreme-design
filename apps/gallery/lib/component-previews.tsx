@@ -770,9 +770,7 @@ function AlertPreview() {
         <Alert variant="destructive">
           <AlertCircleIcon />
           <AlertTitle>Could not save</AlertTitle>
-          <AlertDescription>
-            Something went wrong. Please try again.
-          </AlertDescription>
+          <AlertDescription>Something went wrong. Please try again.</AlertDescription>
         </Alert>
       </Cell>
     </Grid>

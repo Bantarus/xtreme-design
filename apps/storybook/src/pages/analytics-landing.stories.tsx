@@ -39,8 +39,8 @@ export const Default: Story = {
           Analytics that respect your users.
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
-          A privacy-first analytics tool for indie makers. Drop in one script, see real-time traffic,
-          ship the next thing. No cookies, no consent banners, no nonsense.
+          A privacy-first analytics tool for indie makers. Drop in one script, see real-time
+          traffic, ship the next thing. No cookies, no consent banners, no nonsense.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button size="lg">
@@ -86,7 +86,9 @@ export const Default: Story = {
 
       <section className="bg-muted py-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-6 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight">See your first pageview in 30 seconds.</h2>
+          <h2 className="text-3xl font-semibold tracking-tight">
+            See your first pageview in 30 seconds.
+          </h2>
           <p className="text-muted-foreground">
             Free for sites under 10k monthly pageviews. No credit card.
           </p>

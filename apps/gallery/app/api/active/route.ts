@@ -39,10 +39,7 @@ export async function GET(req: NextRequest) {
     const md = await readFile(path, 'utf8');
     const parsed = parseFrontMatter(md);
     const version = isActive ? 'active' : await resolveVersionName(repoRoot, v as string);
-    return NextResponse.json(
-      { ...parsed, version },
-      { headers: { 'Cache-Control': 'no-store' } },
-    );
+    return NextResponse.json({ ...parsed, version }, { headers: { 'Cache-Control': 'no-store' } });
   } catch (err) {
     return NextResponse.json(
       { error: 'DESIGN.md not found', detail: (err as Error).message },
