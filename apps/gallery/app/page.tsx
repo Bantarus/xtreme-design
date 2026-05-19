@@ -1,4 +1,7 @@
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import Link from 'next/link';
+import { ActiveDesignHeader } from '@/components/ActiveDesignHeader';
 import { categories, components, type ComponentCategory } from '@/lib/components-manifest';
 
 const paletteVars = [
@@ -15,7 +18,26 @@ const paletteVars = [
   '--color-focus-ring',
 ] as const;
 
-export default function HomePage() {
+async function readActiveMeta(): Promise<{ name: string | null; description: string | null }> {
+  try {
+    const md = await readFile(join(process.cwd(), '..', '..', 'DESIGN.md'), 'utf8');
+    const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!m) return { name: null, description: null };
+    const fm = m[1];
+    const strip = (s: string) => s.trim().replace(/^["']|["']$/g, '');
+    const nameMatch = fm.match(/^name:\s*(.+)$/m);
+    const descMatch = fm.match(/^description:\s*(.+)$/m);
+    return {
+      name: nameMatch ? strip(nameMatch[1]) : null,
+      description: descMatch ? strip(descMatch[1]) : null,
+    };
+  } catch {
+    return { name: null, description: null };
+  }
+}
+
+export default async function HomePage() {
+  const initial = await readActiveMeta();
   const grouped = new Map<ComponentCategory, typeof components>();
   for (const c of categories)
     grouped.set(
@@ -24,20 +46,8 @@ export default function HomePage() {
     );
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-10 sm:px-8 sm:py-14">
-      <header className="border-b border-border pb-6">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          helios · gallery
-        </p>
-        <h1 className="mt-1 text-4xl font-semibold tracking-tight text-foreground">
-          Active design system
-        </h1>
-        <p className="mt-2 max-w-prose text-base text-muted-foreground">
-          The gallery is rendered deterministically from{' '}
-          <code className="font-mono">DESIGN.md</code>. Pick a component below to inspect it in the
-          active palette. Page composition lives in Storybook.
-        </p>
-      </header>
+    <main className="mx-auto max-w-6xl px-6 pb-10 sm:px-8 sm:pb-14">
+      <ActiveDesignHeader initial={initial} />
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">

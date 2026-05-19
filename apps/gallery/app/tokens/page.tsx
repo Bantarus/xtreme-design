@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 type TokenRow = { name: string; value: string };
@@ -55,6 +56,16 @@ export default function TokensPage() {
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
+      <nav
+        aria-label="Breadcrumb"
+        className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground"
+      >
+        <Link href="/" className="hover:text-foreground">
+          Gallery
+        </Link>
+        <span aria-hidden>/</span>
+        <span className="text-foreground">Tokens</span>
+      </nav>
       <header className="mb-10 flex items-baseline justify-between border-b border-border pb-6">
         <div>
           <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">

@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { SearchIcon } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 type Version = {
@@ -29,13 +30,44 @@ function PaletteSwatch({ hex }: { hex: string[] }) {
   );
 }
 
+type ChipProps = {
+  label: string;
+  isSelected: boolean;
+  isSticky: boolean;
+  onClick: () => void;
+  visual: React.ReactNode;
+  title?: string;
+};
+
+function Chip({ label, isSelected, isSticky, onClick, visual, title }: ChipProps) {
+  const classes = [
+    'flex shrink-0 items-center gap-2 rounded-md border px-2 py-1.5 text-xs transition-colors',
+    isSticky && 'sticky left-0 z-10 shadow-[6px_0_8px_-6px_rgba(0,0,0,0.08)]',
+    isSelected
+      ? 'border-primary bg-card text-foreground'
+      : 'border-border bg-card text-muted-foreground hover:text-foreground',
+  ]
+    .filter(Boolean)
+    .join(' ');
+  return (
+    <button type="button" onClick={onClick} title={title} className={classes}>
+      {visual}
+      <span className="font-mono">{label}</span>
+    </button>
+  );
+}
+
+const activeVisual = <span className="block size-3 rounded-sm bg-foreground" aria-hidden />;
+
 export function VersionPicker() {
   const [versions, setVersions] = useState<Version[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [query, setQuery] = useState('');
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
-  const activeId = params.get('v') ?? 'active';
+  const selectedId = params.get('v') ?? 'active';
+  const isActiveSelected = selectedId === 'active';
 
   useEffect(() => {
     let cancelled = false;
@@ -52,6 +84,13 @@ export function VersionPicker() {
     };
   }, []);
 
+  const filtered = useMemo(() => {
+    if (!versions) return [];
+    const q = query.trim().toLowerCase();
+    if (!q) return versions;
+    return versions.filter((v) => v.name.toLowerCase().includes(q));
+  }, [versions, query]);
+
   function setVersion(id: string | null) {
     const next = new URLSearchParams(params.toString());
     if (id === null || id === 'active') next.delete('v');
@@ -62,56 +101,94 @@ export function VersionPicker() {
 
   if (error) {
     return (
-      <div className="border-b border-border bg-muted px-4 py-2 text-xs text-muted-foreground">
+      <div className="sticky top-0 z-30 border-b border-border bg-muted px-4 py-2 text-xs text-muted-foreground">
         Version picker: {error}
       </div>
     );
   }
   if (!versions || versions.length === 0) {
     return (
-      <div className="border-b border-border bg-muted px-4 py-2 text-xs text-muted-foreground">
+      <div className="sticky top-0 z-30 border-b border-border bg-muted px-4 py-2 text-xs text-muted-foreground">
         Loading versions…
       </div>
     );
   }
 
+  const selectedVersion = !isActiveSelected ? versions.find((v) => v.id === selectedId) : null;
+  const flowVersions = filtered.filter((v) => v.id !== selectedId);
+
   return (
-    <div className="border-b border-border bg-card">
-      <div className="mx-auto flex max-w-6xl items-center gap-3 overflow-x-auto px-4 py-2">
-        <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          version
-        </span>
-        <button
-          type="button"
-          onClick={() => setVersion(null)}
-          className={`flex shrink-0 items-center gap-2 rounded-md border px-2 py-1.5 text-xs transition-colors ${
-            activeId === 'active'
-              ? 'border-primary bg-background text-foreground'
-              : 'border-border bg-background text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          <span className="block size-3 rounded-sm bg-foreground" aria-hidden />
-          <span className="font-mono">active</span>
-        </button>
-        {versions.map((v) => {
-          const active = activeId === v.id;
-          return (
-            <button
+    <div className="sticky top-0 z-30 border-b border-border bg-card">
+      <div className="mx-auto max-w-6xl px-4">
+        <label className="flex items-center gap-2 border-b border-border/60 py-2">
+          <SearchIcon className="size-3.5 shrink-0 text-muted-foreground" aria-hidden />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Filter versions by name…"
+            aria-label="Filter versions by name"
+            className="w-full bg-transparent font-mono text-xs text-foreground placeholder:text-muted-foreground focus:outline-none"
+          />
+          {query.trim() && (
+            <span className="shrink-0 font-mono text-[10px] tabular-nums text-muted-foreground">
+              {filtered.length}/{versions.length}
+            </span>
+          )}
+        </label>
+        <div className="flex items-center gap-3 overflow-x-auto py-2">
+          <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+            version
+          </span>
+
+          {/* Sticky-left: the currently selected chip */}
+          {isActiveSelected ? (
+            <Chip
+              label="active"
+              isSelected
+              isSticky
+              onClick={() => setVersion(null)}
+              visual={activeVisual}
+            />
+          ) : selectedVersion ? (
+            <Chip
+              label={selectedVersion.name}
+              isSelected
+              isSticky
+              onClick={() => setVersion(selectedVersion.id)}
+              title={selectedVersion.brief ?? selectedVersion.name}
+              visual={<PaletteSwatch hex={selectedVersion.paletteHex} />}
+            />
+          ) : null}
+
+          {/* Flow: every other chip. "active" goes first when a version is pinned. */}
+          {!isActiveSelected && (
+            <Chip
+              label="active"
+              isSelected={false}
+              isSticky={false}
+              onClick={() => setVersion(null)}
+              visual={activeVisual}
+            />
+          )}
+          {flowVersions.map((v) => (
+            <Chip
               key={v.id}
-              type="button"
+              label={v.name}
+              isSelected={false}
+              isSticky={false}
               onClick={() => setVersion(v.id)}
               title={v.brief ?? v.name}
-              className={`flex shrink-0 items-center gap-2 rounded-md border px-2 py-1.5 text-xs transition-colors ${
-                active
-                  ? 'border-primary bg-background text-foreground'
-                  : 'border-border bg-background text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              <PaletteSwatch hex={v.paletteHex} />
-              <span className="font-mono">{v.name}</span>
-            </button>
-          );
-        })}
+              visual={<PaletteSwatch hex={v.paletteHex} />}
+            />
+          ))}
+
+          {query.trim() && filtered.length === 0 && (
+            <span className="shrink-0 font-mono text-xs text-muted-foreground">
+              No versions match “{query.trim()}”.
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
