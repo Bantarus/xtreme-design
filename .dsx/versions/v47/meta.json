@@ -1,0 +1,8 @@
+{
+  "id": "v47",
+  "name": "discord-blurple",
+  "createdAt": "2026-05-19T14:34:21.076Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#5865f2", "#313338", "#f2f3f5", "#1e1f22", "#2b2d31"],
+  "tokensCssSha256": "585506814ba0ed7a2753cd25d11f9011c7503f467380514fcc488aca1adaf902"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v24",
+  "name": "neumorph-soft-sky",
+  "createdAt": "2026-05-19T14:33:37.004Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#2788e8", "#e6e8ec", "#1f2933", "#c7cbd2", "#d6d9df"],
+  "tokensCssSha256": "8b75ebd884b5952e92282550c9c8e875cc1a14e0515f00fffc714e509db0e089"
+}

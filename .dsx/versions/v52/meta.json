@@ -1,0 +1,8 @@
+{
+  "id": "v52",
+  "name": "solarpunk-meadow",
+  "createdAt": "2026-05-19T14:34:30.499Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#3a8a3a", "#fffbeb", "#1a2a14", "#d6cda0", "#f4ecd0"],
+  "tokensCssSha256": "ba789b390cae780f2e5ee36553cc2e2e8ae69c28ae002f7df21b9501cd2012a4"
+}

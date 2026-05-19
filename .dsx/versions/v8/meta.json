@@ -1,0 +1,8 @@
+{
+  "id": "v8",
+  "name": "web2-glassy-aqua",
+  "createdAt": "2026-05-19T14:32:38.340Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#2a7de1", "#f4f8fc", "#0e2233", "#b9cde0", "#e1ebf5"],
+  "tokensCssSha256": "5022b253889f1338228ff1b4cca5af14be9675c6657bd521d4bc7effb88a34b8"
+}

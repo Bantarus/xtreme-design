@@ -1,0 +1,8 @@
+{
+  "id": "v41",
+  "name": "brutalist-concrete",
+  "createdAt": "2026-05-19T14:34:08.564Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#d35400", "#bdb8af", "#1a1815", "#86807a", "#a59f94"],
+  "tokensCssSha256": "6110999bace9d21a62c2fe5ac3d74f442c9dd99a2165246313e40430d5ea6284"
+}

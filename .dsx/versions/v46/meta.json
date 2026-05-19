@@ -1,0 +1,8 @@
+{
+  "id": "v46",
+  "name": "spotify-night-lime",
+  "createdAt": "2026-05-19T14:34:18.691Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#1ed760", "#121212", "#ffffff", "#282828", "#1a1a1a"],
+  "tokensCssSha256": "2c920239569e3fd1c84f74bc48281e879e5b2577a0fbae892022308eabf2295e"
+}

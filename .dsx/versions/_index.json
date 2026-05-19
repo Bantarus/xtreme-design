@@ -111,5 +111,761 @@
       "#e6dec9"
     ],
     "tokensCssSha256": "6877ba964c9410d7b485ecb0f1c24783eec6ce882b5e8d9ab2712fa68a607ce3"
+  },
+  {
+    "id": "v8",
+    "name": "web2-glassy-aqua",
+    "createdAt": "2026-05-19T14:32:38.340Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#2a7de1",
+      "#f4f8fc",
+      "#0e2233",
+      "#b9cde0",
+      "#e1ebf5"
+    ],
+    "tokensCssSha256": "5022b253889f1338228ff1b4cca5af14be9675c6657bd521d4bc7effb88a34b8"
+  },
+  {
+    "id": "v9",
+    "name": "skeuo-leather-stitch",
+    "createdAt": "2026-05-19T14:33:08.731Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#7a4a1f",
+      "#f1e7d3",
+      "#2a1d0e",
+      "#c2a777",
+      "#e4d6bb"
+    ],
+    "tokensCssSha256": "997691217d8dfdd38c1a5a1c5cd85f1177467159c654681cc063aac21a9fe2cb"
+  },
+  {
+    "id": "v10",
+    "name": "frutiger-aero-cloud",
+    "createdAt": "2026-05-19T14:33:10.589Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#0689e4",
+      "#eaf6fd",
+      "#0b2a3f",
+      "#a6d2ec",
+      "#cfe7f7"
+    ],
+    "tokensCssSha256": "91cb43a9d65a5d8c10d86b5f819eff43dfed884179b92b8c7f5ed6aa33b2ce25"
+  },
+  {
+    "id": "v11",
+    "name": "y2k-chrome-bubble",
+    "createdAt": "2026-05-19T14:33:12.417Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#c6e0ff",
+      "#f6f3ff",
+      "#1a1b3a",
+      "#c0b8e8",
+      "#e2dcff"
+    ],
+    "tokensCssSha256": "d07ffbd916ff2dc04432dc0275efbafbab0c1aa94bfb9e31c9a29ea2bf18266b"
+  },
+  {
+    "id": "v12",
+    "name": "ipod-nano-gradient",
+    "createdAt": "2026-05-19T14:33:14.201Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff4f8a",
+      "#fafafa",
+      "#1c1c1e",
+      "#d2d2d7",
+      "#ececec"
+    ],
+    "tokensCssSha256": "1e36d7d6fc1a24a231e4ab6eb7de20c3518f444399b54fcc130182c79d863326"
+  },
+  {
+    "id": "v13",
+    "name": "myspace-glitter",
+    "createdAt": "2026-05-19T14:33:16.014Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff2e88",
+      "#fff4fb",
+      "#1d0a1a",
+      "#ffa6d4",
+      "#ffd9ee"
+    ],
+    "tokensCssSha256": "415f0635dc2f339d6d409662cc80f6329a4aa7480b3978b38841550bcba222ca"
+  },
+  {
+    "id": "v14",
+    "name": "flat-ios7-reset",
+    "createdAt": "2026-05-19T14:33:17.929Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#007aff",
+      "#ffffff",
+      "#0a0a0a",
+      "#e5e5ea",
+      "#f2f2f7"
+    ],
+    "tokensCssSha256": "ebd62a49d3914ae8aef985a4e07f177309fba8af49d6ce61985151c5416d9b71"
+  },
+  {
+    "id": "v15",
+    "name": "material-1-paper",
+    "createdAt": "2026-05-19T14:33:19.752Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#3f51b5",
+      "#fafafa",
+      "#212121",
+      "#e0e0e0",
+      "#eeeeee"
+    ],
+    "tokensCssSha256": "1b6a5e36a88e88a346c8371f3a04ab03f2281e46b5c2edd5368c0ced835cc997"
+  },
+  {
+    "id": "v16",
+    "name": "ghost-blog-serif",
+    "createdAt": "2026-05-19T14:33:21.622Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#0f4c81",
+      "#fbfaf7",
+      "#1a1a1a",
+      "#e5e1d8",
+      "#f1eee6"
+    ],
+    "tokensCssSha256": "51d48e43c03ea0e5ab8ad6b02081f6f8ca6e490e16b578829ded596a698d6c46"
+  },
+  {
+    "id": "v17",
+    "name": "windows-8-metro",
+    "createdAt": "2026-05-19T14:33:23.435Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#0078d7",
+      "#ffffff",
+      "#000000",
+      "#edebe9",
+      "#f3f2f1"
+    ],
+    "tokensCssSha256": "1e88116e48c60dce04d0e0e9ecd53601590b052c7e5b774e9f5c34985ff25bc1"
+  },
+  {
+    "id": "v18",
+    "name": "stripe-fintech-indigo",
+    "createdAt": "2026-05-19T14:33:25.614Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#635bff",
+      "#ffffff",
+      "#0a2540",
+      "#e3e8ee",
+      "#f6f9fc"
+    ],
+    "tokensCssSha256": "f5571f726b1523977ff15d9c2af8545187b6dee649386753f8d73ece4ceb363e"
+  },
+  {
+    "id": "v19",
+    "name": "airbnb-rausch",
+    "createdAt": "2026-05-19T14:33:27.426Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff5a5f",
+      "#ffffff",
+      "#222222",
+      "#dddddd",
+      "#f7f7f7"
+    ],
+    "tokensCssSha256": "a038a1c4be9bb3743fff11d52104ddd013f838a917a44d4eec4feb8096e3df26"
+  },
+  {
+    "id": "v20",
+    "name": "carbon-cobalt",
+    "createdAt": "2026-05-19T14:33:29.287Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#0f62fe",
+      "#ffffff",
+      "#161616",
+      "#e0e0e0",
+      "#f4f4f4"
+    ],
+    "tokensCssSha256": "faeef7862b606b250234814c53f7ae3320c6bde2516c8f01c845716acba594a4"
+  },
+  {
+    "id": "v21",
+    "name": "polaris-forest",
+    "createdAt": "2026-05-19T14:33:31.171Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#008060",
+      "#ffffff",
+      "#202223",
+      "#e1e3e5",
+      "#f6f6f7"
+    ],
+    "tokensCssSha256": "e467958ad40741e6facca18a03078cc4a6c83ba67b15b153e6e3b06b11d74f88"
+  },
+  {
+    "id": "v22",
+    "name": "material-3-purple",
+    "createdAt": "2026-05-19T14:33:33.179Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#6750a4",
+      "#fffbfe",
+      "#1c1b1f",
+      "#cac4d0",
+      "#e7e0ec"
+    ],
+    "tokensCssSha256": "4214bec4f9b0edeed236ae699f71eec9871e02fd8e3d5e01f14f1084b78e07ed"
+  },
+  {
+    "id": "v23",
+    "name": "govuk-civic-blue",
+    "createdAt": "2026-05-19T14:33:35.178Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#1d70b8",
+      "#ffffff",
+      "#0b0c0c",
+      "#b1b4b6",
+      "#f3f2f1"
+    ],
+    "tokensCssSha256": "f5c392ce7d3fc9e2cbc110390b64f7e43de41e1cc5c215641d5ea265c643b411"
+  },
+  {
+    "id": "v24",
+    "name": "neumorph-soft-sky",
+    "createdAt": "2026-05-19T14:33:37.004Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#2788e8",
+      "#e6e8ec",
+      "#1f2933",
+      "#c7cbd2",
+      "#d6d9df"
+    ],
+    "tokensCssSha256": "8b75ebd884b5952e92282550c9c8e875cc1a14e0515f00fffc714e509db0e089"
+  },
+  {
+    "id": "v25",
+    "name": "brutalist-web-mono",
+    "createdAt": "2026-05-19T14:33:38.832Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#0000ee",
+      "#ffffff",
+      "#000000",
+      "#f0f0f0",
+      "#00aa00"
+    ],
+    "tokensCssSha256": "35d4e3c21555e112b059220024e00573d1c10c03ee0d3338c343960794071085"
+  },
+  {
+    "id": "v26",
+    "name": "glassmorph-aurora",
+    "createdAt": "2026-05-19T14:33:40.608Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#7c5cff",
+      "#f7f4ff",
+      "#1a1235",
+      "#d8cffb",
+      "#eae3ff"
+    ],
+    "tokensCssSha256": "72288e291617f02a3f7bc808461f1e2995e6f5b0e4260468fe8f890750f2d0f5"
+  },
+  {
+    "id": "v27",
+    "name": "claymorph-3d-pop",
+    "createdAt": "2026-05-19T14:33:42.391Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#7e6cff",
+      "#fef3ff",
+      "#2b1b4e",
+      "#ecd0ff",
+      "#fad8ff"
+    ],
+    "tokensCssSha256": "5e307fde57075be74f632ddae537fecb676dd75865801a4919b03047e91d06d0"
+  },
+  {
+    "id": "v28",
+    "name": "neo-brutalist-cobalt",
+    "createdAt": "2026-05-19T14:33:44.225Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#2a52ff",
+      "#fefefe",
+      "#000000",
+      "#fff4d6",
+      "#22cc62"
+    ],
+    "tokensCssSha256": "de472326f09b1a50287e096847f331ba837631cc4002ec9c01542adb1392f034"
+  },
+  {
+    "id": "v29",
+    "name": "geist-monochrome",
+    "createdAt": "2026-05-19T14:33:46.061Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#000000",
+      "#ffffff",
+      "#0a0a0a",
+      "#eaeaea",
+      "#fafafa"
+    ],
+    "tokensCssSha256": "57d0631c9b11689e0933ab81553a2e4a9bb98b585dcc4e8d6e8af7d3d0abe073"
+  },
+  {
+    "id": "v30",
+    "name": "linear-graphite",
+    "createdAt": "2026-05-19T14:33:47.881Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#5e6ad2",
+      "#0e0e10",
+      "#f7f8f8",
+      "#2c2d31",
+      "#1a1a1f"
+    ],
+    "tokensCssSha256": "16a09259d6c099b55dc0473a1543cfbd60202a6c6d18027e59b95f7c4ca87bb6"
+  },
+  {
+    "id": "v31",
+    "name": "mercury-indigo-noir",
+    "createdAt": "2026-05-19T14:33:49.859Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#5266eb",
+      "#171721",
+      "#ededf3",
+      "#2e2e3d",
+      "#21212e"
+    ],
+    "tokensCssSha256": "a2b3366146560b5692a38f28d17fd50b94ec9530c89959edd03fd4db280fa246"
+  },
+  {
+    "id": "v32",
+    "name": "ai-gradient-mesh",
+    "createdAt": "2026-05-19T14:33:51.689Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#a37bff",
+      "#fafafd",
+      "#0f0e17",
+      "#e6e3f0",
+      "#f0eef8"
+    ],
+    "tokensCssSha256": "3b9380c86ab5a64ccc337382400285ef8f2f6fdda285c411aaa526d6d6a96402"
+  },
+  {
+    "id": "v33",
+    "name": "vaporwave-miami",
+    "createdAt": "2026-05-19T14:33:53.561Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff2975",
+      "#1a0b2e",
+      "#ffe9f5",
+      "#4a2073",
+      "#2a1245"
+    ],
+    "tokensCssSha256": "c4bc668d06cac4ee8d837fe5cb331226f6f59f9d7298f7c66beb36b7105325f4"
+  },
+  {
+    "id": "v34",
+    "name": "cyberpunk-neon-grid",
+    "createdAt": "2026-05-19T14:33:55.449Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#fcee0a",
+      "#06060e",
+      "#f0f6ff",
+      "#1f2032",
+      "#10101e"
+    ],
+    "tokensCssSha256": "56e6dbf1658b1716d261d9e760b079f29863c0ce20f649610f5e3d0d01dd11c2"
+  },
+  {
+    "id": "v35",
+    "name": "terminal-phosphor-green",
+    "createdAt": "2026-05-19T14:33:57.285Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#33ff33",
+      "#000000",
+      "#155515",
+      "#0a1a0a",
+      "#aaffaa"
+    ],
+    "tokensCssSha256": "c5357f6e77c0d8c23c0c97ad6358d06236096db8721219367b915fc877bcefd5"
+  },
+  {
+    "id": "v36",
+    "name": "amber-crt-bloomberg",
+    "createdAt": "2026-05-19T14:33:59.144Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#fb8b1e",
+      "#000000",
+      "#f39f41",
+      "#3a2c10",
+      "#0c0a08"
+    ],
+    "tokensCssSha256": "11cc1e6671fd0f65259e5b3ef9456f49a2610051b83923591c30b102a8c81bd1"
+  },
+  {
+    "id": "v37",
+    "name": "swiss-grid-ink",
+    "createdAt": "2026-05-19T14:34:01.027Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#d92e1f",
+      "#f6f3ec",
+      "#0a0a0a",
+      "#d2cdbe",
+      "#ebe7dc"
+    ],
+    "tokensCssSha256": "3fb73ad09de7d60d00a1aa0518cb91edcccfcf19be03faf21870740780c5c9cf"
+  },
+  {
+    "id": "v38",
+    "name": "bauhaus-itten-triad",
+    "createdAt": "2026-05-19T14:34:02.975Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#1e3878",
+      "#f6f4ee",
+      "#161616",
+      "#d4cfbf",
+      "#e8e3d4"
+    ],
+    "tokensCssSha256": "37b19a56137709934c8fa1f5e465ed53005354da09cc68b20331efbe6a567d59"
+  },
+  {
+    "id": "v39",
+    "name": "memphis-squiggle-pop",
+    "createdAt": "2026-05-19T14:34:04.797Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff5fa9",
+      "#f7f3e8",
+      "#0d0d0d",
+      "#fde8c0",
+      "#3ae0c9"
+    ],
+    "tokensCssSha256": "a6ad51ece561f2bb9513c1f0e3a09799d72268b345814706e8f42f3184542834"
+  },
+  {
+    "id": "v40",
+    "name": "art-deco-gilded",
+    "createdAt": "2026-05-19T14:34:06.697Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#c9a04a",
+      "#0d0a08",
+      "#f5e9d0",
+      "#3a2c1a",
+      "#1a140e"
+    ],
+    "tokensCssSha256": "08aff1ffc0f309797371bdd7749223afffd6faa2b67afc57324da2605dbaa7e2"
+  },
+  {
+    "id": "v41",
+    "name": "brutalist-concrete",
+    "createdAt": "2026-05-19T14:34:08.564Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#d35400",
+      "#bdb8af",
+      "#1a1815",
+      "#86807a",
+      "#a59f94"
+    ],
+    "tokensCssSha256": "6110999bace9d21a62c2fe5ac3d74f442c9dd99a2165246313e40430d5ea6284"
+  },
+  {
+    "id": "v42",
+    "name": "nyt-broadsheet-serif",
+    "createdAt": "2026-05-19T14:34:10.456Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#326891",
+      "#ffffff",
+      "#121212",
+      "#dfdfdc",
+      "#f7f7f5"
+    ],
+    "tokensCssSha256": "bb2b44f81f18fa3d465250d9664baa2c08ead6906bff3647800a964e37e897a9"
+  },
+  {
+    "id": "v43",
+    "name": "fashion-ssense-mono",
+    "createdAt": "2026-05-19T14:34:12.300Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#000000",
+      "#ffffff",
+      "#e0e0e0",
+      "#f4f4f4",
+      "#c00000"
+    ],
+    "tokensCssSha256": "f1af97dd7aec4efd59d65a1a79d5404f242b944ee0d12f31573c8de173ad61fd"
+  },
+  {
+    "id": "v44",
+    "name": "kawaii-pastel-mochi",
+    "createdAt": "2026-05-19T14:34:14.267Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff8fb1",
+      "#fff5f7",
+      "#3d1a2a",
+      "#ffd0db",
+      "#ffe4ea"
+    ],
+    "tokensCssSha256": "6bc163b645323142d1d26d1485dcd7ded556ed9702e5a6f4eb9739cf31e2162a"
+  },
+  {
+    "id": "v45",
+    "name": "duolingo-feather",
+    "createdAt": "2026-05-19T14:34:16.175Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#58cc02",
+      "#ffffff",
+      "#3c3c3c",
+      "#e5e5e5",
+      "#f7f7f7"
+    ],
+    "tokensCssSha256": "d99239bb5b46a0913c8187d183803b43874955af9175579400a23682c30b8522"
+  },
+  {
+    "id": "v46",
+    "name": "spotify-night-lime",
+    "createdAt": "2026-05-19T14:34:18.691Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#1ed760",
+      "#121212",
+      "#ffffff",
+      "#282828",
+      "#1a1a1a"
+    ],
+    "tokensCssSha256": "2c920239569e3fd1c84f74bc48281e879e5b2577a0fbae892022308eabf2295e"
+  },
+  {
+    "id": "v47",
+    "name": "discord-blurple",
+    "createdAt": "2026-05-19T14:34:21.076Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#5865f2",
+      "#313338",
+      "#f2f3f5",
+      "#1e1f22",
+      "#2b2d31"
+    ],
+    "tokensCssSha256": "585506814ba0ed7a2753cd25d11f9011c7503f467380514fcc488aca1adaf902"
+  },
+  {
+    "id": "v48",
+    "name": "valorant-tactical-red",
+    "createdAt": "2026-05-19T14:34:22.900Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff4655",
+      "#0f1923",
+      "#ece8e1",
+      "#283b4f",
+      "#1a2734"
+    ],
+    "tokensCssSha256": "f09c8afa311deb7e3f449ebada131792873ebaa56e71b18ef04d0192b177124b"
+  },
+  {
+    "id": "v49",
+    "name": "pixel-8bit-arcade",
+    "createdAt": "2026-05-19T14:34:24.782Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#e52521",
+      "#101820",
+      "#ffffff",
+      "#2a3b4e",
+      "#1c2733"
+    ],
+    "tokensCssSha256": "a8bee83337e4515524a349fcaf9f2276ca28d4f0b2b9e16f1541663cc940219b"
+  },
+  {
+    "id": "v50",
+    "name": "cottagecore-mauve",
+    "createdAt": "2026-05-19T14:34:26.850Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#a36d6d",
+      "#fbf7f1",
+      "#3a2a2a",
+      "#d8c6b8",
+      "#ede4d3"
+    ],
+    "tokensCssSha256": "3b3094fb64e93e5c73db7af16db5e9fdd07f180763b8024673d5b5d87dc82422"
+  },
+  {
+    "id": "v51",
+    "name": "dark-academia-burgundy",
+    "createdAt": "2026-05-19T14:34:28.609Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#7c1f2c",
+      "#1a1410",
+      "#f4ead5",
+      "#3d2e22",
+      "#2b211a"
+    ],
+    "tokensCssSha256": "99f2db9158e7aa443080e28594d353b5fc652734ed136bc34e2483fe1b59c23a"
+  },
+  {
+    "id": "v52",
+    "name": "solarpunk-meadow",
+    "createdAt": "2026-05-19T14:34:30.499Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#3a8a3a",
+      "#fffbeb",
+      "#1a2a14",
+      "#d6cda0",
+      "#f4ecd0"
+    ],
+    "tokensCssSha256": "ba789b390cae780f2e5ee36553cc2e2e8ae69c28ae002f7df21b9501cd2012a4"
+  },
+  {
+    "id": "v53",
+    "name": "afrofuturism-cosmic",
+    "createdAt": "2026-05-19T14:34:32.330Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#d4af37",
+      "#1a0a2e",
+      "#f5ecd1",
+      "#3d2160",
+      "#2c1547"
+    ],
+    "tokensCssSha256": "e8d2a8699bfc99474aa2018440af1f5d0b4019ff892cbc045c603111df4b4435"
+  },
+  {
+    "id": "v54",
+    "name": "skincare-rose-quartz",
+    "createdAt": "2026-05-19T14:34:34.241Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#d4a09a",
+      "#faf3ef",
+      "#2a1a18",
+      "#e6d6cc",
+      "#f0e5dc"
+    ],
+    "tokensCssSha256": "ac831a2ebc6d7fff09d3b194b39445a1b71ee8c80677924295c7f6439a5ea898"
+  },
+  {
+    "id": "v55",
+    "name": "energy-drink-volt",
+    "createdAt": "2026-05-19T14:34:36.127Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#d9ff00",
+      "#0a0a0a",
+      "#fafafa",
+      "#2a2a1a",
+      "#16160e"
+    ],
+    "tokensCssSha256": "210f220c555583e0ccb9d6fa060592be5b0cda616bcd63f802dba0eab61dd4b4"
+  },
+  {
+    "id": "v56",
+    "name": "healthcare-clinical-teal",
+    "createdAt": "2026-05-19T14:34:37.984Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#158187",
+      "#ffffff",
+      "#1a3a3c",
+      "#d6e4e4",
+      "#f0f6f6"
+    ],
+    "tokensCssSha256": "7d12fb065237cbf338a070a31b2c514d794be918dc0ee39ff5b058e4e6316343"
+  },
+  {
+    "id": "v57",
+    "name": "risograph-fluoro",
+    "createdAt": "2026-05-19T14:34:39.856Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff48b0",
+      "#fffae8",
+      "#0d1a2a",
+      "#f0e8c8",
+      "#00a95c"
+    ],
+    "tokensCssSha256": "e98bc0d3f22829b278f156a905a1fdb3dbea4360456d155bf25f8b13415176c7"
+  },
+  {
+    "id": "v58",
+    "name": "crypto-neon-onyx",
+    "createdAt": "2026-05-19T14:34:41.631Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#14f195",
+      "#0a0a0f",
+      "#f4f4ff",
+      "#1f2030",
+      "#11111a"
+    ],
+    "tokensCssSha256": "6779b783b2272641cadac85ea24e591da35d68647c801d6eda4456a0f72363a4"
+  },
+  {
+    "id": "v59",
+    "name": "high-contrast-a11y",
+    "createdAt": "2026-05-19T14:34:43.406Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#0000aa",
+      "#ffffff",
+      "#000000",
+      "#f0f0f0",
+      "#006600"
+    ],
+    "tokensCssSha256": "b192f48505b113cb23f4e59e6fce1da562c18c2d2cd240b52cf9683297657f1e"
+  },
+  {
+    "id": "v60",
+    "name": "childrens-book-crayon",
+    "createdAt": "2026-05-19T14:34:45.325Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#ff9f1c",
+      "#fdf4d5",
+      "#2a1a08",
+      "#e6c870",
+      "#f4e5b0"
+    ],
+    "tokensCssSha256": "30e3403aa6062589a2c97b5d717cbfc9b1b7053d3a668daffcd050e696c44530"
+  },
+  {
+    "id": "v61",
+    "name": "japanese-minimal-ink",
+    "createdAt": "2026-05-19T14:34:47.234Z",
+    "gitSha": "96c39de",
+    "paletteHex": [
+      "#c1272d",
+      "#fbfaf6",
+      "#1a1a1a",
+      "#d6d2c4",
+      "#efece2"
+    ],
+    "tokensCssSha256": "030f912f7aafc17774b3f39dd0eb408dc19e6af10d0f1b7bac9da70bbd4961ec"
   }
 ]

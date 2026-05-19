@@ -1,0 +1,8 @@
+{
+  "id": "v16",
+  "name": "ghost-blog-serif",
+  "createdAt": "2026-05-19T14:33:21.622Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#0f4c81", "#fbfaf7", "#1a1a1a", "#e5e1d8", "#f1eee6"],
+  "tokensCssSha256": "51d48e43c03ea0e5ab8ad6b02081f6f8ca6e490e16b578829ded596a698d6c46"
+}

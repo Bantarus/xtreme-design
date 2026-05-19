@@ -1,0 +1,8 @@
+{
+  "id": "v12",
+  "name": "ipod-nano-gradient",
+  "createdAt": "2026-05-19T14:33:14.201Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff4f8a", "#fafafa", "#1c1c1e", "#d2d2d7", "#ececec"],
+  "tokensCssSha256": "1e36d7d6fc1a24a231e4ab6eb7de20c3518f444399b54fcc130182c79d863326"
+}

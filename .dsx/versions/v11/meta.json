@@ -1,0 +1,8 @@
+{
+  "id": "v11",
+  "name": "y2k-chrome-bubble",
+  "createdAt": "2026-05-19T14:33:12.417Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#c6e0ff", "#f6f3ff", "#1a1b3a", "#c0b8e8", "#e2dcff"],
+  "tokensCssSha256": "d07ffbd916ff2dc04432dc0275efbafbab0c1aa94bfb9e31c9a29ea2bf18266b"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v28",
+  "name": "neo-brutalist-cobalt",
+  "createdAt": "2026-05-19T14:33:44.225Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#2a52ff", "#fefefe", "#000000", "#fff4d6", "#22cc62"],
+  "tokensCssSha256": "de472326f09b1a50287e096847f331ba837631cc4002ec9c01542adb1392f034"
+}

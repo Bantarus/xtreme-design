@@ -1,0 +1,8 @@
+{
+  "id": "v17",
+  "name": "windows-8-metro",
+  "createdAt": "2026-05-19T14:33:23.435Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#0078d7", "#ffffff", "#000000", "#edebe9", "#f3f2f1"],
+  "tokensCssSha256": "1e88116e48c60dce04d0e0e9ecd53601590b052c7e5b774e9f5c34985ff25bc1"
+}

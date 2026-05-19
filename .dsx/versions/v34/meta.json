@@ -1,0 +1,8 @@
+{
+  "id": "v34",
+  "name": "cyberpunk-neon-grid",
+  "createdAt": "2026-05-19T14:33:55.449Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#fcee0a", "#06060e", "#f0f6ff", "#1f2032", "#10101e"],
+  "tokensCssSha256": "56e6dbf1658b1716d261d9e760b079f29863c0ce20f649610f5e3d0d01dd11c2"
+}

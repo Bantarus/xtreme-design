@@ -1,0 +1,8 @@
+{
+  "id": "v43",
+  "name": "fashion-ssense-mono",
+  "createdAt": "2026-05-19T14:34:12.300Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#000000", "#ffffff", "#e0e0e0", "#f4f4f4", "#c00000"],
+  "tokensCssSha256": "f1af97dd7aec4efd59d65a1a79d5404f242b944ee0d12f31573c8de173ad61fd"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v19",
+  "name": "airbnb-rausch",
+  "createdAt": "2026-05-19T14:33:27.426Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff5a5f", "#ffffff", "#222222", "#dddddd", "#f7f7f7"],
+  "tokensCssSha256": "a038a1c4be9bb3743fff11d52104ddd013f838a917a44d4eec4feb8096e3df26"
+}

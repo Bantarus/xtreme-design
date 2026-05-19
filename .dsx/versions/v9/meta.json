@@ -1,0 +1,8 @@
+{
+  "id": "v9",
+  "name": "skeuo-leather-stitch",
+  "createdAt": "2026-05-19T14:33:08.731Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#7a4a1f", "#f1e7d3", "#2a1d0e", "#c2a777", "#e4d6bb"],
+  "tokensCssSha256": "997691217d8dfdd38c1a5a1c5cd85f1177467159c654681cc063aac21a9fe2cb"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v36",
+  "name": "amber-crt-bloomberg",
+  "createdAt": "2026-05-19T14:33:59.144Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#fb8b1e", "#000000", "#f39f41", "#3a2c10", "#0c0a08"],
+  "tokensCssSha256": "11cc1e6671fd0f65259e5b3ef9456f49a2610051b83923591c30b102a8c81bd1"
+}

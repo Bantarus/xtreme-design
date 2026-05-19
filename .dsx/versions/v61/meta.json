@@ -1,0 +1,8 @@
+{
+  "id": "v61",
+  "name": "japanese-minimal-ink",
+  "createdAt": "2026-05-19T14:34:47.234Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#c1272d", "#fbfaf6", "#1a1a1a", "#d6d2c4", "#efece2"],
+  "tokensCssSha256": "030f912f7aafc17774b3f39dd0eb408dc19e6af10d0f1b7bac9da70bbd4961ec"
+}

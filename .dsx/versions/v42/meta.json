@@ -1,0 +1,8 @@
+{
+  "id": "v42",
+  "name": "nyt-broadsheet-serif",
+  "createdAt": "2026-05-19T14:34:10.456Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#326891", "#ffffff", "#121212", "#dfdfdc", "#f7f7f5"],
+  "tokensCssSha256": "bb2b44f81f18fa3d465250d9664baa2c08ead6906bff3647800a964e37e897a9"
+}

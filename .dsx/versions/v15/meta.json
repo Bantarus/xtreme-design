@@ -1,0 +1,8 @@
+{
+  "id": "v15",
+  "name": "material-1-paper",
+  "createdAt": "2026-05-19T14:33:19.752Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#3f51b5", "#fafafa", "#212121", "#e0e0e0", "#eeeeee"],
+  "tokensCssSha256": "1b6a5e36a88e88a346c8371f3a04ab03f2281e46b5c2edd5368c0ced835cc997"
+}

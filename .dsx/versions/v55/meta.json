@@ -1,0 +1,8 @@
+{
+  "id": "v55",
+  "name": "energy-drink-volt",
+  "createdAt": "2026-05-19T14:34:36.127Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#d9ff00", "#0a0a0a", "#fafafa", "#2a2a1a", "#16160e"],
+  "tokensCssSha256": "210f220c555583e0ccb9d6fa060592be5b0cda616bcd63f802dba0eab61dd4b4"
+}

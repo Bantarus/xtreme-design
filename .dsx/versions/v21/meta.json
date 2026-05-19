@@ -1,0 +1,8 @@
+{
+  "id": "v21",
+  "name": "polaris-forest",
+  "createdAt": "2026-05-19T14:33:31.171Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#008060", "#ffffff", "#202223", "#e1e3e5", "#f6f6f7"],
+  "tokensCssSha256": "e467958ad40741e6facca18a03078cc4a6c83ba67b15b153e6e3b06b11d74f88"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v32",
+  "name": "ai-gradient-mesh",
+  "createdAt": "2026-05-19T14:33:51.689Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#a37bff", "#fafafd", "#0f0e17", "#e6e3f0", "#f0eef8"],
+  "tokensCssSha256": "3b9380c86ab5a64ccc337382400285ef8f2f6fdda285c411aaa526d6d6a96402"
+}

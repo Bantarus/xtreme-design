@@ -1,0 +1,8 @@
+{
+  "id": "v49",
+  "name": "pixel-8bit-arcade",
+  "createdAt": "2026-05-19T14:34:24.782Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#e52521", "#101820", "#ffffff", "#2a3b4e", "#1c2733"],
+  "tokensCssSha256": "a8bee83337e4515524a349fcaf9f2276ca28d4f0b2b9e16f1541663cc940219b"
+}

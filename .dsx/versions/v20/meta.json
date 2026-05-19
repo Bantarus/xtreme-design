@@ -1,0 +1,8 @@
+{
+  "id": "v20",
+  "name": "carbon-cobalt",
+  "createdAt": "2026-05-19T14:33:29.287Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#0f62fe", "#ffffff", "#161616", "#e0e0e0", "#f4f4f4"],
+  "tokensCssSha256": "faeef7862b606b250234814c53f7ae3320c6bde2516c8f01c845716acba594a4"
+}

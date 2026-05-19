@@ -1,0 +1,8 @@
+{
+  "id": "v40",
+  "name": "art-deco-gilded",
+  "createdAt": "2026-05-19T14:34:06.697Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#c9a04a", "#0d0a08", "#f5e9d0", "#3a2c1a", "#1a140e"],
+  "tokensCssSha256": "08aff1ffc0f309797371bdd7749223afffd6faa2b67afc57324da2605dbaa7e2"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v39",
+  "name": "memphis-squiggle-pop",
+  "createdAt": "2026-05-19T14:34:04.797Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff5fa9", "#f7f3e8", "#0d0d0d", "#fde8c0", "#3ae0c9"],
+  "tokensCssSha256": "a6ad51ece561f2bb9513c1f0e3a09799d72268b345814706e8f42f3184542834"
+}

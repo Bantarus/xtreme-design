@@ -1,0 +1,8 @@
+{
+  "id": "v23",
+  "name": "govuk-civic-blue",
+  "createdAt": "2026-05-19T14:33:35.178Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#1d70b8", "#ffffff", "#0b0c0c", "#b1b4b6", "#f3f2f1"],
+  "tokensCssSha256": "f5c392ce7d3fc9e2cbc110390b64f7e43de41e1cc5c215641d5ea265c643b411"
+}

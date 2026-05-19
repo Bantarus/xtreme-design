@@ -1,0 +1,8 @@
+{
+  "id": "v35",
+  "name": "terminal-phosphor-green",
+  "createdAt": "2026-05-19T14:33:57.285Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#33ff33", "#000000", "#155515", "#0a1a0a", "#aaffaa"],
+  "tokensCssSha256": "c5357f6e77c0d8c23c0c97ad6358d06236096db8721219367b915fc877bcefd5"
+}

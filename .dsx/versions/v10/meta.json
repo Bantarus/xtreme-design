@@ -1,0 +1,8 @@
+{
+  "id": "v10",
+  "name": "frutiger-aero-cloud",
+  "createdAt": "2026-05-19T14:33:10.589Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#0689e4", "#eaf6fd", "#0b2a3f", "#a6d2ec", "#cfe7f7"],
+  "tokensCssSha256": "91cb43a9d65a5d8c10d86b5f819eff43dfed884179b92b8c7f5ed6aa33b2ce25"
+}

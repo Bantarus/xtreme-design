@@ -1,0 +1,8 @@
+{
+  "id": "v38",
+  "name": "bauhaus-itten-triad",
+  "createdAt": "2026-05-19T14:34:02.975Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#1e3878", "#f6f4ee", "#161616", "#d4cfbf", "#e8e3d4"],
+  "tokensCssSha256": "37b19a56137709934c8fa1f5e465ed53005354da09cc68b20331efbe6a567d59"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v60",
+  "name": "childrens-book-crayon",
+  "createdAt": "2026-05-19T14:34:45.325Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff9f1c", "#fdf4d5", "#2a1a08", "#e6c870", "#f4e5b0"],
+  "tokensCssSha256": "30e3403aa6062589a2c97b5d717cbfc9b1b7053d3a668daffcd050e696c44530"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v27",
+  "name": "claymorph-3d-pop",
+  "createdAt": "2026-05-19T14:33:42.391Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#7e6cff", "#fef3ff", "#2b1b4e", "#ecd0ff", "#fad8ff"],
+  "tokensCssSha256": "5e307fde57075be74f632ddae537fecb676dd75865801a4919b03047e91d06d0"
+}

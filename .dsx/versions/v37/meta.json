@@ -1,0 +1,8 @@
+{
+  "id": "v37",
+  "name": "swiss-grid-ink",
+  "createdAt": "2026-05-19T14:34:01.027Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#d92e1f", "#f6f3ec", "#0a0a0a", "#d2cdbe", "#ebe7dc"],
+  "tokensCssSha256": "3fb73ad09de7d60d00a1aa0518cb91edcccfcf19be03faf21870740780c5c9cf"
+}

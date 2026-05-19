@@ -1,0 +1,8 @@
+{
+  "id": "v59",
+  "name": "high-contrast-a11y",
+  "createdAt": "2026-05-19T14:34:43.406Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#0000aa", "#ffffff", "#000000", "#f0f0f0", "#006600"],
+  "tokensCssSha256": "b192f48505b113cb23f4e59e6fce1da562c18c2d2cd240b52cf9683297657f1e"
+}

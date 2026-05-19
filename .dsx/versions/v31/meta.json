@@ -1,0 +1,8 @@
+{
+  "id": "v31",
+  "name": "mercury-indigo-noir",
+  "createdAt": "2026-05-19T14:33:49.859Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#5266eb", "#171721", "#ededf3", "#2e2e3d", "#21212e"],
+  "tokensCssSha256": "a2b3366146560b5692a38f28d17fd50b94ec9530c89959edd03fd4db280fa246"
+}

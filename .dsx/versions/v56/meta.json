@@ -1,0 +1,8 @@
+{
+  "id": "v56",
+  "name": "healthcare-clinical-teal",
+  "createdAt": "2026-05-19T14:34:37.984Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#158187", "#ffffff", "#1a3a3c", "#d6e4e4", "#f0f6f6"],
+  "tokensCssSha256": "7d12fb065237cbf338a070a31b2c514d794be918dc0ee39ff5b058e4e6316343"
+}

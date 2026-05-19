@@ -1,0 +1,8 @@
+{
+  "id": "v26",
+  "name": "glassmorph-aurora",
+  "createdAt": "2026-05-19T14:33:40.608Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#7c5cff", "#f7f4ff", "#1a1235", "#d8cffb", "#eae3ff"],
+  "tokensCssSha256": "72288e291617f02a3f7bc808461f1e2995e6f5b0e4260468fe8f890750f2d0f5"
+}

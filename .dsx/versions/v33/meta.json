@@ -1,0 +1,8 @@
+{
+  "id": "v33",
+  "name": "vaporwave-miami",
+  "createdAt": "2026-05-19T14:33:53.561Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff2975", "#1a0b2e", "#ffe9f5", "#4a2073", "#2a1245"],
+  "tokensCssSha256": "c4bc668d06cac4ee8d837fe5cb331226f6f59f9d7298f7c66beb36b7105325f4"
+}

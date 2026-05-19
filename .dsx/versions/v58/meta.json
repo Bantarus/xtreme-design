@@ -1,0 +1,8 @@
+{
+  "id": "v58",
+  "name": "crypto-neon-onyx",
+  "createdAt": "2026-05-19T14:34:41.631Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#14f195", "#0a0a0f", "#f4f4ff", "#1f2030", "#11111a"],
+  "tokensCssSha256": "6779b783b2272641cadac85ea24e591da35d68647c801d6eda4456a0f72363a4"
+}

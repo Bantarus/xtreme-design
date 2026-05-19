@@ -86,5 +86,599 @@
       "#dcd4c0",
       "#e6dec9"
     ]
+  },
+  {
+    "id": "v8",
+    "name": "web2-glassy-aqua",
+    "paletteHex": [
+      "#2a7de1",
+      "#f4f8fc",
+      "#0e2233",
+      "#b9cde0",
+      "#e1ebf5"
+    ]
+  },
+  {
+    "id": "v9",
+    "name": "skeuo-leather-stitch",
+    "paletteHex": [
+      "#7a4a1f",
+      "#f1e7d3",
+      "#2a1d0e",
+      "#c2a777",
+      "#e4d6bb"
+    ]
+  },
+  {
+    "id": "v10",
+    "name": "frutiger-aero-cloud",
+    "paletteHex": [
+      "#0689e4",
+      "#eaf6fd",
+      "#0b2a3f",
+      "#a6d2ec",
+      "#cfe7f7"
+    ]
+  },
+  {
+    "id": "v11",
+    "name": "y2k-chrome-bubble",
+    "paletteHex": [
+      "#c6e0ff",
+      "#f6f3ff",
+      "#1a1b3a",
+      "#c0b8e8",
+      "#e2dcff"
+    ]
+  },
+  {
+    "id": "v12",
+    "name": "ipod-nano-gradient",
+    "paletteHex": [
+      "#ff4f8a",
+      "#fafafa",
+      "#1c1c1e",
+      "#d2d2d7",
+      "#ececec"
+    ]
+  },
+  {
+    "id": "v13",
+    "name": "myspace-glitter",
+    "paletteHex": [
+      "#ff2e88",
+      "#fff4fb",
+      "#1d0a1a",
+      "#ffa6d4",
+      "#ffd9ee"
+    ]
+  },
+  {
+    "id": "v14",
+    "name": "flat-ios7-reset",
+    "paletteHex": [
+      "#007aff",
+      "#ffffff",
+      "#0a0a0a",
+      "#e5e5ea",
+      "#f2f2f7"
+    ]
+  },
+  {
+    "id": "v15",
+    "name": "material-1-paper",
+    "paletteHex": [
+      "#3f51b5",
+      "#fafafa",
+      "#212121",
+      "#e0e0e0",
+      "#eeeeee"
+    ]
+  },
+  {
+    "id": "v16",
+    "name": "ghost-blog-serif",
+    "paletteHex": [
+      "#0f4c81",
+      "#fbfaf7",
+      "#1a1a1a",
+      "#e5e1d8",
+      "#f1eee6"
+    ]
+  },
+  {
+    "id": "v17",
+    "name": "windows-8-metro",
+    "paletteHex": [
+      "#0078d7",
+      "#ffffff",
+      "#000000",
+      "#edebe9",
+      "#f3f2f1"
+    ]
+  },
+  {
+    "id": "v18",
+    "name": "stripe-fintech-indigo",
+    "paletteHex": [
+      "#635bff",
+      "#ffffff",
+      "#0a2540",
+      "#e3e8ee",
+      "#f6f9fc"
+    ]
+  },
+  {
+    "id": "v19",
+    "name": "airbnb-rausch",
+    "paletteHex": [
+      "#ff5a5f",
+      "#ffffff",
+      "#222222",
+      "#dddddd",
+      "#f7f7f7"
+    ]
+  },
+  {
+    "id": "v20",
+    "name": "carbon-cobalt",
+    "paletteHex": [
+      "#0f62fe",
+      "#ffffff",
+      "#161616",
+      "#e0e0e0",
+      "#f4f4f4"
+    ]
+  },
+  {
+    "id": "v21",
+    "name": "polaris-forest",
+    "paletteHex": [
+      "#008060",
+      "#ffffff",
+      "#202223",
+      "#e1e3e5",
+      "#f6f6f7"
+    ]
+  },
+  {
+    "id": "v22",
+    "name": "material-3-purple",
+    "paletteHex": [
+      "#6750a4",
+      "#fffbfe",
+      "#1c1b1f",
+      "#cac4d0",
+      "#e7e0ec"
+    ]
+  },
+  {
+    "id": "v23",
+    "name": "govuk-civic-blue",
+    "paletteHex": [
+      "#1d70b8",
+      "#ffffff",
+      "#0b0c0c",
+      "#b1b4b6",
+      "#f3f2f1"
+    ]
+  },
+  {
+    "id": "v24",
+    "name": "neumorph-soft-sky",
+    "paletteHex": [
+      "#2788e8",
+      "#e6e8ec",
+      "#1f2933",
+      "#c7cbd2",
+      "#d6d9df"
+    ]
+  },
+  {
+    "id": "v25",
+    "name": "brutalist-web-mono",
+    "paletteHex": [
+      "#0000ee",
+      "#ffffff",
+      "#000000",
+      "#f0f0f0",
+      "#00aa00"
+    ]
+  },
+  {
+    "id": "v26",
+    "name": "glassmorph-aurora",
+    "paletteHex": [
+      "#7c5cff",
+      "#f7f4ff",
+      "#1a1235",
+      "#d8cffb",
+      "#eae3ff"
+    ]
+  },
+  {
+    "id": "v27",
+    "name": "claymorph-3d-pop",
+    "paletteHex": [
+      "#7e6cff",
+      "#fef3ff",
+      "#2b1b4e",
+      "#ecd0ff",
+      "#fad8ff"
+    ]
+  },
+  {
+    "id": "v28",
+    "name": "neo-brutalist-cobalt",
+    "paletteHex": [
+      "#2a52ff",
+      "#fefefe",
+      "#000000",
+      "#fff4d6",
+      "#22cc62"
+    ]
+  },
+  {
+    "id": "v29",
+    "name": "geist-monochrome",
+    "paletteHex": [
+      "#000000",
+      "#ffffff",
+      "#0a0a0a",
+      "#eaeaea",
+      "#fafafa"
+    ]
+  },
+  {
+    "id": "v30",
+    "name": "linear-graphite",
+    "paletteHex": [
+      "#5e6ad2",
+      "#0e0e10",
+      "#f7f8f8",
+      "#2c2d31",
+      "#1a1a1f"
+    ]
+  },
+  {
+    "id": "v31",
+    "name": "mercury-indigo-noir",
+    "paletteHex": [
+      "#5266eb",
+      "#171721",
+      "#ededf3",
+      "#2e2e3d",
+      "#21212e"
+    ]
+  },
+  {
+    "id": "v32",
+    "name": "ai-gradient-mesh",
+    "paletteHex": [
+      "#a37bff",
+      "#fafafd",
+      "#0f0e17",
+      "#e6e3f0",
+      "#f0eef8"
+    ]
+  },
+  {
+    "id": "v33",
+    "name": "vaporwave-miami",
+    "paletteHex": [
+      "#ff2975",
+      "#1a0b2e",
+      "#ffe9f5",
+      "#4a2073",
+      "#2a1245"
+    ]
+  },
+  {
+    "id": "v34",
+    "name": "cyberpunk-neon-grid",
+    "paletteHex": [
+      "#fcee0a",
+      "#06060e",
+      "#f0f6ff",
+      "#1f2032",
+      "#10101e"
+    ]
+  },
+  {
+    "id": "v35",
+    "name": "terminal-phosphor-green",
+    "paletteHex": [
+      "#33ff33",
+      "#000000",
+      "#155515",
+      "#0a1a0a",
+      "#aaffaa"
+    ]
+  },
+  {
+    "id": "v36",
+    "name": "amber-crt-bloomberg",
+    "paletteHex": [
+      "#fb8b1e",
+      "#000000",
+      "#f39f41",
+      "#3a2c10",
+      "#0c0a08"
+    ]
+  },
+  {
+    "id": "v37",
+    "name": "swiss-grid-ink",
+    "paletteHex": [
+      "#d92e1f",
+      "#f6f3ec",
+      "#0a0a0a",
+      "#d2cdbe",
+      "#ebe7dc"
+    ]
+  },
+  {
+    "id": "v38",
+    "name": "bauhaus-itten-triad",
+    "paletteHex": [
+      "#1e3878",
+      "#f6f4ee",
+      "#161616",
+      "#d4cfbf",
+      "#e8e3d4"
+    ]
+  },
+  {
+    "id": "v39",
+    "name": "memphis-squiggle-pop",
+    "paletteHex": [
+      "#ff5fa9",
+      "#f7f3e8",
+      "#0d0d0d",
+      "#fde8c0",
+      "#3ae0c9"
+    ]
+  },
+  {
+    "id": "v40",
+    "name": "art-deco-gilded",
+    "paletteHex": [
+      "#c9a04a",
+      "#0d0a08",
+      "#f5e9d0",
+      "#3a2c1a",
+      "#1a140e"
+    ]
+  },
+  {
+    "id": "v41",
+    "name": "brutalist-concrete",
+    "paletteHex": [
+      "#d35400",
+      "#bdb8af",
+      "#1a1815",
+      "#86807a",
+      "#a59f94"
+    ]
+  },
+  {
+    "id": "v42",
+    "name": "nyt-broadsheet-serif",
+    "paletteHex": [
+      "#326891",
+      "#ffffff",
+      "#121212",
+      "#dfdfdc",
+      "#f7f7f5"
+    ]
+  },
+  {
+    "id": "v43",
+    "name": "fashion-ssense-mono",
+    "paletteHex": [
+      "#000000",
+      "#ffffff",
+      "#e0e0e0",
+      "#f4f4f4",
+      "#c00000"
+    ]
+  },
+  {
+    "id": "v44",
+    "name": "kawaii-pastel-mochi",
+    "paletteHex": [
+      "#ff8fb1",
+      "#fff5f7",
+      "#3d1a2a",
+      "#ffd0db",
+      "#ffe4ea"
+    ]
+  },
+  {
+    "id": "v45",
+    "name": "duolingo-feather",
+    "paletteHex": [
+      "#58cc02",
+      "#ffffff",
+      "#3c3c3c",
+      "#e5e5e5",
+      "#f7f7f7"
+    ]
+  },
+  {
+    "id": "v46",
+    "name": "spotify-night-lime",
+    "paletteHex": [
+      "#1ed760",
+      "#121212",
+      "#ffffff",
+      "#282828",
+      "#1a1a1a"
+    ]
+  },
+  {
+    "id": "v47",
+    "name": "discord-blurple",
+    "paletteHex": [
+      "#5865f2",
+      "#313338",
+      "#f2f3f5",
+      "#1e1f22",
+      "#2b2d31"
+    ]
+  },
+  {
+    "id": "v48",
+    "name": "valorant-tactical-red",
+    "paletteHex": [
+      "#ff4655",
+      "#0f1923",
+      "#ece8e1",
+      "#283b4f",
+      "#1a2734"
+    ]
+  },
+  {
+    "id": "v49",
+    "name": "pixel-8bit-arcade",
+    "paletteHex": [
+      "#e52521",
+      "#101820",
+      "#ffffff",
+      "#2a3b4e",
+      "#1c2733"
+    ]
+  },
+  {
+    "id": "v50",
+    "name": "cottagecore-mauve",
+    "paletteHex": [
+      "#a36d6d",
+      "#fbf7f1",
+      "#3a2a2a",
+      "#d8c6b8",
+      "#ede4d3"
+    ]
+  },
+  {
+    "id": "v51",
+    "name": "dark-academia-burgundy",
+    "paletteHex": [
+      "#7c1f2c",
+      "#1a1410",
+      "#f4ead5",
+      "#3d2e22",
+      "#2b211a"
+    ]
+  },
+  {
+    "id": "v52",
+    "name": "solarpunk-meadow",
+    "paletteHex": [
+      "#3a8a3a",
+      "#fffbeb",
+      "#1a2a14",
+      "#d6cda0",
+      "#f4ecd0"
+    ]
+  },
+  {
+    "id": "v53",
+    "name": "afrofuturism-cosmic",
+    "paletteHex": [
+      "#d4af37",
+      "#1a0a2e",
+      "#f5ecd1",
+      "#3d2160",
+      "#2c1547"
+    ]
+  },
+  {
+    "id": "v54",
+    "name": "skincare-rose-quartz",
+    "paletteHex": [
+      "#d4a09a",
+      "#faf3ef",
+      "#2a1a18",
+      "#e6d6cc",
+      "#f0e5dc"
+    ]
+  },
+  {
+    "id": "v55",
+    "name": "energy-drink-volt",
+    "paletteHex": [
+      "#d9ff00",
+      "#0a0a0a",
+      "#fafafa",
+      "#2a2a1a",
+      "#16160e"
+    ]
+  },
+  {
+    "id": "v56",
+    "name": "healthcare-clinical-teal",
+    "paletteHex": [
+      "#158187",
+      "#ffffff",
+      "#1a3a3c",
+      "#d6e4e4",
+      "#f0f6f6"
+    ]
+  },
+  {
+    "id": "v57",
+    "name": "risograph-fluoro",
+    "paletteHex": [
+      "#ff48b0",
+      "#fffae8",
+      "#0d1a2a",
+      "#f0e8c8",
+      "#00a95c"
+    ]
+  },
+  {
+    "id": "v58",
+    "name": "crypto-neon-onyx",
+    "paletteHex": [
+      "#14f195",
+      "#0a0a0f",
+      "#f4f4ff",
+      "#1f2030",
+      "#11111a"
+    ]
+  },
+  {
+    "id": "v59",
+    "name": "high-contrast-a11y",
+    "paletteHex": [
+      "#0000aa",
+      "#ffffff",
+      "#000000",
+      "#f0f0f0",
+      "#006600"
+    ]
+  },
+  {
+    "id": "v60",
+    "name": "childrens-book-crayon",
+    "paletteHex": [
+      "#ff9f1c",
+      "#fdf4d5",
+      "#2a1a08",
+      "#e6c870",
+      "#f4e5b0"
+    ]
+  },
+  {
+    "id": "v61",
+    "name": "japanese-minimal-ink",
+    "paletteHex": [
+      "#c1272d",
+      "#fbfaf6",
+      "#1a1a1a",
+      "#d6d2c4",
+      "#efece2"
+    ]
   }
 ]

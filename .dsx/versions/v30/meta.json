@@ -1,0 +1,8 @@
+{
+  "id": "v30",
+  "name": "linear-graphite",
+  "createdAt": "2026-05-19T14:33:47.881Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#5e6ad2", "#0e0e10", "#f7f8f8", "#2c2d31", "#1a1a1f"],
+  "tokensCssSha256": "16a09259d6c099b55dc0473a1543cfbd60202a6c6d18027e59b95f7c4ca87bb6"
+}

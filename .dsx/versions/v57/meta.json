@@ -1,0 +1,8 @@
+{
+  "id": "v57",
+  "name": "risograph-fluoro",
+  "createdAt": "2026-05-19T14:34:39.856Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff48b0", "#fffae8", "#0d1a2a", "#f0e8c8", "#00a95c"],
+  "tokensCssSha256": "e98bc0d3f22829b278f156a905a1fdb3dbea4360456d155bf25f8b13415176c7"
+}

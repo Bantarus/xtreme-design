@@ -1,0 +1,8 @@
+{
+  "id": "v14",
+  "name": "flat-ios7-reset",
+  "createdAt": "2026-05-19T14:33:17.929Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#007aff", "#ffffff", "#0a0a0a", "#e5e5ea", "#f2f2f7"],
+  "tokensCssSha256": "ebd62a49d3914ae8aef985a4e07f177309fba8af49d6ce61985151c5416d9b71"
+}

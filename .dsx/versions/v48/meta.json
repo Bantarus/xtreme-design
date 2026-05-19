@@ -1,0 +1,8 @@
+{
+  "id": "v48",
+  "name": "valorant-tactical-red",
+  "createdAt": "2026-05-19T14:34:22.900Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff4655", "#0f1923", "#ece8e1", "#283b4f", "#1a2734"],
+  "tokensCssSha256": "f09c8afa311deb7e3f449ebada131792873ebaa56e71b18ef04d0192b177124b"
+}

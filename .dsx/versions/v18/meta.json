@@ -1,0 +1,8 @@
+{
+  "id": "v18",
+  "name": "stripe-fintech-indigo",
+  "createdAt": "2026-05-19T14:33:25.614Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#635bff", "#ffffff", "#0a2540", "#e3e8ee", "#f6f9fc"],
+  "tokensCssSha256": "f5571f726b1523977ff15d9c2af8545187b6dee649386753f8d73ece4ceb363e"
+}

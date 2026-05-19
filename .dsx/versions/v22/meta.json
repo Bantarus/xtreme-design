@@ -1,0 +1,8 @@
+{
+  "id": "v22",
+  "name": "material-3-purple",
+  "createdAt": "2026-05-19T14:33:33.179Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#6750a4", "#fffbfe", "#1c1b1f", "#cac4d0", "#e7e0ec"],
+  "tokensCssSha256": "4214bec4f9b0edeed236ae699f71eec9871e02fd8e3d5e01f14f1084b78e07ed"
+}

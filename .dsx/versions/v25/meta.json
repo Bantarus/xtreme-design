@@ -1,0 +1,8 @@
+{
+  "id": "v25",
+  "name": "brutalist-web-mono",
+  "createdAt": "2026-05-19T14:33:38.832Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#0000ee", "#ffffff", "#000000", "#f0f0f0", "#00aa00"],
+  "tokensCssSha256": "35d4e3c21555e112b059220024e00573d1c10c03ee0d3338c343960794071085"
+}

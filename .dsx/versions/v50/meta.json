@@ -1,0 +1,8 @@
+{
+  "id": "v50",
+  "name": "cottagecore-mauve",
+  "createdAt": "2026-05-19T14:34:26.850Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#a36d6d", "#fbf7f1", "#3a2a2a", "#d8c6b8", "#ede4d3"],
+  "tokensCssSha256": "3b3094fb64e93e5c73db7af16db5e9fdd07f180763b8024673d5b5d87dc82422"
+}

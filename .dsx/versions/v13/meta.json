@@ -1,0 +1,8 @@
+{
+  "id": "v13",
+  "name": "myspace-glitter",
+  "createdAt": "2026-05-19T14:33:16.014Z",
+  "gitSha": "96c39de",
+  "paletteHex": ["#ff2e88", "#fff4fb", "#1d0a1a", "#ffa6d4", "#ffd9ee"],
+  "tokensCssSha256": "415f0635dc2f339d6d409662cc80f6329a4aa7480b3978b38841550bcba222ca"
+}
