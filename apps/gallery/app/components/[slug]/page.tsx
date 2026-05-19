@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { DsxLink } from '@/components/DsxLink';
 import { notFound } from 'next/navigation';
 import { PreviewBySlug } from '@/lib/component-previews';
 import { components, componentBySlug } from '@/lib/components-manifest';
@@ -19,13 +19,13 @@ export default async function ComponentDetailPage({
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
       <nav className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-        <Link href="/" className="hover:text-foreground">
+        <DsxLink href="/" className="hover:text-foreground">
           Gallery
-        </Link>
+        </DsxLink>
         <span aria-hidden>/</span>
-        <Link href="/" className="hover:text-foreground">
+        <DsxLink href="/" className="hover:text-foreground">
           {entry.category}
-        </Link>
+        </DsxLink>
         <span aria-hidden>/</span>
         <span className="text-foreground">{entry.name}</span>
       </nav>

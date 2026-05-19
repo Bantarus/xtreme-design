@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { DsxLink } from '@/components/DsxLink';
 import { useEffect, useState } from 'react';
 
 type TokenRow = { name: string; value: string };
@@ -60,9 +60,9 @@ export default function TokensPage() {
         aria-label="Breadcrumb"
         className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground"
       >
-        <Link href="/" className="hover:text-foreground">
+        <DsxLink href="/" className="hover:text-foreground">
           Gallery
-        </Link>
+        </DsxLink>
         <span aria-hidden>/</span>
         <span className="text-foreground">Tokens</span>
       </nav>

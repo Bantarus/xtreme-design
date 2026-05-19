@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import Link from 'next/link';
 import { ActiveDesignHeader } from '@/components/ActiveDesignHeader';
+import { DsxLink } from '@/components/DsxLink';
 import { categories, components, type ComponentCategory } from '@/lib/components-manifest';
 
 const paletteVars = [
@@ -54,12 +54,12 @@ export default async function HomePage() {
           <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             Active palette
           </h2>
-          <Link
+          <DsxLink
             href="/tokens"
             className="text-sm font-medium text-primary underline-offset-4 hover:underline"
           >
             /tokens →
-          </Link>
+          </DsxLink>
         </div>
         <div className="mt-3 flex flex-wrap gap-2">
           {paletteVars.map((v) => (
@@ -89,7 +89,7 @@ export default async function HomePage() {
               <ul className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((c) => (
                   <li key={c.slug}>
-                    <Link
+                    <DsxLink
                       href={`/components/${c.slug}`}
                       className="group block rounded-md border border-border bg-card p-3 transition-colors hover:border-border-strong"
                     >
@@ -99,7 +99,7 @@ export default async function HomePage() {
                       <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">
                         {c.description}
                       </p>
-                    </Link>
+                    </DsxLink>
                   </li>
                 ))}
               </ul>

@@ -35,11 +35,12 @@ type ChipProps = {
   isSelected: boolean;
   isSticky: boolean;
   onClick: () => void;
+  onPrefetch?: () => void;
   visual: React.ReactNode;
   title?: string;
 };
 
-function Chip({ label, isSelected, isSticky, onClick, visual, title }: ChipProps) {
+function Chip({ label, isSelected, isSticky, onClick, onPrefetch, visual, title }: ChipProps) {
   const classes = [
     'flex shrink-0 items-center gap-2 rounded-md border px-2 py-1.5 text-xs transition-colors',
     isSticky && 'sticky left-0 z-10 shadow-[6px_0_8px_-6px_rgba(0,0,0,0.08)]',
@@ -50,11 +51,29 @@ function Chip({ label, isSelected, isSticky, onClick, visual, title }: ChipProps
     .filter(Boolean)
     .join(' ');
   return (
-    <button type="button" onClick={onClick} title={title} className={classes}>
+    <button
+      type="button"
+      onClick={onClick}
+      onMouseEnter={onPrefetch}
+      onFocus={onPrefetch}
+      title={title}
+      className={classes}
+    >
       {visual}
       <span className="font-mono">{label}</span>
     </button>
   );
+}
+
+function prefetchVersionTokens(id: string) {
+  if (typeof document === 'undefined') return;
+  const href = `/api/versions/${encodeURIComponent(id)}/tokens.css`;
+  if (document.querySelector(`link[rel="prefetch"][href="${href}"]`)) return;
+  const link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.as = 'style';
+  link.href = href;
+  document.head.appendChild(link);
 }
 
 const activeVisual = <span className="block size-3 rounded-sm bg-foreground" aria-hidden />;
@@ -156,6 +175,7 @@ export function VersionPicker() {
               isSelected
               isSticky
               onClick={() => setVersion(selectedVersion.id)}
+              onPrefetch={() => prefetchVersionTokens(selectedVersion.id)}
               title={selectedVersion.brief ?? selectedVersion.name}
               visual={<PaletteSwatch hex={selectedVersion.paletteHex} />}
             />
@@ -178,6 +198,7 @@ export function VersionPicker() {
               isSelected={false}
               isSticky={false}
               onClick={() => setVersion(v.id)}
+              onPrefetch={() => prefetchVersionTokens(v.id)}
               title={v.brief ?? v.name}
               visual={<PaletteSwatch hex={v.paletteHex} />}
             />
