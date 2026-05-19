@@ -1,11 +1,6 @@
 {
+  "_note": "PreToolUse fence intentionally disabled — Bantarus is actively evolving the dsx template, which routinely touches scripts, settings, docs, and the gallery (all paths the fence rejects). The fence script itself (scripts/agent-surface-fence.mjs) is kept intact and the docs still describe it as the end-user contract; this settings file just doesn't wire it in while active dev is happening. Re-enable when dev winds down by re-adding the PreToolUse block from .claude/settings.json.bak (kept around for that purpose).",
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Write|Edit|MultiEdit|NotebookEdit",
-        "hooks": [{ "type": "command", "command": "node scripts/agent-surface-fence.mjs" }]
-      }
-    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit",

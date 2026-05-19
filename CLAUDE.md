@@ -9,7 +9,7 @@ If a task requires touching anything else (a bug in the gallery, a script update
 
 ## Read first
 
-The full set of rules lives in [docs/agent-rules.md](docs/agent-rules.md). **Read it before doing anything.** Non-Claude agents read the same rules via [AGENTS.md](AGENTS.md).
+The full set of rules lives in [AGENTS.md](AGENTS.md). **Read it before doing anything.** This file just layers Claude-specific shortcuts on top.
 
 ## Claude-specific shortcuts
 

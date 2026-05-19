@@ -75,4 +75,4 @@ claude mcp add chrome-devtools -- npx -y chrome-devtools-mcp@latest
 
 ## The constraint
 
-`scripts/agent-surface-fence.mjs` is a PreToolUse hook. It rejects Write/Edit on every path except `DESIGN.md` and `apps/storybook/src/**/*.stories.{ts,tsx}`, exit code 2, with a verbose message pointing the agent at the pipeline. If the fence ever feels wrong, **that** is the bug — the template assumes the agent never edits gallery, components, scripts, or config. See [docs/agent-rules.md](docs/agent-rules.md).
+`scripts/agent-surface-fence.mjs` is a PreToolUse hook. It rejects Write/Edit on every path except `DESIGN.md` and `apps/storybook/src/**/*.stories.{ts,tsx}`, exit code 2, with a verbose message pointing the agent at the pipeline. If the fence ever feels wrong, **that** is the bug — the template assumes the agent never edits gallery, components, scripts, or config. See [AGENTS.md](AGENTS.md).
