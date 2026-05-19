@@ -1,0 +1,38 @@
+name: dsx
+version: 0.3.0
+description: Agent-native design system iteration template — two writable surfaces (DESIGN.md + Storybook story files), deterministic pipeline.
+author: Bantarus
+license: MIT
+
+# Deploy primitives to every locally-installed AI coding tool. Auto-detect
+# would pick only the harnesses whose deploy roots already exist; declaring
+# all targets makes `apm install` deterministic regardless of environment.
+targets:
+  - claude
+  - codex
+  - cursor
+  - copilot
+  - opencode
+
+# dsx is hybrid: it ships skills + agents + prompts (slash commands) +
+# instructions + hooks. APM treats `hybrid` as "deploy native primitives
+# to every client deploy root AND generate AGENTS.md/CLAUDE.md from any
+# .apm/instructions/*.instructions.md content."
+type: hybrid
+
+dependencies:
+  apm: []
+  mcp: []
+
+devDependencies:
+  apm: []
+
+scripts: {}
+
+compilation:
+  strategy: distributed
+  exclude:
+    - "apm_modules/**"
+    - "build/**"
+    - ".next/**"
+    - "node_modules/**"

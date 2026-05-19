@@ -21,8 +21,23 @@ test-results/
 **/*-snapshots/__diff_output__/
 coverage/
 
-# Claude Code worktrees (subagent isolation)
-.claude/worktrees/
+# APM-generated client trees. Authored once under .apm/, deployed by
+# `apm install`. Anything below these roots is a regenerable output;
+# the canonical source lives in .apm/.
+.claude/
+.cursor/
+.codex/
+.opencode/
+.agents/
+.github/instructions/
+.github/prompts/
+.github/agents/
+.github/skills/
+.github/hooks/
+.github/copilot-instructions.md
+
+# APM dependency cache
+apm_modules/
 
 # Editor / OS
 .DS_Store

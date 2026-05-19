@@ -1,0 +1,11 @@
+{
+  "_note": "DISABLED. To enable the fence: rename this file to dsx-fence.json (drop the .disabled suffix) and re-run `apm install`. Bantarus has it off during active template-evolution because chapter-N work routinely touches paths the fence rejects (scripts/, .apm/, docs/, etc.). The fence script itself (scripts/agent-surface-fence.mjs) is tool-agnostic and stays installed.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": { "tool_name": "Write|Edit|MultiEdit|NotebookEdit|write_file|edit_file|apply_patch|create_file|modify_file" },
+        "hooks": [{ "type": "command", "command": "node scripts/agent-surface-fence.mjs" }]
+      }
+    ]
+  }
+}

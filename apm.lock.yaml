@@ -1,0 +1,169 @@
+lockfile_version: '1'
+generated_at: '2026-05-19T10:02:48.411842+00:00'
+dependencies: []
+local_deployed_files:
+- .agents/skills/apm-cli
+- .agents/skills/apm-distribution
+- .agents/skills/apm-packaging
+- .agents/skills/composition-patterns
+- .agents/skills/design-tokens-dtcg
+- .agents/skills/flutter-port
+- .agents/skills/shadcn-component-catalog
+- .agents/skills/storybook-addons
+- .agents/skills/storybook-ai
+- .agents/skills/storybook-builders
+- .agents/skills/storybook-config
+- .agents/skills/storybook-core
+- .agents/skills/storybook-csf3
+- .agents/skills/storybook-docs
+- .agents/skills/storybook-essentials
+- .agents/skills/storybook-frameworks
+- .agents/skills/storybook-migration
+- .agents/skills/storybook-sharing
+- .agents/skills/storybook-stories
+- .agents/skills/storybook-testing
+- .agents/skills/tailwind-v4-shadcn
+- .claude/agents/port-compose.md
+- .claude/agents/port-flutter.md
+- .claude/agents/screenshot-critic.md
+- .claude/agents/token-guardian.md
+- .claude/commands/design-lint.md
+- .claude/commands/design.md
+- .claude/commands/page.md
+- .claude/commands/refine.md
+- .claude/commands/restore.md
+- .claude/commands/screenshot.md
+- .claude/commands/section.md
+- .claude/commands/snapshot.md
+- .claude/commands/tokens-build.md
+- .claude/commands/tweak.md
+- .claude/skills/apm-cli
+- .claude/skills/apm-distribution
+- .claude/skills/apm-packaging
+- .claude/skills/composition-patterns
+- .claude/skills/design-tokens-dtcg
+- .claude/skills/flutter-port
+- .claude/skills/shadcn-component-catalog
+- .claude/skills/storybook-addons
+- .claude/skills/storybook-ai
+- .claude/skills/storybook-builders
+- .claude/skills/storybook-config
+- .claude/skills/storybook-core
+- .claude/skills/storybook-csf3
+- .claude/skills/storybook-docs
+- .claude/skills/storybook-essentials
+- .claude/skills/storybook-frameworks
+- .claude/skills/storybook-migration
+- .claude/skills/storybook-sharing
+- .claude/skills/storybook-stories
+- .claude/skills/storybook-testing
+- .claude/skills/tailwind-v4-shadcn
+- .codex/agents/port-compose.toml
+- .codex/agents/port-flutter.toml
+- .codex/agents/screenshot-critic.toml
+- .codex/agents/token-guardian.toml
+- .cursor/agents/port-compose.md
+- .cursor/agents/port-flutter.md
+- .cursor/agents/screenshot-critic.md
+- .cursor/agents/token-guardian.md
+- .cursor/commands/design-lint.md
+- .cursor/commands/design.md
+- .cursor/commands/page.md
+- .cursor/commands/refine.md
+- .cursor/commands/restore.md
+- .cursor/commands/screenshot.md
+- .cursor/commands/section.md
+- .cursor/commands/snapshot.md
+- .cursor/commands/tokens-build.md
+- .cursor/commands/tweak.md
+- .github/agents/port-compose.agent.md
+- .github/agents/port-flutter.agent.md
+- .github/agents/screenshot-critic.agent.md
+- .github/agents/token-guardian.agent.md
+- .github/hooks/design-system-dsx-pipeline.json
+- .github/prompts/design-lint.prompt.md
+- .github/prompts/design.prompt.md
+- .github/prompts/page.prompt.md
+- .github/prompts/refine.prompt.md
+- .github/prompts/restore.prompt.md
+- .github/prompts/screenshot.prompt.md
+- .github/prompts/section.prompt.md
+- .github/prompts/snapshot.prompt.md
+- .github/prompts/tokens-build.prompt.md
+- .github/prompts/tweak.prompt.md
+- .opencode/agents/port-compose.md
+- .opencode/agents/port-flutter.md
+- .opencode/agents/screenshot-critic.md
+- .opencode/agents/token-guardian.md
+- .opencode/commands/design-lint.md
+- .opencode/commands/design.md
+- .opencode/commands/page.md
+- .opencode/commands/refine.md
+- .opencode/commands/restore.md
+- .opencode/commands/screenshot.md
+- .opencode/commands/section.md
+- .opencode/commands/snapshot.md
+- .opencode/commands/tokens-build.md
+- .opencode/commands/tweak.md
+local_deployed_file_hashes:
+  .claude/agents/port-compose.md: sha256:1f71fa70b5aaa1c370f7fecf5df6ca3bc8cdeaa517abdbecb8af7084aabb6553
+  .claude/agents/port-flutter.md: sha256:b9a804607a1c2edd2e79ccffae1e11a0a0036900ffc89a626d6905c0382f569a
+  .claude/agents/screenshot-critic.md: sha256:b7f87454b535abedb926899c01d9ca7a2f5002c3521beaa708760026103c416e
+  .claude/agents/token-guardian.md: sha256:46330225d31b24970f89917cc0c41af8f86baeb130134cb9e1ebe74328d71366
+  .claude/commands/design-lint.md: sha256:b58ba4b3250e1448efc569a3e80df7bf63513a2d209a6f9a1300f8c63150ecac
+  .claude/commands/design.md: sha256:09cca0ecb150d934b5313ad7702dc76f2bd366f38316e72225584ad7fad8f26c
+  .claude/commands/page.md: sha256:7c7db2ce50c417111c97d74b413afa3ba3e0a2286f30541768b3835f0cfe232a
+  .claude/commands/refine.md: sha256:bec237a948ce09e68aa5adbed8dd266f53224120e89b8321336d1792df96bb11
+  .claude/commands/restore.md: sha256:1dde35ab450e3a9b78c42eb44e67fdbcdb6a5c5f739c108b7808a9e91ec345b5
+  .claude/commands/screenshot.md: sha256:2d6ffe6e068f7d1eeb2c876b0ae4a4b05b60d8d75158301a28dedb858ac9a60b
+  .claude/commands/section.md: sha256:722bc3dff043e4930d9ff0b6ab071e57065aedb1ec22a7cab5ba4258041750e4
+  .claude/commands/snapshot.md: sha256:755940338db3e8264f262bcd411a6efe2a7582b09bcc389b1f73137f62fbc3be
+  .claude/commands/tokens-build.md: sha256:4320983d1e67f246a76b86f3a4a600562ae1ae27fda8ebe3b8d0e115c293e6ce
+  .claude/commands/tweak.md: sha256:ff0ebeb3f4b00644ea87f65194b2db30ef1fde2883219e34c188dee09670f676
+  .codex/agents/port-compose.toml: sha256:67ee9104b6902dd7e3e17cdea059e98977162bd602be5e93bbdcbab583986fd2
+  .codex/agents/port-flutter.toml: sha256:3bec807a94e3ade1bff1a1a5e44805589e1e89ef8eeb801723e9f82b1bcfddd5
+  .codex/agents/screenshot-critic.toml: sha256:8223504adaba6bf202e609b047507798c5237ac37345b28f67c1f7b7a7f54034
+  .codex/agents/token-guardian.toml: sha256:f20c8b67059a4960ffd9ded76521f6a875f3ccad8896bd38e390eeb939d81b58
+  .cursor/agents/port-compose.md: sha256:1f71fa70b5aaa1c370f7fecf5df6ca3bc8cdeaa517abdbecb8af7084aabb6553
+  .cursor/agents/port-flutter.md: sha256:b9a804607a1c2edd2e79ccffae1e11a0a0036900ffc89a626d6905c0382f569a
+  .cursor/agents/screenshot-critic.md: sha256:b7f87454b535abedb926899c01d9ca7a2f5002c3521beaa708760026103c416e
+  .cursor/agents/token-guardian.md: sha256:46330225d31b24970f89917cc0c41af8f86baeb130134cb9e1ebe74328d71366
+  .cursor/commands/design-lint.md: sha256:b58ba4b3250e1448efc569a3e80df7bf63513a2d209a6f9a1300f8c63150ecac
+  .cursor/commands/design.md: sha256:09cca0ecb150d934b5313ad7702dc76f2bd366f38316e72225584ad7fad8f26c
+  .cursor/commands/page.md: sha256:7c7db2ce50c417111c97d74b413afa3ba3e0a2286f30541768b3835f0cfe232a
+  .cursor/commands/refine.md: sha256:bec237a948ce09e68aa5adbed8dd266f53224120e89b8321336d1792df96bb11
+  .cursor/commands/restore.md: sha256:1dde35ab450e3a9b78c42eb44e67fdbcdb6a5c5f739c108b7808a9e91ec345b5
+  .cursor/commands/screenshot.md: sha256:2d6ffe6e068f7d1eeb2c876b0ae4a4b05b60d8d75158301a28dedb858ac9a60b
+  .cursor/commands/section.md: sha256:722bc3dff043e4930d9ff0b6ab071e57065aedb1ec22a7cab5ba4258041750e4
+  .cursor/commands/snapshot.md: sha256:755940338db3e8264f262bcd411a6efe2a7582b09bcc389b1f73137f62fbc3be
+  .cursor/commands/tokens-build.md: sha256:4320983d1e67f246a76b86f3a4a600562ae1ae27fda8ebe3b8d0e115c293e6ce
+  .cursor/commands/tweak.md: sha256:ff0ebeb3f4b00644ea87f65194b2db30ef1fde2883219e34c188dee09670f676
+  .github/agents/port-compose.agent.md: sha256:1f71fa70b5aaa1c370f7fecf5df6ca3bc8cdeaa517abdbecb8af7084aabb6553
+  .github/agents/port-flutter.agent.md: sha256:b9a804607a1c2edd2e79ccffae1e11a0a0036900ffc89a626d6905c0382f569a
+  .github/agents/screenshot-critic.agent.md: sha256:b7f87454b535abedb926899c01d9ca7a2f5002c3521beaa708760026103c416e
+  .github/agents/token-guardian.agent.md: sha256:46330225d31b24970f89917cc0c41af8f86baeb130134cb9e1ebe74328d71366
+  .github/hooks/design-system-dsx-pipeline.json: sha256:a03cb6e787df7798fa8dfede2c4e8d23ec5cb2c2bb957d79ddbf8f7990465494
+  .github/prompts/design-lint.prompt.md: sha256:29163497c1c585dc400741e2ac2c821f7717c8af85d2bd27efd2e3d02ee5c143
+  .github/prompts/design.prompt.md: sha256:df463553b514f8440ff8e388ff16c031e80e8974459a1b859a04a1f41fbcc1ba
+  .github/prompts/page.prompt.md: sha256:9272366b2e25c9d146b0d4c270a3701717af1e2b7d2030165cd88d27525e39e9
+  .github/prompts/refine.prompt.md: sha256:94c803097a14849834c7c6b265099f3e144e57105ea03e821df2b6db49f8f65c
+  .github/prompts/restore.prompt.md: sha256:ee73347f54c602a057f03bdff379b24297716b76c826dd06be3012c475246fe9
+  .github/prompts/screenshot.prompt.md: sha256:f464520c24d54d617f2f11f737edebf2e04deda2649b5bb200a536f14af1fd38
+  .github/prompts/section.prompt.md: sha256:0b8dfacfcd839c37d4ddb0029b26a55aa6305f71d19ff0de8de1b51349b77b82
+  .github/prompts/snapshot.prompt.md: sha256:f7c641f252513599133f05fe34ac6ae61682bd03fed1ba854add3c8fb7d404b8
+  .github/prompts/tokens-build.prompt.md: sha256:cf0b947313cb707b190740bae0d1cc764a9b4b971bab2810ca47bedf4900fc98
+  .github/prompts/tweak.prompt.md: sha256:d376abd8b0bfc6c70538420c118e57d6ad1de70d73cadede39d7a0fb9855cccb
+  .opencode/agents/port-compose.md: sha256:1f71fa70b5aaa1c370f7fecf5df6ca3bc8cdeaa517abdbecb8af7084aabb6553
+  .opencode/agents/port-flutter.md: sha256:b9a804607a1c2edd2e79ccffae1e11a0a0036900ffc89a626d6905c0382f569a
+  .opencode/agents/screenshot-critic.md: sha256:b7f87454b535abedb926899c01d9ca7a2f5002c3521beaa708760026103c416e
+  .opencode/agents/token-guardian.md: sha256:46330225d31b24970f89917cc0c41af8f86baeb130134cb9e1ebe74328d71366
+  .opencode/commands/design-lint.md: sha256:b58ba4b3250e1448efc569a3e80df7bf63513a2d209a6f9a1300f8c63150ecac
+  .opencode/commands/design.md: sha256:09cca0ecb150d934b5313ad7702dc76f2bd366f38316e72225584ad7fad8f26c
+  .opencode/commands/page.md: sha256:7c7db2ce50c417111c97d74b413afa3ba3e0a2286f30541768b3835f0cfe232a
+  .opencode/commands/refine.md: sha256:bec237a948ce09e68aa5adbed8dd266f53224120e89b8321336d1792df96bb11
+  .opencode/commands/restore.md: sha256:1dde35ab450e3a9b78c42eb44e67fdbcdb6a5c5f739c108b7808a9e91ec345b5
+  .opencode/commands/screenshot.md: sha256:2d6ffe6e068f7d1eeb2c876b0ae4a4b05b60d8d75158301a28dedb858ac9a60b
+  .opencode/commands/section.md: sha256:722bc3dff043e4930d9ff0b6ab071e57065aedb1ec22a7cab5ba4258041750e4
+  .opencode/commands/snapshot.md: sha256:755940338db3e8264f262bcd411a6efe2a7582b09bcc389b1f73137f62fbc3be
+  .opencode/commands/tokens-build.md: sha256:4320983d1e67f246a76b86f3a4a600562ae1ae27fda8ebe3b8d0e115c293e6ce
+  .opencode/commands/tweak.md: sha256:ff0ebeb3f4b00644ea87f65194b2db30ef1fde2883219e34c188dee09670f676
