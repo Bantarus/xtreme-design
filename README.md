@@ -1,6 +1,6 @@
-# dsx
+# Xtreme Design
 
-**Fastest iterative design workflow with a scoped probabilistic surface.**
+**Fastest, easiest and cheapest ai driven iterative design workflow with DESIGN.md as a scoped probabilistic surface.**
 
 The agent has zero write access outside two narrow surfaces. Everything visible — the gallery, the components, the Storybook config, the build outputs, the version snapshots — is rendered deterministically from those surfaces by `scripts/pipeline.mjs` and Storybook's dev server. You iterate by writing prose and CSF3; the pipeline does the rest.
 
@@ -14,18 +14,6 @@ The agent has zero write access outside two narrow surfaces. Everything visible 
 ## The story × design matrix
 
 Every Storybook page or section you author instantly re-paints under any saved palette — no rebuild, no recompile, no React re-render. The Storybook toolbar paintbrush and the gallery's `?v=<id>` URL parameter both do **CSS-cascade swaps**: a custom decorator injects `<link rel="stylesheet" href="/versions/<id>/tokens.css">` at the end of `<head>`; the browser re-resolves `:root { --color-* }` in ~50 ms.
-
-```
-                   pages & sections you've composed (chapter-2 surface)
-                   ─────────────────────────────────────────────────────
-       palettes    landing   dashboard   settings   pricing   auth   …
-       ──────────  ─────────────────────────────────────────────────
-       base          ◯          ◯           ◯          ◯         ◯
-       camping       ◯          ◯       ┌───◯───┐      ◯         ◯       ← one click
-       warm-amber    ◯          ◯       │       │      ◯         ◯          swaps any
-       active        ◯          ◯       └───────┘      ◯         ◯          cell
-       (live DESIGN.md)
-```
 
 What this buys you:
 - **One palette × N stories** — test the camping-gear palette on a SaaS landing, a dashboard, a settings screen, and a 404, in five clicks. No story re-authoring.
