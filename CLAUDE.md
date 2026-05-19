@@ -11,9 +11,11 @@ If a task requires touching anything else (a bug in the gallery, a script update
 
 The full set of rules lives in [AGENTS.md](AGENTS.md). **Read it before doing anything.** This file just layers Claude-specific shortcuts on top.
 
-## Claude-specific shortcuts
+## Where the harness lives
 
-- **Slash commands** under `.claude/commands/`:
+dsx ships its agent harness (slash commands, subagents, skills, hooks) under [.apm/](.apm/) and lets `apm install` deploy it to every locally-installed client. Under Claude Code that lands in `.claude/`:
+
+- **Slash commands** (sourced from `.apm/prompts/`, deployed to `.claude/commands/`):
   - Chapter 1 — DESIGN.md surface:
     - `/design "<brief>"` — generate a fresh DESIGN.md from a reference + brief.
     - `/tweak "<adjustment>"` — surgically edit the active DESIGN.md.
@@ -24,15 +26,17 @@ The full set of rules lives in [AGENTS.md](AGENTS.md). **Read it before doing an
     - `/section "<brief>"` — compose a smaller, single-section story.
     - `/refine <path-or-slug> "<adjustment>"` — surgical edit of an existing story.
   - Utilities: `/tokens-build`, `/design-lint`, `/screenshot <url>`.
-- **Subagents** under `.claude/agents/`: `token-guardian`, `screenshot-critic`, `port-flutter`, `port-compose`.
-- **Hooks** in `.claude/settings.json`:
-  - **PreToolUse** runs `agent-surface-fence.mjs` on Write/Edit/MultiEdit/NotebookEdit — rejects every path except `DESIGN.md` and `apps/storybook/src/**/*.stories.{ts,tsx}`.
+- **Subagents** (sourced from `.apm/agents/`, deployed to `.claude/agents/`): `token-guardian`, `screenshot-critic`, `port-flutter`, `port-compose`.
+- **Hooks** (sourced from `.apm/hooks/`, deployed to `.claude/settings.json`):
+  - **PreToolUse** runs `agent-surface-fence.mjs` (currently disabled via `.apm/hooks/dsx-fence.json.disabled` during active dev — rename to enable).
   - **PostToolUse** runs Biome format.
   - **Stop** runs `scripts/pipeline.mjs` — lint, export, Style Dictionary build, auto-snapshot.
-- **Skills** under `.claude/skills/`:
-  - `tailwind-v4-shadcn`, `design-tokens-dtcg`, `flutter-port` (chapter 1).
-  - `shadcn-component-catalog`, `storybook-csf3`, `composition-patterns` (chapter 2 — user-authored).
-  - `storybook-*` (Storybook 10 reference; loaded automatically when relevant).
+- **Skills** (sourced from `.apm/skills/<name>/SKILL.md`, deployed to `.claude/skills/<name>/`):
+  - dsx-specific: `tailwind-v4-shadcn`, `design-tokens-dtcg`, `flutter-port`, `shadcn-component-catalog`, `storybook-csf3`, `composition-patterns`.
+  - Storybook 10 reference: `storybook-*` (12 skills, auto-loaded when relevant).
+  - APM reference: `apm-cli`, `apm-packaging`, `apm-distribution` (load when working on the harness itself).
+
+**Don't edit anything under `.claude/`** — it's a generated output. Edit `.apm/<...>` and ask the human to run `apm install`. (And editing `.apm/` itself is still outside the two writable surfaces; surface a change request.)
 
 ## The shortest path through a brief
 
