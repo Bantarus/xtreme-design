@@ -4,8 +4,9 @@
 // Steps (each must exit 0, otherwise the pipeline stops):
 //   1. `design-md lint DESIGN.md`
 //   2. `node scripts/design-md-to-css.mjs DESIGN.md > apps/gallery/app/tokens.active.css`
-//   3. `pnpm tokens` (Style Dictionary multi-platform fan-out)
-//   4. `node scripts/snapshot.mjs --auto`
+//   3. `node scripts/design-md-to-tokens-json.mjs DESIGN.md > tokens/from-design-md.tokens.json`
+//   4. `pnpm tokens` (Style Dictionary multi-platform fan-out)
+//   5. `node scripts/snapshot.mjs --auto`
 //
 // Prints a one-line summary at the end pointing at the gallery URL. Intended
 // to be invoked:
@@ -33,6 +34,20 @@ const STEPS = [
       });
       if (out.status === 0) {
         writeFileSync('apps/gallery/app/tokens.active.css', out.stdout, 'utf8');
+      } else {
+        process.stderr.write(out.stderr ?? '');
+      }
+      return out;
+    },
+  },
+  {
+    name: 'design-md → tokens.json',
+    run: () => {
+      const out = spawnSync('node', ['scripts/design-md-to-tokens-json.mjs', 'DESIGN.md'], {
+        encoding: 'utf8',
+      });
+      if (out.status === 0) {
+        writeFileSync('tokens/from-design-md.tokens.json', out.stdout, 'utf8');
       } else {
         process.stderr.write(out.stderr ?? '');
       }

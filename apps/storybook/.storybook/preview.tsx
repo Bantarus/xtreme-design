@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
 import { ActiveStylesheet } from './decorators/ActiveStylesheet';
+import { WebfontLoaderDecorator } from './decorators/WebfontLoaderDecorator';
 import versions from './versions.json';
 import './preview.css';
 
@@ -32,7 +33,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [ActiveStylesheet],
+  decorators: [WebfontLoaderDecorator, ActiveStylesheet],
 };
 
 export default preview;

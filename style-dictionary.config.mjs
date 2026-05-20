@@ -22,6 +22,7 @@ StyleDictionary.registerFormat({
     const isSemanticColor = (t) =>
       t.path[0] === 'color' && t.path[1] !== 'scale' && t.path.length === 2;
     const isRadius = (t) => t.path[0] === 'radius';
+    const isSpacing = (t) => t.path[0] === 'spacing';
     const isFontSize = (t) => t.path[0] === 'font' && t.path[1] === 'size';
     const isFontWeight = (t) => t.path[0] === 'font' && t.path[1] === 'weight';
     const isFontFamily = (t) => t.path[0] === 'font' && t.path[1] === 'family';
@@ -34,6 +35,8 @@ StyleDictionary.registerFormat({
         lines.push(`  --color-${token.path[1]}: var(--${name});`);
       } else if (isRadius(token)) {
         lines.push(`  --radius-${token.path[1]}: var(--${name});`);
+      } else if (isSpacing(token)) {
+        lines.push(`  --spacing-${token.path[1]}: var(--${name});`);
       } else if (isFontSize(token)) {
         lines.push(`  --text-${token.path[2]}: var(--${name});`);
       } else if (isFontWeight(token)) {
@@ -58,7 +61,13 @@ StyleDictionary.registerFormat({
   },
 });
 
-const baseSource = ['tokens/core.tokens.json', 'tokens/semantic.tokens.json'];
+// Main pipeline sources from the generated DESIGN.md → tokens.json bridge.
+// scripts/design-md-to-tokens-json.mjs writes this file in the pipeline step
+// preceding `pnpm tokens`. The hand-authored tokens/core.tokens.json and
+// tokens/semantic.tokens.json stay on disk only because tokens/themes/dark
+// still references core's color.scale.* ladder; DESIGN.md doesn't yet
+// describe a dark variant.
+const baseSource = ['tokens/from-design-md.tokens.json'];
 const darkSource = ['tokens/core.tokens.json', 'tokens/themes/dark.tokens.json'];
 
 // Mobile platforms get colors + dimensions only — font tokens (fontFamily arrays,

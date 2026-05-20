@@ -1,0 +1,14 @@
+{
+  "id": "v62",
+  "name": "blackletter-manuscript",
+  "createdAt": "2026-05-20T18:05:25.145Z",
+  "gitSha": "92e3473",
+  "paletteHex": [
+    "#8b1a1a",
+    "#f6efd9",
+    "#1f1810",
+    "#c9b890",
+    "#e9dec1"
+  ],
+  "tokensCssSha256": "a1f0e81a650047e6bf5e97bf7a01ce07c0ed34d4b60c242df08ad0a55433a5d8"
+}

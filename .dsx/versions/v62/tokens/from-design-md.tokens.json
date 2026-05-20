@@ -1,49 +1,49 @@
 {
   "$schema": "https://schemas.designtokens.org/2025.10/format.json",
-  "$description": "Muji-coded sumi-e — single vermilion seal on washi paper, generous negative space.",
+  "$description": "Illuminated codex — sepia ink on parchment, rubric scarlet for primary, gold leaf accents. Unmistakably 14th-century.",
   "color": {
     "$type": "color",
     "primary": {
-      "$value": "#c1272d"
+      "$value": "#8b1a1a"
     },
     "primary-hover": {
-      "$value": "#931d22"
+      "$value": "#6b0f0f"
     },
     "on-primary": {
-      "$value": "#fbfaf6"
+      "$value": "#f6efd9"
     },
     "surface": {
-      "$value": "#fbfaf6"
+      "$value": "#f6efd9"
     },
     "surface-muted": {
-      "$value": "#efece2"
+      "$value": "#e9dec1"
     },
     "text": {
-      "$value": "#1a1a1a"
+      "$value": "#1f1810"
     },
     "text-muted": {
-      "$value": "#6a6a6a"
+      "$value": "#5e503e"
     },
     "border": {
-      "$value": "#d6d2c4"
+      "$value": "#c9b890"
     },
     "border-strong": {
-      "$value": "#1a1a1a"
+      "$value": "#1f1810"
     },
     "success": {
-      "$value": "#3a6a3a"
+      "$value": "#3d5a2c"
     },
     "danger": {
-      "$value": "#c1272d"
+      "$value": "#8b1a1a"
     },
     "warning": {
-      "$value": "#c98a1c"
+      "$value": "#b89238"
     },
     "info": {
-      "$value": "#2a4a6a"
+      "$value": "#3a5172"
     },
     "focus-ring": {
-      "$value": "#c1272d"
+      "$value": "#b89238"
     }
   },
   "spacing": {
@@ -52,7 +52,7 @@
       "$value": "6px"
     },
     "sm": {
-      "$value": "10px"
+      "$value": "12px"
     },
     "md": {
       "$value": "20px"
@@ -64,16 +64,16 @@
       "$value": "48px"
     },
     "2xl": {
-      "$value": "64px"
+      "$value": "72px"
     },
     "3xl": {
-      "$value": "88px"
+      "$value": "96px"
     },
     "gutter": {
       "$value": "32px"
     },
     "margin": {
-      "$value": "40px"
+      "$value": "48px"
     }
   },
   "radius": {
@@ -85,13 +85,13 @@
       "$value": "0px"
     },
     "md": {
-      "$value": "2px"
+      "$value": "0px"
     },
     "lg": {
-      "$value": "4px"
+      "$value": "0px"
     },
     "xl": {
-      "$value": "6px"
+      "$value": "0px"
     },
     "full": {
       "$value": "9999px"
@@ -101,49 +101,49 @@
     "family": {
       "$type": "fontFamily",
       "display": {
-        "$value": "Shippori Mincho"
+        "$value": "UnifrakturCook"
       },
       "headline-lg": {
-        "$value": "Shippori Mincho"
+        "$value": "UnifrakturCook"
       },
       "headline-md": {
-        "$value": "Shippori Mincho"
+        "$value": "UnifrakturCook"
       },
       "title-md": {
-        "$value": "Shippori Mincho"
+        "$value": "UnifrakturCook"
       },
       "body-lg": {
-        "$value": "Noto Sans JP"
+        "$value": "IM Fell DW Pica"
       },
       "body-md": {
-        "$value": "Noto Sans JP"
+        "$value": "IM Fell DW Pica"
       },
       "body-sm": {
-        "$value": "Noto Sans JP"
+        "$value": "IM Fell DW Pica"
       },
       "label-md": {
-        "$value": "Noto Sans JP"
+        "$value": "IM Fell DW Pica"
       },
       "label-sm": {
-        "$value": "Noto Sans JP"
+        "$value": "IM Fell DW Pica"
       },
       "mono-sm": {
-        "$value": "JetBrains Mono"
+        "$value": "Special Elite"
       }
     },
     "weight": {
       "$type": "fontWeight",
       "display": {
-        "$value": 500
+        "$value": 700
       },
       "headline-lg": {
-        "$value": 500
+        "$value": 700
       },
       "headline-md": {
-        "$value": 500
+        "$value": 700
       },
       "title-md": {
-        "$value": 500
+        "$value": 700
       },
       "body-lg": {
         "$value": 400
@@ -155,10 +155,10 @@
         "$value": 400
       },
       "label-md": {
-        "$value": 500
+        "$value": 400
       },
       "label-sm": {
-        "$value": 500
+        "$value": 400
       },
       "mono-sm": {
         "$value": 400
@@ -167,25 +167,25 @@
     "size": {
       "$type": "dimension",
       "display": {
-        "$value": "48px"
+        "$value": "56px"
       },
       "headline-lg": {
-        "$value": "32px"
+        "$value": "36px"
       },
       "headline-md": {
-        "$value": "24px"
+        "$value": "28px"
       },
       "title-md": {
-        "$value": "20px"
+        "$value": "22px"
       },
       "body-lg": {
-        "$value": "18px"
+        "$value": "19px"
       },
       "body-md": {
-        "$value": "16px"
+        "$value": "17px"
       },
       "body-sm": {
-        "$value": "14px"
+        "$value": "15px"
       },
       "label-md": {
         "$value": "14px"
@@ -203,13 +203,13 @@
         "$value": 1.1
       },
       "headline-lg": {
-        "$value": 1.2
+        "$value": 1.15
       },
       "headline-md": {
-        "$value": 1.25
+        "$value": 1.2
       },
       "title-md": {
-        "$value": 1.3
+        "$value": 1.25
       },
       "body-lg": {
         "$value": 1.55
@@ -221,25 +221,25 @@
         "$value": 1.55
       },
       "label-md": {
-        "$value": 1.2
+        "$value": 1.25
       },
       "label-sm": {
-        "$value": 1.1
+        "$value": 1.2
       },
       "mono-sm": {
-        "$value": 1.45
+        "$value": 1.5
       }
     },
     "letterSpacing": {
       "$type": "dimension",
       "display": {
-        "$value": "-0.02em"
+        "$value": "0em"
       },
       "headline-lg": {
-        "$value": "-0.01em"
+        "$value": "0em"
       },
       "headline-md": {
-        "$value": "-0.005em"
+        "$value": "0em"
       },
       "title-md": {
         "$value": "0em"
@@ -254,10 +254,10 @@
         "$value": "0em"
       },
       "label-md": {
-        "$value": "0.01em"
+        "$value": "0.02em"
       },
       "label-sm": {
-        "$value": "0.08em"
+        "$value": "0.1em"
       },
       "mono-sm": {
         "$value": "0em"

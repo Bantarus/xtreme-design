@@ -1,20 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
 import { Suspense } from 'react';
 import { ActiveStylesheet } from '@/components/ActiveStylesheet';
 import { VersionPicker } from '@/components/VersionPicker';
+import { WebfontLoader } from '@/components/WebfontLoader';
 import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
-
-const inter = Inter({
-  variable: '--font-helios-sans',
-  subsets: ['latin'],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-helios-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'dsx — Helios gallery',
@@ -24,10 +14,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className="antialiased">
         <Suspense fallback={null}>
           <ActiveStylesheet />
         </Suspense>
+        <WebfontLoader />
         <Suspense fallback={null}>
           <VersionPicker />
         </Suspense>

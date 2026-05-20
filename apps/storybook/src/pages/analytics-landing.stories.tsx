@@ -17,8 +17,8 @@ export const Default: Story = {
   render: () => (
     <div className="min-h-screen bg-background text-foreground">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <div className="font-mono text-sm font-semibold tracking-tight">trailhead.io</div>
-        <nav className="hidden gap-6 text-sm text-muted-foreground sm:flex">
+        <div className="type-mono-sm">trailhead.io</div>
+        <nav className="hidden gap-6 type-body-sm text-muted-foreground sm:flex">
           <a href="#features">Features</a>
           <a href="#pricing">Pricing</a>
           <a href="#docs">Docs</a>
@@ -35,10 +35,8 @@ export const Default: Story = {
         <Badge variant="secondary" className="mb-6">
           v2.0 — cookieless by default
         </Badge>
-        <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">
-          Analytics that respect your users.
-        </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+        <h1 className="type-display">Analytics that respect your users.</h1>
+        <p className="mx-auto mt-5 max-w-2xl type-body-lg text-muted-foreground">
           A privacy-first analytics tool for indie makers. Drop in one script, see real-time
           traffic, ship the next thing. No cookies, no consent banners, no nonsense.
         </p>
@@ -76,9 +74,9 @@ export const Default: Story = {
             <Card key={f.title}>
               <CardHeader>
                 <f.icon className="text-primary" />
-                <CardTitle className="mt-2">{f.title}</CardTitle>
+                <CardTitle className="mt-2 type-title-md">{f.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">{f.body}</CardContent>
+              <CardContent className="type-body-sm text-muted-foreground">{f.body}</CardContent>
             </Card>
           ))}
         </div>
@@ -86,20 +84,18 @@ export const Default: Story = {
 
       <section className="bg-muted py-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-6 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight">
-            See your first pageview in 30 seconds.
-          </h2>
-          <p className="text-muted-foreground">
+          <h2 className="type-headline-lg">See your first pageview in 30 seconds.</h2>
+          <p className="type-body-md text-muted-foreground">
             Free for sites under 10k monthly pageviews. No credit card.
           </p>
           <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-            <span className="flex items-center gap-1.5 text-sm">
+            <span className="flex items-center gap-1.5 type-body-sm">
               <CheckIcon className="size-4 text-primary" /> No credit card
             </span>
-            <span className="flex items-center gap-1.5 text-sm">
+            <span className="flex items-center gap-1.5 type-body-sm">
               <CheckIcon className="size-4 text-primary" /> Cancel anytime
             </span>
-            <span className="flex items-center gap-1.5 text-sm">
+            <span className="flex items-center gap-1.5 type-body-sm">
               <CheckIcon className="size-4 text-primary" /> Self-host or hosted
             </span>
           </div>

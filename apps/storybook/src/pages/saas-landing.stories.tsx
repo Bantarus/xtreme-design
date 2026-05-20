@@ -22,8 +22,8 @@ export const Default: Story = {
   render: () => (
     <div className="min-h-screen bg-background text-foreground">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <div className="font-mono text-sm font-semibold tracking-tight">tasked.dev</div>
-        <nav className="hidden gap-6 text-sm text-muted-foreground sm:flex">
+        <div className="type-mono-sm">tasked.dev</div>
+        <nav className="hidden gap-6 type-body-sm text-muted-foreground sm:flex">
           <a href="#features">Features</a>
           <a href="#integrations">Integrations</a>
           <a href="#pricing">Pricing</a>
@@ -40,10 +40,8 @@ export const Default: Story = {
         <Badge variant="secondary" className="mb-4">
           Built for the solo and the small-team
         </Badge>
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          Project management that gets out of your way.
-        </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
+        <h1 className="type-display">Project management that gets out of your way.</h1>
+        <p className="mx-auto mt-3 max-w-2xl type-body-md text-muted-foreground">
           Keyboard-first issue tracking, no Jira-style ceremony, no PM overhead. One inbox per
           project, branches for experiments, a daily digest that doesn't lie.
         </p>
@@ -55,7 +53,7 @@ export const Default: Story = {
             Watch the 90-second tour
           </Button>
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">
+        <p className="mt-3 type-label-sm text-muted-foreground">
           Free for solo. No credit card. Self-host if you'd rather.
         </p>
       </section>
@@ -84,9 +82,9 @@ export const Default: Story = {
             <Card key={f.title}>
               <CardHeader>
                 <f.icon className="text-primary" />
-                <CardTitle className="mt-2">{f.title}</CardTitle>
+                <CardTitle className="mt-2 type-title-md">{f.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">{f.body}</CardContent>
+              <CardContent className="type-body-sm text-muted-foreground">{f.body}</CardContent>
             </Card>
           ))}
         </div>
@@ -95,10 +93,10 @@ export const Default: Story = {
       <Separator />
 
       <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <p className="type-mono-sm uppercase text-muted-foreground">
           Used by builders shipping alone
         </p>
-        <div className="mt-4 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
+        <div className="mt-4 flex flex-wrap justify-center gap-x-8 gap-y-3 type-body-sm text-muted-foreground">
           <span>Lea V.</span>
           <span>Marcus O.</span>
           <span>Priya R.</span>
@@ -109,11 +107,11 @@ export const Default: Story = {
 
       <section className="bg-muted py-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-6 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight">Start in 30 seconds.</h2>
-          <p className="text-muted-foreground">
+          <h2 className="type-headline-lg">Start in 30 seconds.</h2>
+          <p className="type-body-md text-muted-foreground">
             Sign up with email or GitHub. First project free forever.
           </p>
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 type-body-sm">
             <span className="inline-flex items-center gap-1.5">
               <CheckIcon className="size-4 text-primary" /> No credit card
             </span>

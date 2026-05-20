@@ -107,6 +107,14 @@ function emitCss(parsed) {
     lines.push(`  --text-${name}: var(--text-${name});`);
   }
 
+  // Tailwind's `font-sans` / `font-mono` utilities read from these two theme
+  // keys. Aliasing them to the dsx body + mono scales means every shadcn
+  // primitive (which uses `font-sans` implicitly via body, and `font-mono` for
+  // code / tabular numerics) auto-tracks the active version without per-
+  // component edits. The fallbacks kick in if a DESIGN.md omits the scale.
+  if (typography['body-md']) lines.push('  --font-sans: var(--font-body-md);');
+  if (typography['mono-sm']) lines.push('  --font-mono: var(--font-mono-sm);');
+
   lines.push('}\n');
   return lines.join('\n');
 }

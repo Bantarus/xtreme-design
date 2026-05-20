@@ -53,10 +53,8 @@ export const Default: Story = {
   render: () => (
     <div className="bg-background px-6 py-12 text-foreground">
       <div className="mx-auto max-w-5xl text-center">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Pricing that grows with you.
-        </h2>
-        <p className="mt-2 text-muted-foreground">
+        <h2 className="type-display">Pricing that grows with you.</h2>
+        <p className="mt-2 type-body-md text-muted-foreground">
           Free forever for solo work. Upgrade when you collaborate.
         </p>
         <div className="mt-5 inline-block">
@@ -78,12 +76,12 @@ export const Default: Story = {
                 </div>
                 <CardDescription>{p.blurb}</CardDescription>
                 <div className="mt-3 flex items-baseline gap-1">
-                  <span className="text-4xl font-semibold">{p.price}</span>
-                  <span className="text-sm text-muted-foreground">{p.period}</span>
+                  <span className="type-headline-lg">{p.price}</span>
+                  <span className="type-body-sm text-muted-foreground">{p.period}</span>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="grid gap-2 text-sm">
+                <ul className="grid gap-2 type-body-sm">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-2">
                       <CheckIcon className="mt-0.5 size-4 text-primary" />

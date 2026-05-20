@@ -58,7 +58,7 @@ export default function TokensPage() {
     <main className="mx-auto max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
       <nav
         aria-label="Breadcrumb"
-        className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground"
+        className="mb-6 flex items-center gap-2 type-label-sm uppercase text-muted-foreground"
       >
         <DsxLink href="/" className="hover:text-foreground">
           Gallery
@@ -68,11 +68,9 @@ export default function TokensPage() {
       </nav>
       <header className="mb-10 flex items-baseline justify-between border-b border-border pb-6">
         <div>
-          <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
-            Helios — dsx
-          </p>
-          <h1 className="mt-2 text-4xl font-semibold tracking-tight text-foreground">Tokens</h1>
-          <p className="mt-3 max-w-prose text-base text-muted-foreground">
+          <p className="type-label-sm uppercase text-muted-foreground">Helios — dsx</p>
+          <h1 className="mt-2 type-display text-foreground">Tokens</h1>
+          <p className="mt-3 max-w-prose type-body-md text-muted-foreground">
             Every CSS variable in the loaded stylesheets, grouped by prefix. Values come from
             `getComputedStyle(documentElement)` so they reflect the active theme.
           </p>
@@ -83,7 +81,7 @@ export default function TokensPage() {
             document.documentElement.classList.toggle('dark');
             setIsDark((v) => !v);
           }}
-          className="rounded-md border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground hover:bg-muted"
+          className="rounded-md border border-border bg-background px-3 py-1.5 type-label-md text-foreground hover:bg-muted"
         >
           Toggle dark
         </button>
@@ -94,7 +92,7 @@ export default function TokensPage() {
         if (list.length === 0) return null;
         return (
           <section key={prefix} className="mb-10">
-            <h2 className="mb-4 font-mono text-sm text-muted-foreground">
+            <h2 className="mb-4 type-mono-sm text-muted-foreground">
               {prefix}* ({list.length})
             </h2>
             <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -115,7 +113,7 @@ export default function TokensPage() {
                       className="block size-6 shrink-0 rounded-sm border border-dashed border-border"
                     />
                   )}
-                  <div className="min-w-0 flex-1 font-mono text-xs">
+                  <div className="min-w-0 flex-1 type-mono-sm">
                     <div className="truncate text-foreground">{r.name}</div>
                     <div className="truncate text-muted-foreground">{r.value || '∅'}</div>
                   </div>

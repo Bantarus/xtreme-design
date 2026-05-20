@@ -51,12 +51,10 @@ export default async function HomePage() {
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">
-          <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            Active palette
-          </h2>
+          <h2 className="type-label-sm uppercase text-muted-foreground">Active palette</h2>
           <DsxLink
             href="/tokens"
-            className="text-sm font-medium text-primary underline-offset-4 hover:underline"
+            className="type-label-md text-primary underline-offset-4 hover:underline"
           >
             /tokens →
           </DsxLink>
@@ -72,7 +70,7 @@ export default async function HomePage() {
                 className="block size-6 rounded-sm border border-border"
                 style={{ background: `var(${v})` }}
               />
-              <span className="font-mono text-xs text-foreground">{v}</span>
+              <span className="type-mono-sm text-foreground">{v}</span>
             </div>
           ))}
         </div>
@@ -83,7 +81,7 @@ export default async function HomePage() {
           const items = grouped.get(cat) ?? [];
           return (
             <div key={cat}>
-              <h2 className="border-b border-border pb-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <h2 className="border-b border-border pb-2 type-label-sm uppercase text-muted-foreground">
                 {cat} ({items.length})
               </h2>
               <ul className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -93,10 +91,10 @@ export default async function HomePage() {
                       href={`/components/${c.slug}`}
                       className="group block rounded-md border border-border bg-card p-3 transition-colors hover:border-border-strong"
                     >
-                      <div className="text-sm font-medium text-foreground group-hover:text-primary">
+                      <div className="type-title-md text-foreground group-hover:text-primary">
                         {c.name}
                       </div>
-                      <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">
+                      <p className="mt-0.5 line-clamp-2 type-body-sm text-muted-foreground">
                         {c.description}
                       </p>
                     </DsxLink>
@@ -108,7 +106,7 @@ export default async function HomePage() {
         })}
       </section>
 
-      <footer className="mt-16 border-t border-border pt-6 text-xs text-muted-foreground">
+      <footer className="mt-16 border-t border-border pt-6 type-body-sm text-muted-foreground">
         DESIGN.md is the only file the agent edits. Everything you see is rendered from it.
       </footer>
     </main>

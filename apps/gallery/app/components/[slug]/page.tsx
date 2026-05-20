@@ -18,7 +18,7 @@ export default async function ComponentDetailPage({
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
-      <nav className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+      <nav className="mb-6 flex items-center gap-2 type-label-sm uppercase text-muted-foreground">
         <DsxLink href="/" className="hover:text-foreground">
           Gallery
         </DsxLink>
@@ -31,8 +31,8 @@ export default async function ComponentDetailPage({
       </nav>
 
       <header className="mb-8 border-b border-border pb-6">
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground">{entry.name}</h1>
-        <p className="mt-2 max-w-prose text-base text-muted-foreground">{entry.description}</p>
+        <h1 className="type-headline-lg text-foreground">{entry.name}</h1>
+        <p className="mt-2 max-w-prose type-body-md text-muted-foreground">{entry.description}</p>
       </header>
 
       <section>

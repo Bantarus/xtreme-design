@@ -18,9 +18,82 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-display, var(--font-body-md, ui-sans-serif));
+    font-family: var(--font-body-md, ui-sans-serif);
   }
-  html {
-    @apply font-sans;
-  }
+}
+
+/* Composite type utilities: one class per DESIGN.md typography scale.
+ * Bundles family + size + weight + line-height + letter-spacing so a story
+ * can swap the entire typographic intent of an element with one class —
+ * and so the per-scale font family actually reaches the pixels (Tailwind's
+ * default text- and font- utilities can't combine these without collisions). */
+@utility type-display {
+  font-family: var(--font-display, ui-sans-serif);
+  font-size: var(--text-display);
+  font-weight: var(--font-weight-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+@utility type-headline-lg {
+  font-family: var(--font-headline-lg, ui-sans-serif);
+  font-size: var(--text-headline-lg);
+  font-weight: var(--font-weight-headline-lg);
+  line-height: var(--leading-headline-lg);
+  letter-spacing: var(--tracking-headline-lg);
+}
+@utility type-headline-md {
+  font-family: var(--font-headline-md, ui-sans-serif);
+  font-size: var(--text-headline-md);
+  font-weight: var(--font-weight-headline-md);
+  line-height: var(--leading-headline-md);
+  letter-spacing: var(--tracking-headline-md);
+}
+@utility type-title-md {
+  font-family: var(--font-title-md, ui-sans-serif);
+  font-size: var(--text-title-md);
+  font-weight: var(--font-weight-title-md);
+  line-height: var(--leading-title-md);
+  letter-spacing: var(--tracking-title-md);
+}
+@utility type-body-lg {
+  font-family: var(--font-body-lg, ui-sans-serif);
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-body-lg);
+  line-height: var(--leading-body-lg);
+  letter-spacing: var(--tracking-body-lg);
+}
+@utility type-body-md {
+  font-family: var(--font-body-md, ui-sans-serif);
+  font-size: var(--text-body-md);
+  font-weight: var(--font-weight-body-md);
+  line-height: var(--leading-body-md);
+  letter-spacing: var(--tracking-body-md);
+}
+@utility type-body-sm {
+  font-family: var(--font-body-sm, ui-sans-serif);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-body-sm);
+  line-height: var(--leading-body-sm);
+  letter-spacing: var(--tracking-body-sm);
+}
+@utility type-label-md {
+  font-family: var(--font-label-md, ui-sans-serif);
+  font-size: var(--text-label-md);
+  font-weight: var(--font-weight-label-md);
+  line-height: var(--leading-label-md);
+  letter-spacing: var(--tracking-label-md);
+}
+@utility type-label-sm {
+  font-family: var(--font-label-sm, ui-sans-serif);
+  font-size: var(--text-label-sm);
+  font-weight: var(--font-weight-label-sm);
+  line-height: var(--leading-label-sm);
+  letter-spacing: var(--tracking-label-sm);
+}
+@utility type-mono-sm {
+  font-family: var(--font-mono-sm, ui-monospace);
+  font-size: var(--text-mono-sm);
+  font-weight: var(--font-weight-mono-sm);
+  line-height: var(--leading-mono-sm);
+  letter-spacing: var(--tracking-mono-sm);
 }

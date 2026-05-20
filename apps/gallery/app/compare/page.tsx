@@ -26,13 +26,11 @@ function VersionLabel({ versions, id }: { versions: Version[] | null; id: string
   const v = versions?.find((x) => x.id === id);
   return (
     <div className="flex items-center gap-3 border-b border-border bg-card px-4 py-2">
-      <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-        A/B
-      </span>
-      <span className="font-mono text-sm text-foreground">{id}</span>
+      <span className="type-label-sm uppercase text-muted-foreground">A/B</span>
+      <span className="type-mono-sm text-foreground">{id}</span>
       {v && <PaletteSwatch hex={v.paletteHex} />}
       {v?.name && v.name !== id && (
-        <span className="text-xs text-muted-foreground">— {v.name}</span>
+        <span className="type-label-sm text-muted-foreground">— {v.name}</span>
       )}
     </div>
   );
@@ -70,7 +68,7 @@ function CompareInner() {
 
 export default function ComparePage() {
   return (
-    <Suspense fallback={<div className="p-6 text-sm text-muted-foreground">Loading compare…</div>}>
+    <Suspense fallback={<div className="p-6 type-body-sm text-muted-foreground">Loading compare…</div>}>
       <CompareInner />
     </Suspense>
   );

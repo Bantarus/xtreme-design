@@ -680,5 +680,16 @@
       "#d6d2c4",
       "#efece2"
     ]
+  },
+  {
+    "id": "v62",
+    "name": "blackletter-manuscript",
+    "paletteHex": [
+      "#8b1a1a",
+      "#f6efd9",
+      "#1f1810",
+      "#c9b890",
+      "#e9dec1"
+    ]
   }
 ]
