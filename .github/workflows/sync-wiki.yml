@@ -1,0 +1,52 @@
+name: Sync GitHub Wiki
+
+# Pushes the staged Markdown under docs/wiki/ to the repo's GitHub Wiki
+# (a separate <repo>.wiki.git repository). Triggered automatically on every
+# merge to main that touches docs/wiki/**, and on demand from the Actions
+# tab. Idempotent — skips the push when there's nothing to sync.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/wiki/**'
+      - '.github/workflows/sync-wiki.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the main repo
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Clone the wiki repo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git" wiki
+
+      - name: Copy staged pages
+        run: |
+          cp source/docs/wiki/Home.md       wiki/Home.md
+          cp source/docs/wiki/Quickstart.md wiki/Quickstart.md
+          cp source/docs/wiki/Manual.md     wiki/Manual.md
+          cp source/docs/wiki/_Sidebar.md   wiki/_Sidebar.md
+
+      - name: Commit and push to wiki
+        working-directory: wiki
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No wiki changes to push."
+            exit 0
+          fi
+          git commit -m "sync from docs/wiki/ @ ${{ github.sha }}"
+          git push

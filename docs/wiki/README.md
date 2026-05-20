@@ -43,14 +43,20 @@ That's it. The wiki re-renders within a few seconds of the push.
 
 The staging copy is the source of truth. Whenever you edit a page:
 
-1. Edit the file under `docs/wiki/` in this repo. Commit and push as part of normal PR review.
-2. From the wiki clone, re-sync:
-   ```bash
-   cp ~/DEV/design-system/docs/wiki/*.md ~/DEV/xtreme-design.wiki/
-   cd ~/DEV/xtreme-design.wiki && git add -A && git commit -m "sync" && git push
-   ```
+1. Edit the file under `docs/wiki/` in this repo. Commit and push to `main` as part of normal PR review.
+2. The [`Sync GitHub Wiki`](../../.github/workflows/sync-wiki.yml) Action runs automatically when `docs/wiki/**` changes on `main`. It clones the wiki repo, copies the four published pages over, and pushes — idempotent, skips the push when nothing changed.
+3. Trigger it manually for an out-of-cycle sync: **Actions → Sync GitHub Wiki → Run workflow**.
 
-If you want, you can automate this with a tiny GitHub Action that watches `docs/wiki/**` and pushes to the wiki repo on every merge to `main` — out of scope for the initial scaffold but a natural follow-up.
+### Falling back to manual sync
+
+If the Action is disabled, fails, or you want to dry-run a change before merging:
+
+```bash
+cp ~/DEV/design-system/docs/wiki/{Home,Quickstart,Manual,_Sidebar}.md ~/DEV/xtreme-design.wiki/
+cd ~/DEV/xtreme-design.wiki && git add -A && git commit -m "sync" && git push
+```
+
+This mirrors what the Action does. Useful when iterating offline or testing wiki rendering before committing to `main`.
 
 ## Why a staging area instead of editing the wiki directly?
 
