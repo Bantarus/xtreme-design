@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/x3-quadrant-stripe-stack-dark.svg" alt="Xtreme Design" width="320" />
+</p>
+
 # Xtreme Design
 
 **Fastest, easiest and cheapest ai driven iterative design workflow with DESIGN.md as a scoped probabilistic surface.**
